@@ -1,0 +1,18 @@
+@import "utils/styles/colors.scss";
+@import "utils/styles/typography.scss";
+
+.cell {
+  @include PTMonoFont;
+
+  width: 32px;
+  height: 32px;
+  margin: 2px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #7d82e1;
+  color: $neutral;
+  border-radius: 4px;
+}
+
+//rgb(249, 213, 232)

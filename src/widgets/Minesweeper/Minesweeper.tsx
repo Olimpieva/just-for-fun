@@ -1,53 +1,45 @@
 import React, { useMemo, useState } from "react";
-import { useMinesweeper } from "utils/hooks";
 import { Button, Card } from "components";
+import { useMinesweeper } from "./useMinesweeper";
+import Grid from "./Grid";
 
 import css from "./Minesweeper.module.scss";
-import Cell from "./Cell";
+
+const size = 10;
 
 function Minesweeper() {
-  const size = 10;
-
-  const dimension = new Array(size).fill(null);
-
   const {
     getCellState,
     makeCellVisible,
     toggleFlag,
+    createNewField,
     detectedBombsCounter,
     isWinning,
     isLoosing,
+    isGameOver,
   } = useMinesweeper(size);
-
-  const [isStarted, setIsStared] = useState(false);
-
-  const start = () => {
-    setIsStared(true);
-  };
+  const remainingBomsCounter = useMemo(
+    () => 10 - detectedBombsCounter,
+    [detectedBombsCounter],
+  );
 
   return (
     <Card title="Сапёр">
-      {!isStarted && <Button title="Начать" onClick={start} />}
-      {isStarted && (
-        <div>
-          <p>{`Бомбы: ${10 - detectedBombsCounter}`}</p>
-          {isWinning && <p>WIN!!!</p>}
-          {isLoosing && <p>LOOSE!</p>}
-          {dimension.map((_, y) => (
-            <div key={y} className={css.row}>
-              {dimension.map((_, x) => (
-                <div key={x} className={css.cell}>
-                  <Cell
-                    state={getCellState(x, y)}
-                    makeVisible={() => makeCellVisible(x, y)}
-                    toggleFlag={() => toggleFlag(x, y)}
-                  />
-                </div>
-              ))}
-            </div>
-          ))}
+      <div className={css.container}>
+        <div className={css.grid}>
+          <Grid
+            size={size}
+            getCellState={getCellState}
+            makeCellVisible={makeCellVisible}
+            toggleFlag={toggleFlag}
+          />
         </div>
-      )}
+
+        <div className={css.info}>
+          <span>{`Бомбы: ${remainingBomsCounter}`}</span>
+          <Button title="Начать заново" onClick={createNewField} />
+        </div>
+      </div>
     </Card>
   );
 }

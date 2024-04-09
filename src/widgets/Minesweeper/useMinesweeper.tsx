@@ -2,11 +2,23 @@ import { useState, useCallback, useMemo, useEffect } from "react";
 
 const MINE = -1;
 
-type Cell = {
+export type Cell = {
   value: number;
   isABomb: boolean;
   isVisible: boolean;
   isCoveredByFlag: boolean;
+};
+
+export type Minesweeper = {
+  field: Cell;
+  createNewField: () => void;
+  getCellState: (x: number, y: number) => Cell;
+  makeCellVisible: (x: number, y: number) => void;
+  toggleFlag: (x: number, y: number) => void;
+  detectedBombsCounter: number;
+  isLoosing: boolean;
+  isWinning: boolean;
+  isGameOver: boolean;
 };
 
 const initialCell = {
@@ -16,14 +28,13 @@ const initialCell = {
   isCoveredByFlag: false,
 };
 
-// eslint-disable-next-line import/prefer-default-export
 export const useMinesweeper = (size: number) => {
   const isCorrectPoint = useCallback(
     (x: number, y: number) => x >= 0 && x < size && y >= 0 && y < size,
     [size],
   );
 
-  const createField = (): Cell[] => {
+  const createField = useCallback((): Cell[] => {
     const field: Cell[] = new Array(size * size)
       .fill(0)
       .map(() => ({ ...initialCell }));
@@ -70,14 +81,19 @@ export const useMinesweeper = (size: number) => {
     }
 
     return field;
-  };
+  }, [isCorrectPoint, size]);
 
   const [field, setField] = useState<Cell[]>(() => createField());
   const [detectedBombsCounter, setDetectedBombsCounter] = useState<number>(0);
   const [isGameOver, setIsGameOver] = useState(false);
   const [status, setStatus] = useState<undefined | boolean>(undefined);
 
-  const createNewField = () => setField(() => createField());
+  const createNewField = useCallback(() => {
+    setField(() => createField());
+    setIsGameOver(false);
+    setStatus(undefined);
+    setDetectedBombsCounter(0);
+  }, [createField]);
 
   const bombs = useMemo(
     () =>
@@ -211,7 +227,8 @@ export const useMinesweeper = (size: number) => {
       return false;
     }
 
-    return !isGameOver && !!bombs.find(index => field[index].isVisible);
+    const activatedBomb = bombs.find(index => field[index].isVisible);
+    return !isGameOver && activatedBomb !== undefined;
   }, [bombs, field, isGameOver]);
 
   const isGameWon = useMemo(() => {
@@ -219,7 +236,10 @@ export const useMinesweeper = (size: number) => {
       return false;
     }
 
-    return !isGameOver && !bombs.find(index => !field[index].isCoveredByFlag);
+    const nonDeactivatedBomb = bombs.find(
+      index => !field[index].isCoveredByFlag,
+    );
+    return nonDeactivatedBomb === undefined;
   }, [bombs, field, isGameOver]);
 
   useEffect(() => {
@@ -233,6 +253,8 @@ export const useMinesweeper = (size: number) => {
       setIsGameOver(true);
     }
   }, [isGameLost, isGameWon, size, status]);
+
+  console.log({ field });
 
   useEffect(() => {
     if (isGameOver) {
@@ -249,17 +271,25 @@ export const useMinesweeper = (size: number) => {
   const isLoosing = useMemo(() => status !== undefined && !status, [status]);
   const isWinning = useMemo(() => status !== undefined && status, [status]);
 
+  console.log({
+    isGameLost,
+    isGameOver,
+    isLoosing,
+    isWinning,
+    isGameWon,
+    check: !bombs.find(index => !field[index].isCoveredByFlag),
+    bombs,
+  });
+
   return {
     field,
     createNewField,
     getCellState,
     makeCellVisible,
     toggleFlag,
-    isGameLost,
-    isGameWon,
     detectedBombsCounter,
-    status,
     isLoosing,
     isWinning,
+    isGameOver,
   };
 };
