@@ -1,0 +1,28 @@
+@import url("https://fonts.googleapis.com/css2?family=Nanum+Gothic+Coding&family=Press+Start+2P&family=Rubik+Doodle+Shadow&display=swap");
+
+@mixin PixelFont {
+  font-family: "Press Start 2P", system-ui;
+  font-weight: 400;
+  font-style: normal;
+}
+
+@mixin NanumRegularFont {
+  font-family: "Nanum Gothic Coding", monospace;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+@mixin RubikRegularFont {
+  font-family: "Rubik Doodle Shadow", system-ui;
+  font-weight: 400;
+  font-style: normal;
+}
+
+$fontSizeH0: 46px;
+$fontSizeH1: 36px;
+$fontSizeH2: 24px;
+$fontSizeH3: 18px;
+$fontSizePrimary: 14px;
+$fontSizeSecondary: 12px;
+$fontSizeSmall: 10px;
