@@ -151,13 +151,12 @@ export const useMinesweeper = (size: number) => {
       const checkedCells: string[] = [];
       const cellsToCheck: [number, number][] = [];
 
-      // eslint-disable-next-line @typescript-eslint/no-shadow
       const isChecked = (x: number, y: number) =>
         checkedCells.includes(`x:${x};y:${y}`);
-      // eslint-disable-next-line @typescript-eslint/no-shadow
+
       const addToChecked = (x: number, y: number) =>
         checkedCells.push(`x:${x};y:${y}`);
-      // eslint-disable-next-line @typescript-eslint/no-shadow
+
       const addNeighboursToCheck = (x: number, y: number) => {
         [
           [1, 0],
@@ -180,7 +179,6 @@ export const useMinesweeper = (size: number) => {
         });
       };
 
-      // eslint-disable-next-line @typescript-eslint/no-shadow
       const checkCell = (x: number, y: number) => {
         addToChecked(x, y);
         const { isVisible, value } = getCellState(x, y);
@@ -197,7 +195,6 @@ export const useMinesweeper = (size: number) => {
       checkCell(x, y);
 
       while (cellsToCheck.length) {
-        // eslint-disable-next-line @typescript-eslint/no-shadow
         const [x, y] = cellsToCheck.pop()!!;
         checkCell(x, y);
       }
@@ -205,7 +202,6 @@ export const useMinesweeper = (size: number) => {
       setField(prevState => {
         const newField = [...prevState];
 
-        // eslint-disable-next-line @typescript-eslint/no-shadow
         visibleCells.forEach(([x, y]) => {
           if (getCellState(x, y).isCoveredByFlag) {
             setDetectedBombsCounter(prevValue => prevValue - 1);
@@ -242,6 +238,9 @@ export const useMinesweeper = (size: number) => {
     return nonDeactivatedBomb === undefined;
   }, [bombs, field, isGameOver]);
 
+  const isLoosing = useMemo(() => status !== undefined && !status, [status]);
+  const isWinning = useMemo(() => status !== undefined && status, [status]);
+
   useEffect(() => {
     if (isGameLost && status === undefined) {
       setStatus(false);
@@ -254,8 +253,6 @@ export const useMinesweeper = (size: number) => {
     }
   }, [isGameLost, isGameWon, size, status]);
 
-  console.log({ field });
-
   useEffect(() => {
     if (isGameOver) {
       setField(prevState =>
@@ -267,19 +264,6 @@ export const useMinesweeper = (size: number) => {
       );
     }
   }, [isGameOver]);
-
-  const isLoosing = useMemo(() => status !== undefined && !status, [status]);
-  const isWinning = useMemo(() => status !== undefined && status, [status]);
-
-  console.log({
-    isGameLost,
-    isGameOver,
-    isLoosing,
-    isWinning,
-    isGameWon,
-    check: !bombs.find(index => !field[index].isCoveredByFlag),
-    bombs,
-  });
 
   return {
     field,
