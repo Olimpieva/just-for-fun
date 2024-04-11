@@ -1,6 +1,11 @@
 import React from "react";
 import cn from "classnames";
-import { ExperienceWidget, KeepInTouch, Minesweeper } from "widgets";
+import {
+  EducationWidget,
+  ExperienceWidget,
+  KeepInTouch,
+  Minesweeper,
+} from "widgets";
 import { TypingText } from "components";
 
 import css from "./MainPage.module.scss";
@@ -24,6 +29,7 @@ const MainPage = () => (
 
       <div className={css.info}>
         <ExperienceWidget />
+        <EducationWidget />
       </div>
 
       <div className={css.fun}>
