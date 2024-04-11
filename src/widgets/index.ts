@@ -1,4 +1,5 @@
 import Minesweeper from "./Minesweeper";
+import KeepInTouch from "./KeepInTouch";
+import ExperienceWidget from "./Experience";
 
-// eslint-disable-next-line import/prefer-default-export
-export { Minesweeper };
+export { Minesweeper, KeepInTouch, ExperienceWidget };
