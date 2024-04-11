@@ -14,9 +14,9 @@ const Card = ({ title, className, children }: PropsWithChildren<Props>) => {
       <h2 className={css.title}>
         <div className={css.controls}>
           <button>x</button>
-          <button>--</button>
+          <button style={{ verticalAlign: "center" }}>–</button>
         </div>
-        {title}
+        <span>{title}</span>
       </h2>
       <div className="p-12">{children}</div>
     </div>
