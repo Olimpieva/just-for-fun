@@ -1,4 +1,5 @@
 import React from "react";
+import cn from "classnames";
 import { FireTwoTone, FlagTwoTone } from "@ant-design/icons";
 import { Cell as CellType } from "widgets/Minesweeper/useMinesweeper";
 import { ReactComponent as FireIcon } from "assets/fire.svg";
@@ -34,7 +35,7 @@ function Cell({ state, makeVisible, toggleFlag }: Props) {
   if (!isVisible)
     return (
       <div
-        className={css.cell}
+        className={cn(css.cell, css.passive)}
         onClick={() => makeVisible()}
         onContextMenu={onContextMenu}
       />

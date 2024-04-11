@@ -12,8 +12,6 @@ type Props = Pick<
 const Grid = ({ size, getCellState, makeCellVisible, toggleFlag }: Props) => {
   const dimension = new Array(size).fill(null);
 
-  console.log("render");
-
   return (
     <div>
       {dimension.map((_, y) => (

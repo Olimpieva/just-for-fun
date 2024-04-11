@@ -1,5 +1,7 @@
-import React, { useMemo, useState } from "react";
-import { Button, Card } from "components";
+import React, { useMemo } from "react";
+import { Button, Card, RainbowTitle } from "components";
+
+import { ReactComponent as PauseIcon } from "assets/pause.svg";
 import { useMinesweeper } from "./useMinesweeper";
 import Grid from "./Grid";
 
@@ -39,6 +41,11 @@ function Minesweeper() {
           <span>{`Бомбы: ${remainingBomsCounter}`}</span>
           <Button title="Начать заново" onClick={createNewField} />
         </div>
+
+        <RainbowTitle
+          title="Сделай паузу"
+          icon={<PauseIcon color="#f3a14b" />}
+        />
       </div>
     </Card>
   );
