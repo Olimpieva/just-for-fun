@@ -5,6 +5,7 @@ import {
   ExperienceWidget,
   KeepInTouch,
   Minesweeper,
+  SkillsWidget,
 } from "widgets";
 import { TypingText } from "components";
 
@@ -28,6 +29,9 @@ const MainPage = () => (
       />
 
       <div className={css.info}>
+        <div className={css.row}>
+          <SkillsWidget />
+        </div>
         <ExperienceWidget />
         <EducationWidget />
       </div>
