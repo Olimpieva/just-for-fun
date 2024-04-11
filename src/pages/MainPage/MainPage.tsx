@@ -1,6 +1,6 @@
 import React from "react";
 import cn from "classnames";
-import { Minesweeper } from "widgets";
+import { KeepInTouch, Minesweeper } from "widgets";
 import { TypingText } from "components";
 
 import css from "./MainPage.module.scss";
@@ -13,6 +13,8 @@ const MainPage = () => (
           <h1 className={cn(css.title)}>Олимпиева Наталья Игоревна</h1>
           <h3 className={cn(css.subtitle)}>Фронтенд разработчик</h3>
         </div>
+
+        <KeepInTouch />
       </div>
 
       <TypingText
