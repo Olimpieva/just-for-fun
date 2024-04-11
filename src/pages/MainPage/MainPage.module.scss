@@ -54,6 +54,18 @@
   font-size: $fontSizeSmall;
 }
 
+.info {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  grid-template-rows: max-content 1fr;
+  gap: 120px;
+  margin-bottom: 120px;
+
+  .row {
+    grid-column: 1/3;
+  }
+}
+
 .fun {
   display: grid;
   grid-template-columns: 1fr 1fr;
