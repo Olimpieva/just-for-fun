@@ -1,5 +1,6 @@
 import React from "react";
 import cn from "classnames";
+import { Minesweeper } from "widgets";
 import { TypingText } from "components";
 
 import css from "./MainPage.module.scss";
@@ -18,6 +19,10 @@ const MainPage = () => (
         text="Люблю и умею искать простые решения сложных задач."
         className={css.description}
       />
+
+      <div className={css.fun}>
+        <Minesweeper />
+      </div>
     </div>
   </div>
 );

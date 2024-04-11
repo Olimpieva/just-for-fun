@@ -53,3 +53,8 @@
   color: $neutral;
   font-size: $fontSizeSmall;
 }
+
+.fun {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}

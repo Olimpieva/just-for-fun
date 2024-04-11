@@ -5,6 +5,7 @@ import reportWebVitals from "./reportWebVitals";
 import store from "./redux/store";
 import Router from "./router";
 
+import "utils/styles/common.scss";
 import "utils/styles/indents.scss";
 import "utils/styles/typography.scss";
 import "utils/styles/colors.scss";
