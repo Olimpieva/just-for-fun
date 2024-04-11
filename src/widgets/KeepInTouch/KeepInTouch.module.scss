@@ -1,0 +1,57 @@
+@import "utils/styles/colors.scss";
+@import "utils/styles/typography.scss";
+
+.container {
+  -webkit-animation: scale 2s infinite;
+  animation: scale 2s infinite;
+}
+
+.item {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  margin-bottom: 16px;
+  transition: all 0.3s ease-in-out;
+
+  & > a {
+    transition: color 0.3s ease-in-out;
+  }
+
+  & > svg {
+    & > path {
+      transition: color 0.3s ease-in-out;
+    }
+  }
+
+  &:hover {
+    & > a {
+      color: $secondaryYellow;
+    }
+
+    & > svg {
+      & > path {
+        color: $secondaryYellow;
+      }
+    }
+  }
+}
+
+.link {
+  @include PixelFont;
+  font-size: 32px;
+  color: white;
+}
+
+@keyframes scale {
+  0% {
+    scale: 1;
+  }
+
+  50% {
+    scale: 1.1;
+  }
+
+  100% {
+    scale: 1;
+  }
+}
