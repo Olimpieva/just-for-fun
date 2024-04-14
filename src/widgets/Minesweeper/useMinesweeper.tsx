@@ -181,9 +181,11 @@ export const useMinesweeper = (size: number) => {
 
       const checkCell = (x: number, y: number) => {
         addToChecked(x, y);
-        const { isVisible, value } = getCellState(x, y);
+        const { isVisible, value, isCoveredByFlag } = getCellState(x, y);
 
-        if (!isVisible) {
+        // ! Need to change this behavior
+
+        if (!isVisible && !isCoveredByFlag) {
           visibleCells = [...visibleCells, [x, y]];
 
           if (value === 0) {
