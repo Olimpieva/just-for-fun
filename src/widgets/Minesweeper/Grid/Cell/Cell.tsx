@@ -1,8 +1,8 @@
 import React from "react";
 import cn from "classnames";
-import { FireTwoTone, FlagTwoTone } from "@ant-design/icons";
 import { Cell as CellType } from "widgets/Minesweeper/useMinesweeper";
 import { ReactComponent as FireIcon } from "assets/fire.svg";
+import { ReactComponent as FlagIcon } from "assets/flag.svg";
 
 import css from "./Cell.module.scss";
 
@@ -23,12 +23,8 @@ function Cell({ state, makeVisible, toggleFlag }: Props) {
 
   if (isCoveredByFlag)
     return (
-      <div
-        className={css.cell}
-        onClick={() => makeVisible()}
-        onContextMenu={onContextMenu}
-      >
-        <FlagTwoTone twoToneColor="#52c41a" />
+      <div className={css.cell} onContextMenu={onContextMenu}>
+        <FlagIcon width={20} height={20} />
       </div>
     );
 
