@@ -2,6 +2,7 @@
 @import "utils/styles/typography.scss";
 
 .card {
+  position: relative;
   border: none;
   border-radius: 8px;
   background-color: $neutral;
@@ -15,37 +16,11 @@
   width: 100%;
   display: flex;
   align-items: center;
+  justify-content: center;
   text-align: center;
   border-radius: 8px 8px 0 0;
   background-color: $primaryPink;
   font-size: $fontSizeH2;
   font-weight: 900;
   color: $neutral;
-
-  & > span {
-    width: 100%;
-  }
-}
-
-.controls {
-  display: flex;
-  justify-content: start;
-  align-items: center;
-  gap: 12px;
-
-  & > button {
-    background-color: inherit;
-    border: none;
-    font-size: $fontSizeH2;
-    color: $neutral;
-    cursor: pointer;
-
-    &:first-of-type {
-      padding-left: 8px;
-    }
-
-    &:last-of-type {
-      padding-right: 8px;
-    }
-  }
 }

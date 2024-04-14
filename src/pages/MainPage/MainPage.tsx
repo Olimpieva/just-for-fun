@@ -6,6 +6,7 @@ import {
   KeepInTouch,
   Minesweeper,
   SkillsWidget,
+  MemesWidget,
 } from "widgets";
 import { TypingText } from "components";
 
@@ -38,6 +39,7 @@ const MainPage = () => (
 
       <div className={css.fun}>
         <Minesweeper />
+        <MemesWidget />
       </div>
     </div>
   </div>
