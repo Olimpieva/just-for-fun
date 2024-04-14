@@ -6,12 +6,9 @@ import React, {
   useState,
 } from "react";
 import cn from "classnames";
-import { Button, Card, RainbowTitle } from "components";
-import ReactConfetti from "react-confetti";
+import { Card, RainbowTitle } from "components";
 import Confetti from "components/Confetti/Confetti";
 import { getWordEnding } from "utils/helpers";
-import { ReactComponent as ThumbsUpIcon } from "assets/thumbs-up.svg";
-import { ReactComponent as PauseIcon } from "assets/pause.svg";
 import { useMinesweeper } from "./useMinesweeper";
 import Grid from "./Grid";
 
@@ -36,17 +33,11 @@ function Minesweeper() {
   );
   const [isConfettiVisible, setIsConfettiVisible] = useState(false);
   const timerRef = useRef<NodeJS.Timeout | undefined>(undefined);
-  const [animated, setAnimated] = useState(false);
 
   const startNewGame = useCallback(() => {
     createNewField();
     setIsConfettiVisible(false);
-    setAnimated(false);
   }, [createNewField]);
-
-  useEffect(() => {
-    if (isWinning || isLoosing) setAnimated(true);
-  }, [isLoosing, isWinning]);
 
   useEffect(() => {
     if (isWinning) {
@@ -76,8 +67,6 @@ function Minesweeper() {
     )}`;
   }, [isLoosing, isWinning, remainingBomsCounter]);
 
-  console.log({ isLoosing });
-
   return (
     <Card title="Сапёр">
       <div className={css.container}>
@@ -104,7 +93,7 @@ function Minesweeper() {
 
         <div
           className={cn(css.bottom, {
-            [css.bottomAnimated]: animated,
+            [css.bottomAnimated]: isGameOver,
           })}
         >
           <RainbowTitle title={title} />
