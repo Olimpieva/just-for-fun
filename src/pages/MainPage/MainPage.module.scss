@@ -58,8 +58,8 @@
   display: grid;
   grid-template-columns: 1fr 2fr;
   grid-template-rows: max-content 1fr;
-  gap: 120px;
-  margin-bottom: 120px;
+  gap: 60px;
+  margin-bottom: 60px;
 
   .row {
     grid-column: 1/3;
