@@ -1,14 +1,14 @@
-export type FoxImagesApiResponse = {
+export type FoxesApiResponse = {
   image: string;
   link: string;
 };
 
-export type DogsImagesApiResponse = {
+export type DogsApiResponse = {
   fileSizeBytes: number;
   url: string;
 };
 
-export type Fox = {
+export type GalleryItem = {
   id: string;
   image: string;
 };

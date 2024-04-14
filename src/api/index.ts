@@ -1,4 +1,4 @@
-import * as dogApi from "./dogApi";
-import * as foxApi from "./foxApi";
+import * as dogsApi from "./dogsApi";
+import * as foxesApi from "./foxesApi";
 
-export { dogApi, foxApi };
+export { dogsApi, foxesApi };
