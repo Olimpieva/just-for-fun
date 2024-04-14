@@ -12,13 +12,9 @@ const Card = ({ title, className, children }: PropsWithChildren<Props>) => {
   return (
     <div className={cn(css.card, className)}>
       <h2 className={css.title}>
-        <div className={css.controls}>
-          <button>x</button>
-          <button style={{ verticalAlign: "center" }}>–</button>
-        </div>
         <span>{title}</span>
       </h2>
-      <div className="p-12">{children}</div>
+      <div className="p-20">{children}</div>
     </div>
   );
 };
