@@ -1,35 +1,19 @@
 @import "utils/styles/colors.scss";
 @import "utils/styles/typography.scss";
 
-.list {
-  @include PTMonoFont;
+.titleContainer {
+  position: absolute;
+  top: 8px;
+  left: 30%;
+}
 
+.list {
   margin: 0;
   padding: 0;
   text-decoration: none;
-  min-width: 200px;
   display: flex;
   flex-direction: column;
+  align-items: center;
   gap: 20px;
   text-transform: lowercase;
-}
-
-.item {
-  display: flex;
-  //   flex-direction: column;
-  gap: 4px;
-  font-size: $fontSizePrimary;
-
-  & > span:first-of-type {
-    width: max-content;
-    padding: 8px;
-    color: $primaryDarkBlue;
-  }
-
-  & > span:last-of-type {
-    width: max-content;
-    padding: 8px;
-    background-color: $secondaryGreen;
-    color: $neutral;
-  }
 }
