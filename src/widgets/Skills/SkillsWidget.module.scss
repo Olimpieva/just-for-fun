@@ -8,3 +8,10 @@
   gap: 16px;
   list-style-type: none;
 }
+
+.container {
+  position: absolute;
+  top: -25%;
+  right: 25%;
+  transform: translate(-50%, -50%);
+}

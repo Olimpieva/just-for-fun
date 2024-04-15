@@ -1,5 +1,5 @@
 import React from "react";
-import { Button, Card } from "components";
+import { Button, Card, FlippedBadge } from "components";
 
 import css from "./EducationWidget.module.scss";
 

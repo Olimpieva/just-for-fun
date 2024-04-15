@@ -1,12 +1,13 @@
 import React from "react";
-import { Button, Card, Link } from "components";
+import { Button, Card, GlitchedTitle, Link, SnailTitle } from "components";
 
 import css from "./SkillsWidget.module.scss";
 
 // eslint-disable-next-line arrow-body-style
 const SkillsWidget = () => {
   return (
-    <Card title="Основные навыки" className={css.customWidth}>
+    <Card title="" className={css.customWidth}>
+      {/* <SnailTitle title="Основные навыки" /> */}
       <ul className={css.list}>
         <Link title="HTML" to="" />
         <Link title="CSS" to="" />

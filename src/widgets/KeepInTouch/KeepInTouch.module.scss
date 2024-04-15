@@ -1,17 +1,13 @@
 @import "utils/styles/colors.scss";
 @import "utils/styles/typography.scss";
 
-.container {
-  -webkit-animation: scale 2s infinite;
-  animation: scale 2s infinite;
-}
-
 .item {
   display: flex;
   gap: 16px;
   align-items: center;
   margin-bottom: 16px;
   transition: all 0.3s ease-in-out;
+  color: $primaryDarkBlue;
 
   & > a {
     transition: color 0.3s ease-in-out;
@@ -37,9 +33,19 @@
 }
 
 .link {
-  @include PixelFont;
+  @include JuraFont;
+  color: $neutral;
+
   font-size: 32px;
-  color: white;
+  font-weight: 700;
+  display: flex;
+  gap: 24px;
+  align-items: center;
+  transition: all 0.3s ease-in-out;
+
+  &:hover {
+    scale: 1.1;
+  }
 }
 
 @keyframes scale {
