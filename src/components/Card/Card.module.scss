@@ -11,6 +11,7 @@
 
 .title {
   @include MontserratFont;
+  min-height: 80px;
 
   padding: 16px;
   width: 100%;
