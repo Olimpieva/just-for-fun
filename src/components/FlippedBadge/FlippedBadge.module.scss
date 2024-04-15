@@ -8,7 +8,7 @@
 
   > .front,
   > .back {
-    @include PTMonoFont;
+    @include MontserratFont;
 
     width: inherit;
     min-height: 120px;
@@ -26,6 +26,8 @@
     transition-property: transform, opacity;
 
     > p {
+      @include PTMonoFont;
+
       font-size: $fontSizeSmall;
       line-height: 160%;
     }
