@@ -48,4 +48,6 @@ const fetchFoxImage = createAsyncThunk<
 
 const likeImage = createAction<GalleryItem>("gallery/likeImage");
 
-export { fetchFoxImage, fetchDogImage, likeImage };
+const dislikeImage = createAction<string>("gallery/dislikeImage");
+
+export { fetchFoxImage, fetchDogImage, likeImage, dislikeImage };
