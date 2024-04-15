@@ -1,0 +1,36 @@
+@import "utils/styles/colors.scss";
+@import "utils/styles/typography.scss";
+
+.list {
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  min-width: 200px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.item {
+  @include PTMonoFont;
+
+  max-width: 300px;
+  display: flex;
+  flex-direction: column;
+  text-transform: lowercase;
+  font-size: $fontSizePrimary;
+
+  .active {
+    @include PTMonoFont;
+    width: max-content;
+    padding: 8px;
+    background-color: $primaryPink;
+    color: $neutral;
+  }
+
+  .passive {
+    width: max-content;
+    padding: 8px;
+    color: $primaryDarkBlue;
+  }
+}

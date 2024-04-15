@@ -1,0 +1,17 @@
+.list {
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  min-width: 200px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  list-style-type: none;
+}
+
+.container {
+  position: absolute;
+  top: -25%;
+  right: 25%;
+  transform: translate(-50%, -50%);
+}

@@ -1,0 +1,19 @@
+@import "utils/styles/colors.scss";
+@import "utils/styles/typography.scss";
+
+.titleContainer {
+  position: absolute;
+  top: 8px;
+  left: 30%;
+}
+
+.list {
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  text-transform: lowercase;
+}

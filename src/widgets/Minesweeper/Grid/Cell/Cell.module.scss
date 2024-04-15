@@ -1,0 +1,25 @@
+@import "utils/styles/colors.scss";
+@import "utils/styles/typography.scss";
+
+.cell {
+  @include PTMonoFont;
+
+  width: 32px;
+  height: 32px;
+  margin: 2px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: $primaryViolet;
+  color: $neutral;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: scale 0.3s easy;
+}
+
+.passive {
+  &:hover {
+    scale: 1.05;
+    box-shadow: gray;
+  }
+}
