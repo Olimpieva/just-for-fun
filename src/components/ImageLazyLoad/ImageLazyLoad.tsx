@@ -16,6 +16,7 @@ const ImageLazyLoad = ({
   ...props
 }: ImageProps) => {
   const [imgSrc, setImgSrc] = useState(placeholder || src);
+
   const onLoad = useCallback(() => {
     setImgSrc(src);
   }, [src]);

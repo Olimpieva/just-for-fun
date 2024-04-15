@@ -1,6 +1,11 @@
 import { createReducer } from "@reduxjs/toolkit";
 import { InitialState } from "./types";
-import { fetchDogImage, fetchFoxImage, likeImage } from "./actions";
+import {
+  fetchDogImage,
+  fetchFoxImage,
+  likeImage,
+  dislikeImage,
+} from "./actions";
 
 const initialState: InitialState = {
   current: null,
@@ -37,6 +42,11 @@ const galleryReducer = createReducer(initialState, builder => {
     })
     .addCase(likeImage, (state, action) => {
       state.liked[action.payload.id] = action.payload;
+    })
+    .addCase(dislikeImage, (state, action) => {
+      const newLiked = state.liked;
+      delete newLiked[action.payload];
+      state.liked = newLiked;
     });
 });
 
