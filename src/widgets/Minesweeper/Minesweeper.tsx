@@ -8,6 +8,7 @@ import React, {
 import cn from "classnames";
 import { Card, RainbowTitle } from "components";
 import Confetti from "components/Confetti/Confetti";
+import { ReactComponent as BombIcon } from "assets/bomb.svg";
 import { getWordEnding } from "utils/helpers";
 import { useMinesweeper } from "./useMinesweeper";
 import Grid from "./Grid";
@@ -68,9 +69,13 @@ function Minesweeper() {
   }, [isLoosing, isWinning, remainingBomsCounter]);
 
   return (
-    <Card title="Сапёр">
+    <Card title="">
+      <div className={css.position}>
+        <BombIcon width={180} />
+      </div>
+
       <div className={css.container}>
-        <div className={css.grid} style={{ position: "relative" }}>
+        <div className={css.grid}>
           <Grid
             size={size}
             getCellState={getCellState}
@@ -79,8 +84,8 @@ function Minesweeper() {
           />
 
           {isConfettiVisible && (
-            <div className={css.notification}>
-              <Confetti />
+            <div className={css.wrapper}>
+              <Confetti width={520} height={520} />
             </div>
           )}
         </div>

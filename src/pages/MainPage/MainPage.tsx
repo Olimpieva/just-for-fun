@@ -8,7 +8,6 @@ import {
   SkillsWidget,
   GalleryWidget,
 } from "widgets";
-import { TypingText } from "components";
 
 import css from "./MainPage.module.scss";
 
@@ -19,15 +18,13 @@ const MainPage = () => (
         <div>
           <h1 className={cn(css.title)}>Олимпиева Наталья Игоревна</h1>
           <h3 className={cn(css.subtitle)}>Фронтенд разработчик</h3>
+          <p className={css.description}>
+            Люблю и умею искать простые решения сложных задач.
+          </p>
         </div>
 
         <KeepInTouch />
       </div>
-
-      <TypingText
-        text="Люблю и умею искать простые решения сложных задач."
-        className={css.description}
-      />
 
       <div className={css.info}>
         <div className={css.row}>

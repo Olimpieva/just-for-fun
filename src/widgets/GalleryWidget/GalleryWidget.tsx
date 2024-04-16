@@ -1,7 +1,7 @@
 import React, { useCallback, useEffect, useMemo, useState } from "react";
 import cn from "classnames";
 import { useAppSelector, useAppThunkDispatch } from "utils/hooks";
-import { ImageLazyLoad } from "components";
+import { ImageLazyLoad, NeumorphismButton } from "components";
 import { ReactComponent as LikeIcon } from "assets/like.svg";
 import { ReactComponent as DogIcon } from "assets/dog.svg";
 import { ReactComponent as FoxIcon } from "assets/fox.svg";
@@ -11,7 +11,6 @@ import {
   selectImageLoading,
   selectLikedImages,
 } from "../../redux/gallery/selectors";
-
 import {
   dislikeImage,
   fetchDogImage,
@@ -29,9 +28,9 @@ enum Tab {
 const GalleryWidget = () => {
   const dispatch = useAppThunkDispatch();
   const current = useAppSelector(selectCurrentImage);
-  const [activeTab, setActiveTab] = useState<Tab>(Tab.Dog);
   const likedImages = useAppSelector(selectLikedImages);
   const { loading } = useAppSelector(selectImageLoading);
+  const [activeTab, setActiveTab] = useState<Tab>(Tab.Dog);
 
   const isLiked = useMemo(
     () => current && Boolean(likedImages[current.id]),
@@ -81,52 +80,48 @@ const GalleryWidget = () => {
   return (
     <div className={css.container}>
       <div className={cn(css.tabs, css.frame)}>
-        <button
-          className={cn(css.button, {
-            [css.active]: activeTab === Tab.Fox,
-            [css.disabled]: loading,
-          })}
+        <NeumorphismButton
+          className={cn({ [css.active]: activeTab === Tab.Fox })}
           onClick={toggleActiveTab}
           disabled={activeTab === Tab.Fox || loading}
         >
           <FoxIcon />
-        </button>
-        <button
-          className={cn(css.button, {
-            [css.active]: activeTab === Tab.Dog,
-            [css.disabled]: loading,
-          })}
+        </NeumorphismButton>
+
+        <NeumorphismButton
+          className={cn({ [css.active]: activeTab === Tab.Dog })}
           onClick={toggleActiveTab}
           disabled={activeTab === Tab.Dog || loading}
         >
           <DogIcon />
-        </button>
+        </NeumorphismButton>
       </div>
 
       <div className={css.image}>
         <ImageLazyLoad src={current?.image} />
+
+        <div className={css.glitch1}>
+          <ImageLazyLoad src={current?.image} />
+        </div>
+        <div className={css.glitch2}>
+          <ImageLazyLoad src={current?.image} />
+        </div>
       </div>
 
       <div className={css.controls}>
-        <button
-          className={cn(css.button, {
-            [css.disabled]: loading,
-          })}
-          onClick={getNextImage}
-          disabled={loading}
-        >
+        <NeumorphismButton onClick={getNextImage} disabled={loading}>
           <NextIcon />
-        </button>
+        </NeumorphismButton>
 
-        <button
-          className={cn(css.button, css.like, {
+        <NeumorphismButton
+          className={cn(css.like, {
             [css.active]: isLiked,
           })}
           onClick={toggleLike}
           disabled={loading}
         >
           <LikeIcon />
-        </button>
+        </NeumorphismButton>
       </div>
     </div>
   );

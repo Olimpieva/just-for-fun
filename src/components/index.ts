@@ -1,23 +1,25 @@
-import Button from "./Button";
 import Link from "./Link";
 import Card from "./Card";
 import RainbowTitle from "./RainbowTitle";
-import TypingText from "./TypingText";
 import Confetti from "./Confetti";
-import GlitchedTitle from "./GlitchedTitle";
+import * as GlitchedTitle from "./GlitchedTitle";
 import FlippedBadge from "./FlippedBadge";
-import BlodBadge from "./BlodBadge";
 import ImageLazyLoad from "./ImageLazyLoad";
+import CmdTitle from "./CmdTitle";
+import ColorBlockBadge from "./ColorBlockBadge";
+import NeumorphismButton from "./NeumorphismButton";
+import GlitchedBadge from "./GlitchedBadge";
 
 export {
-  Button,
   Link,
   Card,
-  TypingText,
   RainbowTitle,
   Confetti,
   FlippedBadge,
   GlitchedTitle,
-  BlodBadge,
   ImageLazyLoad,
+  CmdTitle,
+  ColorBlockBadge,
+  NeumorphismButton,
+  GlitchedBadge,
 };
