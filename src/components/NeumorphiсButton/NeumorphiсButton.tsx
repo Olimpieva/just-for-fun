@@ -1,7 +1,7 @@
 import React, { MouseEventHandler, PropsWithChildren } from "react";
 import cn from "classnames";
 
-import css from "./NeumorphismButton.module.scss";
+import css from "./NeumorphiсButton.module.scss";
 
 type Props = {
   disabled: boolean;
@@ -9,7 +9,7 @@ type Props = {
   className?: string;
 };
 
-const NeumorphismButton = ({
+const NeumorphiсButton = ({
   disabled,
   onClick,
   children,
@@ -28,4 +28,4 @@ const NeumorphismButton = ({
   </button>
 );
 
-export default NeumorphismButton;
+export default NeumorphiсButton;

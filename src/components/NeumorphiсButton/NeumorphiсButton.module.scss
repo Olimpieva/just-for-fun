@@ -1,11 +1,6 @@
 @import "utils/styles/colors.scss";
 @import "utils/styles/typography.scss";
-
-$white: rgba(255, 255, 255, 0.2);
-$dark: rgba(0, 0, 0, 0.2);
-$radius: 10px;
-$shadow-out: -4px -2px 4px 0px $white, 4px 2px 6px 0px $dark;
-$shadow-in: 2px 2px 2px 0px $dark inset, -2px -2px 2px 0px $white inset;
+@import "utils/styles/extensions.scss";
 
 .button {
   width: 100%;
@@ -21,7 +16,7 @@ $shadow-in: 2px 2px 2px 0px $dark inset, -2px -2px 2px 0px $white inset;
   cursor: pointer;
   color: $neutral;
   box-shadow: $shadow-out;
-  transition: box-shadow 0.6s cubic-bezier(0.79, 0.21, 0.06, 0.81);
+  transition: box-shadow 0.6s cubic-bezier(0.79, 0.21, 0.06, 0.8);
 
   &:hover {
     background: rgba(255, 255, 255, 0.05);

@@ -1,15 +1,10 @@
 @import "utils/styles/colors.scss";
 @import "utils/styles/typography.scss";
-
-$white: rgba(255, 255, 255, 0.2);
-$dark: rgba(0, 0, 0, 0.2);
-$radius: 10px;
-$shadow-out: -4px -2px 4px 0px $white, 4px 2px 6px 0px $dark;
-$shadow-in: 2px 2px 2px 0px $dark inset, -2px -2px 2px 0px $white inset;
+@import "utils/styles/extensions.scss";
 
 .container {
   padding: 24px;
-  border: 2px solid lime;
+  border: 2px solid $glitchGreen;
   border-radius: 8px;
   position: relative;
   background-color: $neutral;
@@ -25,21 +20,21 @@ $shadow-in: 2px 2px 2px 0px $dark inset, -2px -2px 2px 0px $white inset;
   position: absolute;
   bottom: 0;
   right: 0;
-  transform: translate(-25%, 25%);
+  transform: translate(-25%, 50%);
 }
 
 .wrapper {
   .text {
     @include PTMonoFont;
     width: 0;
-    color: lime;
+    color: $glitchGreen;
     font-family: "Courier";
     font-size: 24px;
     margin: 10px 0 0 10px;
     white-space: nowrap;
     overflow: hidden;
 
-    text-shadow: 0px 0px 40px lime, 0px 0px 40px lime;
+    text-shadow: 0px 0px 40px $glitchGreen, 0px 0px 40px $glitchGreen;
     animation: type 4s steps(60, end);
     animation-fill-mode: forwards;
 

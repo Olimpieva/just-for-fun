@@ -2,6 +2,7 @@
   box-sizing: border-box;
   padding: 0;
   margin: 0;
+  border: none;
 }
 
 ul {
@@ -10,37 +11,4 @@ ul {
 
 a {
   text-decoration: none;
-}
-
-$confettiNum: 100;
-
-[class|="confetti"] {
-  position: absolute;
-}
-
-/* confetti */
-@for $i from 1 through $confettiNum {
-  $confettiColors: (#61b4de, #91c467, #f3a14b, #e84c50, #8154e2, #4e5965);
-  $paperSize: random(15);
-  $left: random(100);
-
-  .confetti-#{$i} {
-    position: absolute;
-    width: #{$paperSize}px;
-    height: #{$paperSize * 0.4}px;
-    background-color: nth($confettiColors, random(6));
-    top: -10%;
-    left: unquote($left + "%");
-    opacity: random() + 0.5;
-    transform: rotate(#{random(360)}deg);
-    animation: confetti-explosion-#{$i} #{4 + random()} + "s" infinite ease-out;
-    z-index: random(5);
-  }
-
-  @keyframes confetti-explosion-#{$i} {
-    100% {
-      top: 110%;
-      left: unquote($left + random(15) + "%");
-    }
-  }
 }

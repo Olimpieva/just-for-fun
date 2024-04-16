@@ -1,6 +1,20 @@
 @import "utils/styles/colors.scss";
 @import "utils/styles/typography.scss";
 
+$shadow: 1px 1px $primaryLightBlue, 2px 2px $primaryLightBlue,
+  3px 3px $primaryLightBlue, 4px 4px $primaryLightBlue,
+  5px 5px $primaryLightBlue, 6px 6px $secondaryGreen, 7px 7px $secondaryGreen,
+  8px 8px $secondaryGreen, 9px 9px $secondaryGreen, 10px 10px $secondaryGreen,
+  11px 11px $secondaryOrange, 12px 12px $secondaryOrange,
+  13px 13px $secondaryOrange, 14px 14px $secondaryOrange,
+  15px 15px $secondaryOrange, 16px 16px $secondaryRed, 17px 17px $secondaryRed,
+  18px 18px $secondaryRed, 19px 19px $secondaryRed, 20px 20px $secondaryRed,
+  21px 21px$primaryGray, 22px 22px$primaryGray, 23px 23px$primaryGray,
+  24px 24px$primaryGray, 25px 25px$primaryGray;
+
+$shadow-hover: 1px 1px $primaryLightBlue, 2px 2px $secondaryGreen,
+  3px 3px $secondaryOrange, 4px 4px $secondaryRed, 5px 5px$primaryGray;
+
 .container {
   display: flex;
   gap: 16px;
@@ -15,28 +29,12 @@
     transition: 0.5s all ease;
     text-transform: uppercase;
     text-decoration: none;
-    text-shadow: 
-        /* Color 1 */ 1px 1px #61b4de, 2px 2px #61b4de,
-      3px 3px #61b4de, 4px 4px #61b4de, 5px 5px #61b4de,
-      /* Color 2 */ 6px 6px #91c467, 7px 7px #91c467, 8px 8px #91c467,
-      9px 9px #91c467, 10px 10px #91c467, /* Color 3 */ 11px 11px #f3a14b,
-      12px 12px #f3a14b, 13px 13px #f3a14b, 14px 14px #f3a14b, 15px 15px #f3a14b,
-      /* Color 4 */ 16px 16px #e84c50, 17px 17px #e84c50, 18px 18px #e84c50,
-      19px 19px #e84c50, 20px 20px #e84c50, /* Color 5 */ 21px 21px #4e5965,
-      22px 22px #4e5965, 23px 23px #4e5965, 24px 24px #4e5965, 25px 25px #4e5965;
+    text-shadow: $shadow;
   }
 
   & > svg {
     border-radius: 50%;
-    box-shadow: 
-      /* Color 1 */ 1px 1px #61b4de, 2px 2px #61b4de,
-      3px 3px #61b4de, 4px 4px #61b4de, 5px 5px #61b4de,
-      /* Color 2 */ 6px 6px #91c467, 7px 7px #91c467, 8px 8px #91c467,
-      9px 9px #91c467, 10px 10px #91c467, /* Color 3 */ 11px 11px #f3a14b,
-      12px 12px #f3a14b, 13px 13px #f3a14b, 14px 14px #f3a14b, 15px 15px #f3a14b,
-      /* Color 4 */ 16px 16px #e84c50, 17px 17px #e84c50, 18px 18px #e84c50,
-      19px 19px #e84c50, 20px 20px #e84c50, /* Color 5 */ 21px 21px #4e5965,
-      22px 22px #4e5965, 23px 23px #4e5965, 24px 24px #4e5965, 25px 25px #4e5965;
+    box-shadow: $shadow;
     transition: all 0.5s ease;
 
     & > path {
@@ -47,17 +45,11 @@
   &:hover {
     .title {
       color: #0a0a0a;
-      text-shadow: 
-        /* Color 1 */ 1px 1px #61b4de,
-        /* Color 2 */ 2px 2px #91c467, /* Color 3 */ 3px 3px #f3a14b,
-        /* Color 4 */ 4px 4px #e84c50, /* Color 5 */ 5px 5px #4e5965;
+      text-shadow: $shadow-hover;
     }
 
     & > svg {
-      box-shadow: 
-        /* Color 1 */ 1px 1px #61b4de,
-        /* Color 2 */ 2px 2px #91c467, /* Color 3 */ 3px 3px #f3a14b,
-        /* Color 4 */ 4px 4px #e84c50, /* Color 5 */ 5px 5px #4e5965;
+      box-shadow: $shadow-hover;
 
       & > path {
         color: black;

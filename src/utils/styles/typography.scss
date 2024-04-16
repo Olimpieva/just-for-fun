@@ -1,6 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Jura:wght@300..700&family=Lobster&family=Mulish:ital,wght@0,200..1000;1,200..1000&family=Montserrat:wght@200..700&family=PT+Mono&family=Press+Start+2P&family=Rubik+Doodle+Shadow&display=swap");
 
 @import url("https://fonts.googleapis.com/css2?family=Jura:wght@300..700&family=Lobster&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Mulish:ital,wght@0,200..1000;1,200..1000&family=Oswald:wght@200..700&family=PT+Mono&family=Press+Start+2P&family=Rubik+Doodle+Shadow&display=swap");
+
 @mixin PixelFont {
   font-family: "Press Start 2P", "Helvetica", system-ui;
   font-weight: 400;
@@ -60,10 +61,17 @@
   line-height: 1;
 }
 
-$fontSizeH0: 80px;
-$fontSizeH1: 72px;
+@mixin CourierFont {
+  font-family: "Courier", "Helvetica", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  line-height: 1;
+}
+
+$fontSizeH0: 72px;
+$fontSizeH1: 64px;
 $fontSizeH2: 48px;
 $fontSizeH3: 32px;
-$fontSizePrimary: 20px;
-$fontSizeSecondary: 28px;
+$fontSizePrimary: 24px;
+$fontSizeSecondary: 20px;
 $fontSizeSmall: 16px;

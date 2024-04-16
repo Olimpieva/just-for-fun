@@ -1,5 +1,6 @@
 @import "utils/styles/colors.scss";
 @import "utils/styles/typography.scss";
+@import "utils/styles/extensions.scss";
 
 .position {
   position: absolute;
@@ -35,20 +36,6 @@
   max-width: 400px;
 }
 
-@keyframes scale {
-  0% {
-    scale: 1;
-  }
-
-  50% {
-    scale: 1.2;
-  }
-
-  100% {
-    scale: 1;
-  }
-}
-
 .button {
   background-color: transparent;
   border: none;
@@ -64,29 +51,6 @@
   transition: 1s;
 
   &Animated {
-    -webkit-animation: turn 2s infinite;
-    animation: turn 2s infinite linear;
-  }
-}
-
-@keyframes turn {
-  0% {
-    transform: rotateZ(2deg) translate(0, 60%);
-  }
-
-  25% {
-    transform: rotateZ(10deg) translate(0, 60%);
-  }
-
-  50% {
-    transform: rotateZ(2deg) translate(0, 60%);
-  }
-
-  75% {
-    transform: rotateZ(-10deg) translate(0, 60%);
-  }
-
-  100% {
-    transform: rotateZ(2deg) translate(0, 60%);
+    @include Turn-1;
   }
 }
