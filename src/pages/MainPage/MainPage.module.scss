@@ -9,7 +9,7 @@
 .container {
   min-width: 500px;
   min-height: 100vh;
-  padding: 60px 120px 120px;
+  padding: 30px 60px 60px;
   margin: 0 auto;
   background: linear-gradient($white50op, transparent 2px),
     linear-gradient(90deg, $white50op, transparent 2px);
@@ -59,7 +59,7 @@
 .info {
   display: grid;
   grid-template-columns: 1fr 2fr;
-  grid-template-rows: max-content 1fr;
+  grid-template-rows: max-content 1fr 1fr 1fr;
   gap: $bigGap;
   margin-bottom: $bigGap;
 
@@ -72,4 +72,20 @@
   display: grid;
   grid-template-columns: 560px 1fr;
   gap: $bigGap;
+}
+
+.flex {
+  display: flex;
+  flex-direction: column;
+  gap: $bigGap;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: $bigGap;
+}
+
+.da {
+  max-width: 560px;
 }

@@ -25,17 +25,18 @@ const MainPage = () => (
         <KeepInTouch />
       </div>
 
-      <div className={css.info}>
-        <div className={css.row}>
-          <SkillsWidget />
-        </div>
-        <ExperienceWidget />
-        <EducationWidget />
-      </div>
+      <div className={css.flex}>
+        <SkillsWidget />
 
-      <div className={css.fun}>
-        <Minesweeper />
-        <GalleryWidget />
+        <div className={css.grid}>
+          <ExperienceWidget />
+          <GalleryWidget />
+        </div>
+
+        <EducationWidget />
+        <div className={css.da}>
+          <Minesweeper />
+        </div>
       </div>
     </div>
   </div>
