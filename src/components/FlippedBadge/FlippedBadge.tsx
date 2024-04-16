@@ -16,10 +16,10 @@ const FlippedBadge = ({ front, back }: Props) => (
   <div className={css.container}>
     <div className={css.front}>
       <p>{front.subtitle}</p>
-      <h1 className={css.shadow}>{front.title}</h1>
+      <h3>{front.title}</h3>
     </div>
     <div className={css.back}>
-      <h2>{back.title}</h2>
+      <h3>{back.title}</h3>
       <p>{back.subtitle}</p>
     </div>
   </div>

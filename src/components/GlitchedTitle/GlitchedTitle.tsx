@@ -7,10 +7,10 @@ type Props = {
 
 const GlitchedTitle = ({ title }: Props) => (
   <div className={css.container}>
-    <div className={css.glitch} data-text={`${title}`}>
+    <div className={css.title} data-text={title}>
       {title}
     </div>
-    <div className={css.glow}>{title}</div>
+    <div className={css.shadow}>{title}</div>
   </div>
 );
 
