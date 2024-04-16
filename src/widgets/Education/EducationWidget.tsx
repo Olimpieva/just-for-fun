@@ -1,40 +1,49 @@
 import React from "react";
-import { Button, Card, FlippedBadge } from "components";
+import { Card, ColorBlockBadge, GlitchedTitle } from "components";
 
 import css from "./EducationWidget.module.scss";
 
-// eslint-disable-next-line arrow-body-style
-const EducationWidget = () => {
-  return (
-    <Card title="Образование" className={css.customWidth}>
-      <ul className={css.list}>
-        <li className={css.item}>
-          <span className={css.passive}>
-            2016 Курский государственный университет
-          </span>
-          <span className={css.active}>математическое моделирование</span>
-        </li>
-        <li className={css.item}>
-          <span className={css.passive}>
-            2018 Курский государственный университет
-          </span>
-          <span className={css.active}>информационная безопасность</span>
-        </li>
-        <li className={css.item}>
-          <span className={css.passive}>2021 Яндекс</span>
-          <span className={css.active}>веб-разработчик</span>
-        </li>
-        <li className={css.item}>
-          <span className={css.passive}>2021 Javascript.ru</span>
-          <span className={css.active}>React + Redux</span>
-        </li>
-        <li className={css.item}>
-          <span className={css.passive}>2022 Javascript.ru</span>
-          <span className={css.active}>Typescipt</span>
-        </li>
-      </ul>
-    </Card>
-  );
-};
+const EducationWidget = () => (
+  <Card
+    title={
+      <div className={css.wrapper}>
+        <GlitchedTitle.Pixel title="образование и курсы" />
+      </div>
+    }
+    className={css.customWidth}
+  >
+    <ul className={css.grid}>
+      <ColorBlockBadge
+        front={{ title: "математическое моделирование", subtitle: "2016" }}
+        back={{ subtitle: "Курский государственный университет" }}
+      />
+
+      <ColorBlockBadge
+        front={{ title: "информационная безопасность", subtitle: "2018" }}
+        back={{ subtitle: "Курский государственный университет" }}
+      />
+
+      <ColorBlockBadge
+        front={{ title: "веб-разработчик", subtitle: "2021" }}
+        back={{ subtitle: "Яндекс" }}
+      />
+
+      <ColorBlockBadge
+        front={{ title: "React + Redux", subtitle: "2021" }}
+        back={{ subtitle: "Javascript.ru" }}
+      />
+
+      <ColorBlockBadge
+        front={{ title: "Typescipt", subtitle: "2022" }}
+        back={{ subtitle: "Javascript.ru" }}
+      />
+
+      <ColorBlockBadge
+        front={{ title: "Three.js", subtitle: "2024" }}
+        back={{ subtitle: "threejs-journey.com" }}
+      />
+    </ul>
+  </Card>
+);
 
 export default EducationWidget;

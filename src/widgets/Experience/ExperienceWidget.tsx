@@ -5,7 +5,7 @@ import css from "./ExperienceWidget.module.scss";
 
 const Title = () => (
   <div className={css.titleWrapper}>
-    <GlitchedTitle title="Опыт" />
+    <GlitchedTitle.Italic title="Опыт" />
   </div>
 );
 

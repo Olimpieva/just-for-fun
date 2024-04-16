@@ -1,3 +1,6 @@
-import GlitchedTitle from "./GlitchedTitle";
+import {
+  ItalicGlitchedTitle as Italic,
+  PixelGlitchedTitle as Pixel,
+} from "./GlitchedTitle";
 
-export default GlitchedTitle;
+export { Italic, Pixel };

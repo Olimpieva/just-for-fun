@@ -1,5 +1,35 @@
+$confettiNum: 100;
+$confettiColors: (#61b4de, #91c467, #f3a14b, #e84c50, #8154e2, #4e5965);
+
 .container {
+  height: 100%;
   position: relative;
-  min-height: 360px;
-  width: 360px;
+}
+
+.particle {
+  position: absolute;
+  top: -10%;
+
+  @for $i from 1 through $confettiNum {
+    &:nth-child(#{$i}) {
+      $size: random(15);
+      $left: random(100);
+
+      width: #{$size}px;
+      height: #{$size * 0.4}px;
+      left: unquote($left + "%");
+      opacity: random() + 0.5;
+      transform: rotate(#{random(360)}deg);
+      animation: explose-#{$i} #{4 + random()} + "s" infinite ease-out;
+      z-index: random(5);
+      background-color: nth($confettiColors, random(6));
+
+      @keyframes explose-#{$i} {
+        100% {
+          top: 110%;
+          left: unquote($left + random(15) + "%");
+        }
+      }
+    }
+  }
 }

@@ -1,0 +1,85 @@
+@import "utils/styles/colors.scss";
+@import "utils/styles/typography.scss";
+
+.container {
+  width: inherit;
+  height: 120px;
+  padding: 8px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: linear-gradient(to right, $primaryPink 50%, $primaryYellow 50%);
+  background-size: 220% 100%;
+  background-position: bottom right;
+  transition: background-position 0.4s ease-out;
+
+  &:hover {
+    background-position: bottom left;
+
+    .back {
+      opacity: 1;
+    }
+
+    .front {
+      opacity: 0;
+    }
+  }
+}
+
+.back,
+.front {
+  @include MontserratFont;
+
+  width: inherit;
+  min-height: 120px;
+  padding: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-size: 24px;
+  text-align: center;
+  transition-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  transition-duration: 0.3s;
+  transition-property: transform, opacity;
+
+  > h3 {
+    @include MontserratFont;
+
+    font-size: 30px;
+    font-weight: 800;
+  }
+
+  > p {
+    @include PTMonoFont;
+
+    font-size: $fontSizeSmall;
+  }
+}
+
+.front {
+  text-transform: lowercase;
+
+  > h3 {
+    color: $primaryDarkBlue;
+  }
+
+  > p {
+    color: #999;
+  }
+}
+
+.back {
+  opacity: 0;
+  position: absolute;
+
+  > h3 {
+    color: $neutral;
+  }
+
+  > p {
+    color: rgba(255, 255, 255, 0.8);
+  }
+}

@@ -5,8 +5,8 @@ type Props = {
   title: string;
 };
 
-const GlitchedTitle = ({ title }: Props) => (
-  <div className={css.container}>
+const ItalicGlitchedTitle = ({ title }: Props) => (
+  <div className={css.italic}>
     <div className={css.title} data-text={title}>
       {title}
     </div>
@@ -14,4 +14,8 @@ const GlitchedTitle = ({ title }: Props) => (
   </div>
 );
 
-export default GlitchedTitle;
+const PixelGlitchedTitle = ({ title }: Props) => (
+  <h2 className={css.pixel}>{title}</h2>
+);
+
+export { ItalicGlitchedTitle, PixelGlitchedTitle };

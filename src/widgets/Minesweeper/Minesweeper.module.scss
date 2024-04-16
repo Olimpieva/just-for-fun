@@ -1,58 +1,38 @@
 @import "utils/styles/colors.scss";
 @import "utils/styles/typography.scss";
 
-.row {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.grid {
-  padding: 20px;
-  border-radius: 8px;
-  width: 400px;
+.position {
+  position: absolute;
+  top: 0;
+  right: 0;
+  transform: translate(25%, -60%);
 }
 
 .container {
   display: flex;
   align-items: flex-start;
-  gap: 20px;
 }
 
-.info {
-  display: flex;
-  flex-direction: column;
+.grid {
+  width: 520px;
+  position: relative;
+  border-radius: 8px;
+}
+
+.wrapper {
+  height: 520px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  overflow: hidden;
 }
 
 .top {
   position: absolute;
   top: 0;
   left: 0;
-  transform: rotateZ(-20deg) translate(-30%, -90%);
+  transform: rotateZ(-20deg) translate(-30%, -70%);
   max-width: 400px;
-}
-
-.notification {
-  width: 360px;
-  height: 360px;
-  position: absolute;
-  top: 20px;
-  left: 20px;
-  overflow: hidden;
-}
-
-.winner {
-  width: 100%;
-  height: 100%;
-  @include PixelFont;
-  font-size: $fontSizeH3;
-  color: $secondaryYellow;
-  margin: auto;
-  position: absolute;
-  top: 50%;
-  left: 25%;
-  -webkit-animation: scale 2s infinite;
-  animation: scale 2s infinite;
 }
 
 @keyframes scale {
@@ -87,11 +67,6 @@
     -webkit-animation: turn 2s infinite;
     animation: turn 2s infinite linear;
   }
-}
-
-.da {
-  -webkit-animation: turn 2s infinite;
-  animation: turn 2s infinite linear;
 }
 
 @keyframes turn {

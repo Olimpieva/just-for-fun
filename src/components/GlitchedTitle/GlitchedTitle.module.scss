@@ -1,55 +1,74 @@
 @import "utils/styles/colors.scss";
 @import "utils/styles/typography.scss";
 
-.container {
+.italic {
   @include OswaldFont;
 
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-}
 
-.title,
-.shadow {
-  position: relative;
-  font-size: $fontSizeH1;
-  font-style: italic;
-  font-weight: 800;
-  line-height: 0.8;
-  color: white;
-  animation: glitch 5s 5s infinite;
+  .title,
+  .shadow {
+    position: relative;
+    font-size: $fontSizeH1;
+    font-style: italic;
+    font-weight: 800;
+    line-height: 0.8;
+    color: white;
+    animation: glitch 5s 5s infinite;
 
-  &:before {
-    content: attr(data-text);
-    position: absolute;
-    top: 0;
-    left: -2px;
+    &:before {
+      content: attr(data-text);
+      position: absolute;
+      top: 0;
+      left: -2px;
 
-    overflow: hidden;
-    text-shadow: -4px 0 magenta;
-    animation: noise-1 3s linear infinite alternate-reverse,
-      glitch 4s 4s infinite;
+      overflow: hidden;
+      text-shadow: -4px 0 magenta;
+      animation: noise-1 3s linear infinite alternate-reverse,
+        glitch 4s 4s infinite;
+    }
+
+    &:after {
+      content: attr(data-text);
+      position: absolute;
+      top: 0;
+      left: 2px;
+      overflow: hidden;
+      text-shadow: -4px 0 lightgreen;
+      animation: noise-2 3s linear infinite alternate-reverse,
+        glitch 4s 4s infinite;
+    }
   }
 
-  &:after {
-    content: attr(data-text);
+  .shadow {
     position: absolute;
     top: 0;
-    left: 2px;
-    overflow: hidden;
-    text-shadow: -4px 0 lightgreen;
-    animation: noise-2 3s linear infinite alternate-reverse,
-      glitch 4s 4s infinite;
+    left: 0;
+    text-shadow: 0 0 1000px rgb(249, 213, 232);
+    color: transparent;
   }
 }
 
-.shadow {
+.pixel {
+  @include PixelFont;
+
   position: absolute;
-  top: 0;
-  left: 0;
-  text-shadow: 0 0 1000px rgb(249, 213, 232);
-  color: transparent;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-shadow: 0.06rem 0 0.06rem magenta, -0.125rem 0 0.06rem lime;
+  text-transform: uppercase;
+  font-size: $fontSizeH3;
+  color: #eee;
+  line-height: 1;
+  letter-spacing: 0.125em;
+  animation-duration: 0.01s;
+  animation-name: glitch-2;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
 }
 
 @keyframes glitch {
@@ -58,6 +77,15 @@
   }
   2% {
     transform: rotateX(0deg) skewX(0deg);
+  }
+}
+
+@keyframes glitch-2 {
+  from {
+    text-shadow: 1px 0 0 magenta, -2px 0 0 lime;
+  }
+  to {
+    text-shadow: 2px 0.5px 2px magenta, -1px -0.5px 2px lime;
   }
 }
 

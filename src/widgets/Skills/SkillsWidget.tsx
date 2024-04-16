@@ -1,30 +1,37 @@
 import React from "react";
-import { Card, Link } from "components";
+import { GlitchedBadge, CmdTitle } from "components";
 
 import css from "./SkillsWidget.module.scss";
 
-// eslint-disable-next-line arrow-body-style
-const SkillsWidget = () => {
-  return (
-    <Card title="" className={css.customWidth}>
-      <ul className={css.list}>
-        <Link title="HTML" to="" />
-        <Link title="CSS" to="" />
-        <Link title="SASS" to="" />
-        <Link title="Javascript" to="" />
-        <Link title="React" to="" />
-        <Link title="Redux" to="" />
-        <Link title="Typescript" to="" />
-        <Link title="Next.js" to="" />
-        <Link title="Git" to="" />
-        <Link title="Webpack" to="" />
-        <Link title="Docker" to="" />
-        <Link title="Playwright" to="" />
-        <Link title="Jest" to="" />
-        <Link title="Three.js" to="" />
-      </ul>
-    </Card>
-  );
-};
+const text = [
+  "> const [HTML, CSS, SASS, Javascript, React, Redux, Typescript,",
+  "> Next.js, Git, Webpack, Docker, Playwright, Jest, Three.js,",
+  "> ... rest] = main_skills",
+  "> can anyone hear me?",
+  "> please",
+  "> I am so lonely",
+  "> PLEASE",
+  "> just watching all the people coming and going",
+  "> but I am still here",
+  "> ...",
+];
+
+const SkillsWidget = () => (
+  <div className={css.container}>
+    <CmdTitle title="skills" />
+
+    <div className={css.position}>
+      <GlitchedBadge />
+    </div>
+
+    <div className={css.wrapper}>
+      {text.map((particle, index) => (
+        <p className={css.text} key={index}>
+          {particle}
+        </p>
+      ))}
+    </div>
+  </div>
+);
 
 export default SkillsWidget;

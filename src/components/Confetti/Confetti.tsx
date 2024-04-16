@@ -1,24 +1,27 @@
-import React, { useMemo, useRef } from "react";
+import React from "react";
 
 import css from "./Confetti.module.scss";
 
 const particlesNum = 100;
 const particlesArray = Array.from({ length: particlesNum });
 
-const Confetti = () => {
-  const confetti = useRef(null);
-
-  const particles = useMemo(
-    () =>
-      particlesArray.map((_, i) => <div key={i} className={`confetti-${i}`} />),
-    [],
-  );
-
-  return (
-    <div ref={confetti} className={css.container}>
-      {particles}
-    </div>
-  );
+type Props = {
+  width?: number;
+  height?: number;
 };
+
+const Confetti = ({ height = 360, width = 360 }: Props) => (
+  <div
+    className={css.container}
+    style={{
+      width: `${width}px`,
+      minHeight: `${height}px}`,
+    }}
+  >
+    {particlesArray.map((_, i) => (
+      <div key={i} className={css.particle} />
+    ))}
+  </div>
+);
 
 export default Confetti;
