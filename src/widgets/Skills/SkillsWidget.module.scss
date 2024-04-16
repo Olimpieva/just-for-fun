@@ -25,11 +25,10 @@
 
 .wrapper {
   .text {
-    @include PTMonoFont;
+    @include CourierFont;
     width: 0;
     color: $glitchGreen;
-    font-family: "Courier";
-    font-size: 24px;
+    font-size: $fontSizePrimary;
     margin: 10px 0 0 10px;
     white-space: nowrap;
     overflow: hidden;

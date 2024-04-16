@@ -1,16 +1,7 @@
-@import url("https://fonts.googleapis.com/css2?family=Jura:wght@300..700&family=Lobster&family=Mulish:ital,wght@0,200..1000;1,200..1000&family=Montserrat:wght@200..700&family=PT+Mono&family=Press+Start+2P&family=Rubik+Doodle+Shadow&display=swap");
-
-@import url("https://fonts.googleapis.com/css2?family=Jura:wght@300..700&family=Lobster&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Mulish:ital,wght@0,200..1000;1,200..1000&family=Oswald:wght@200..700&family=PT+Mono&family=Press+Start+2P&family=Rubik+Doodle+Shadow&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Jura:wght@300..700&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Oswald:wght@200..700&family=PT+Mono&family=Press+Start+2P&display=swap");
 
 @mixin PixelFont {
   font-family: "Press Start 2P", "Helvetica", system-ui;
-  font-weight: 400;
-  font-style: normal;
-  line-height: 1;
-}
-
-@mixin LobsterFont {
-  font-family: "Lobster", "Helvetica", sans-serif;
   font-weight: 400;
   font-style: normal;
   line-height: 1;
@@ -26,20 +17,6 @@
 @mixin JuraFont {
   font-family: "Jura", "Helvetica", sans-serif;
   font-optical-sizing: auto;
-  font-weight: 400;
-  font-style: normal;
-  line-height: 1;
-}
-
-@mixin RubikFont {
-  font-family: "Rubik Doodle Shadow", "Helvetica", system-ui;
-  font-weight: 400;
-  font-style: normal;
-  line-height: 1;
-}
-
-@mixin MulishFont {
-  font-family: "Mulish", Arial, sans-serif;
   font-weight: 400;
   font-style: normal;
   line-height: 1;
