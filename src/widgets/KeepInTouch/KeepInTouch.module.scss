@@ -1,11 +1,12 @@
 @import "utils/styles/colors.scss";
 @import "utils/styles/typography.scss";
+@import "utils/styles/extensions.scss";
 
 .container {
   position: relative;
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  gap: 30px;
   width: 100%;
   margin: 0 auto;
   justify-content: space-around;
@@ -15,18 +16,16 @@
     align-items: flex-end;
     justify-content: center;
     flex-direction: column;
-    gap: 20px;
   }
 }
 
 .item {
   display: flex;
-  gap: 16px;
+  gap: $middleGap;
   align-items: center;
   justify-content: center;
   color: white;
-  font-size: $fontSizeH3;
-  font-size: 24px;
+  font-size: $fontSizePrimary;
 
   &:hover {
     scale: 1.1;

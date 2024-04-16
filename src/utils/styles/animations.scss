@@ -1,0 +1,416 @@
+@mixin Glitch-1 {
+  animation: noise-1 3s linear infinite alternate-reverse,
+    glitch-1 4s 4s infinite;
+  -ms-animation: noise-1 3s linear infinite alternate-reverse,
+    glitch-1 4s 4s infinite;
+  -moz-animation: noise-1 3s linear infinite alternate-reverse,
+    glitch-1 4s 4s infinite;
+  -webkit-animation: noise-1 3s linear infinite alternate-reverse,
+    glitch-1 4s 4s infinite;
+
+  @keyframes glitch-1 {
+    1% {
+      transform: rotateX(10deg) skewX(90deg);
+    }
+    2% {
+      transform: rotateX(0deg) skewX(0deg);
+    }
+  }
+
+  @-webkit-keyframes glitch-1 {
+    1% {
+      transform: rotateX(10deg) skewX(90deg);
+    }
+    2% {
+      transform: rotateX(0deg) skewX(0deg);
+    }
+  }
+  @-moz-keyframes glitch-1 {
+    1% {
+      transform: rotateX(10deg) skewX(90deg);
+    }
+    2% {
+      transform: rotateX(0deg) skewX(0deg);
+    }
+  }
+
+  @-ms-keyframes glitch-1 {
+    1% {
+      transform: rotateX(10deg) skewX(90deg);
+    }
+    2% {
+      transform: rotateX(0deg) skewX(0deg);
+    }
+  }
+
+  @keyframes noise-1 {
+    $steps: 30;
+
+    @for $i from 1 through $steps {
+      #{percentage($i*(1/$steps))} {
+        $top: random(100);
+        $bottom: random(101 - $top);
+        clip-path: inset(#{$top}px 0 #{$bottom}px 0);
+      }
+    }
+  }
+
+  @-webkit-keyframes noise-1 {
+    $steps: 30;
+
+    @for $i from 1 through $steps {
+      #{percentage($i*(1/$steps))} {
+        $top: random(100);
+        $bottom: random(101 - $top);
+        clip-path: inset(#{$top}px 0 #{$bottom}px 0);
+      }
+    }
+  }
+
+  @-moz-keyframes noise-1 {
+    $steps: 30;
+
+    @for $i from 1 through $steps {
+      #{percentage($i*(1/$steps))} {
+        $top: random(100);
+        $bottom: random(101 - $top);
+        clip-path: inset(#{$top}px 0 #{$bottom}px 0);
+      }
+    }
+  }
+
+  @-ms-keyframes noise-1 {
+    $steps: 30;
+
+    @for $i from 1 through $steps {
+      #{percentage($i*(1/$steps))} {
+        $top: random(100);
+        $bottom: random(101 - $top);
+        clip-path: inset(#{$top}px 0 #{$bottom}px 0);
+      }
+    }
+  }
+
+  @keyframes noise-2 {
+    $steps: 30;
+
+    @for $i from 0 through $steps {
+      #{percentage($i*(1/$steps))} {
+        $top: random(100);
+        $bottom: random(101 - $top);
+        clip-path: inset(#{$top}px 0 #{$bottom}px 0);
+      }
+    }
+  }
+
+  @-webkit-keyframes noise-2 {
+    $steps: 30;
+
+    @for $i from 0 through $steps {
+      #{percentage($i*(1/$steps))} {
+        $top: random(100);
+        $bottom: random(101 - $top);
+        clip-path: inset(#{$top}px 0 #{$bottom}px 0);
+      }
+    }
+  }
+
+  @-moz-keyframes noise-2 {
+    $steps: 30;
+
+    @for $i from 0 through $steps {
+      #{percentage($i*(1/$steps))} {
+        $top: random(100);
+        $bottom: random(101 - $top);
+        clip-path: inset(#{$top}px 0 #{$bottom}px 0);
+      }
+    }
+  }
+
+  @-ms-keyframes noise-2 {
+    $steps: 30;
+
+    @for $i from 0 through $steps {
+      #{percentage($i*(1/$steps))} {
+        $top: random(100);
+        $bottom: random(101 - $top);
+        clip-path: inset(#{$top}px 0 #{$bottom}px 0);
+      }
+    }
+  }
+}
+
+@mixin Glitch-2 {
+  animation: glitch-2 0.01s infinite alternate;
+  -ms-animation: glitch-2 0.01s infinite alternate;
+  -moz-animation: glitch-2 0.01s infinite alternate;
+  -webkit-animation: glitch-2 0.01s infinite alternate;
+
+  @keyframes glitch-2 {
+    from {
+      text-shadow: 1px 0 0 $glitchPink, -2px 0 0 $glitchGreen;
+    }
+    to {
+      text-shadow: 2px 0.5px 2px $glitchPink, -1px -0.5px 2px $glitchGreen;
+    }
+  }
+
+  @-webkit-keyframes glitch-2 {
+    from {
+      text-shadow: 1px 0 0 $glitchPink, -2px 0 0 $glitchGreen;
+    }
+    to {
+      text-shadow: 2px 0.5px 2px $glitchPink, -1px -0.5px 2px $glitchGreen;
+    }
+  }
+
+  @-moz-keyframes glitch-2 {
+    from {
+      text-shadow: 1px 0 0 $glitchPink, -2px 0 0 $glitchGreen;
+    }
+    to {
+      text-shadow: 2px 0.5px 2px $glitchPink, -1px -0.5px 2px $glitchGreen;
+    }
+  }
+
+  @-ms-keyframes glitch-2 {
+    from {
+      text-shadow: 1px 0 0 $glitchPink, -2px 0 0 $glitchGreen;
+    }
+    to {
+      text-shadow: 2px 0.5px 2px $glitchPink, -1px -0.5px 2px $glitchGreen;
+    }
+  }
+}
+
+@mixin Glitch-3 {
+  animation: glitch-3 0.01s infinite alternate;
+  -ms-animation: glitch-3 0.01s infinite alternate;
+  -moz-animation: glitch-3 0.01s infinite alternate;
+  -webkit-animation: glitch-3 0.01s infinite alternate;
+
+  @keyframes glitch-3 {
+    1% {
+      transform: rotateX(10deg) skewX(90deg);
+    }
+    2% {
+      transform: rotateX(0deg) skewX(0deg);
+    }
+  }
+
+  @-webkit-keyframes glitch-3 {
+    1% {
+      transform: rotateX(10deg) skewX(90deg);
+    }
+    2% {
+      transform: rotateX(0deg) skewX(0deg);
+    }
+  }
+
+  @-moz-keyframes glitch-3 {
+    1% {
+      transform: rotateX(10deg) skewX(90deg);
+    }
+    2% {
+      transform: rotateX(0deg) skewX(0deg);
+    }
+  }
+
+  @-ms-keyframes glitch-3 {
+    1% {
+      transform: rotateX(10deg) skewX(90deg);
+    }
+    2% {
+      transform: rotateX(0deg) skewX(0deg);
+    }
+  }
+}
+
+@mixin Blink-1 {
+  animation: blink 1s infinite;
+  -ms-animation: blink 1s infinite;
+  -moz-animation: blink 1s infinite;
+  -webkit-animation: blink 1s infinite;
+
+  @keyframes blink {
+    to {
+      opacity: 0;
+    }
+  }
+
+  @-webkit-keyframes blink {
+    to {
+      opacity: 0;
+    }
+  }
+
+  @-moz-keyframes blink {
+    to {
+      opacity: 0;
+    }
+  }
+
+  @-ms-keyframes blink {
+    to {
+      opacity: 0;
+    }
+  }
+}
+
+@mixin Turn-1 {
+  animation: turn 2s infinite linear;
+  -webkit-animation: turn 2s infinite;
+  -ms-animation: turn 2s infinite linear;
+  -moz-animation: turn 2s infinite linear;
+
+  @keyframes turn {
+    0% {
+      transform: rotateZ(2deg) translate(0, 60%);
+    }
+
+    25% {
+      transform: rotateZ(10deg) translate(0, 60%);
+    }
+
+    50% {
+      transform: rotateZ(2deg) translate(0, 60%);
+    }
+
+    75% {
+      transform: rotateZ(-10deg) translate(0, 60%);
+    }
+
+    100% {
+      transform: rotateZ(2deg) translate(0, 60%);
+    }
+  }
+
+  @-webkit-keyframes turn {
+    0% {
+      transform: rotateZ(2deg) translate(0, 60%);
+    }
+
+    25% {
+      transform: rotateZ(10deg) translate(0, 60%);
+    }
+
+    50% {
+      transform: rotateZ(2deg) translate(0, 60%);
+    }
+
+    75% {
+      transform: rotateZ(-10deg) translate(0, 60%);
+    }
+
+    100% {
+      transform: rotateZ(2deg) translate(0, 60%);
+    }
+  }
+
+  @-moz-keyframes turn {
+    0% {
+      transform: rotateZ(2deg) translate(0, 60%);
+    }
+
+    25% {
+      transform: rotateZ(10deg) translate(0, 60%);
+    }
+
+    50% {
+      transform: rotateZ(2deg) translate(0, 60%);
+    }
+
+    75% {
+      transform: rotateZ(-10deg) translate(0, 60%);
+    }
+
+    100% {
+      transform: rotateZ(2deg) translate(0, 60%);
+    }
+  }
+
+  @-ms-keyframes turn {
+    0% {
+      transform: rotateZ(2deg) translate(0, 60%);
+    }
+
+    25% {
+      transform: rotateZ(10deg) translate(0, 60%);
+    }
+
+    50% {
+      transform: rotateZ(2deg) translate(0, 60%);
+    }
+
+    75% {
+      transform: rotateZ(-10deg) translate(0, 60%);
+    }
+
+    100% {
+      transform: rotateZ(2deg) translate(0, 60%);
+    }
+  }
+}
+
+@mixin Scale-1 {
+  animation: scale 2s infinite linear;
+  -webkit-animation: scale 2s infinite linear;
+  -ms-animation: scale 2s infinite linear;
+  -moz-animation: scale 2s infinite linear;
+
+  @keyframes scale {
+    0% {
+      transform: scale(1);
+    }
+
+    50% {
+      transform: scale(1.2);
+    }
+
+    100% {
+      transform: scale(1);
+    }
+  }
+
+  @-webkit-keyframes scale {
+    0% {
+      transform: scale(1);
+    }
+
+    50% {
+      transform: scale(1.2);
+    }
+
+    100% {
+      transform: scale(1);
+    }
+  }
+
+  @-moz-keyframes scale {
+    0% {
+      transform: scale(1);
+    }
+
+    50% {
+      transform: scale(1.2);
+    }
+
+    100% {
+      transform: scale(1);
+    }
+  }
+
+  @-ms-keyframes scale {
+    0% {
+      transform: scale(1);
+    }
+
+    50% {
+      transform: scale(1.2);
+    }
+
+    100% {
+      transform: scale(1);
+    }
+  }
+}

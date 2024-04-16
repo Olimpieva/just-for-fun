@@ -57,7 +57,7 @@
   }
 
   > p {
-    color: #999;
+    color: $neutralFontColor;
   }
 }
 
@@ -72,10 +72,10 @@
   transform: rotateY(-180deg);
 
   > h3 {
-    color: $neutral;
+    color: $lightFontColor;
   }
 
   > p {
-    color: rgba(255, 255, 255, 0.5);
+    color: $white50op;
   }
 }

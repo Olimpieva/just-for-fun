@@ -1,7 +1,7 @@
 import React, { useCallback, useEffect, useMemo, useState } from "react";
 import cn from "classnames";
 import { useAppSelector, useAppThunkDispatch } from "utils/hooks";
-import { ImageLazyLoad, NeumorphismButton } from "components";
+import { ImageLazyLoad, NeumorphiсButton } from "components";
 import { ReactComponent as LikeIcon } from "assets/like.svg";
 import { ReactComponent as DogIcon } from "assets/dog.svg";
 import { ReactComponent as FoxIcon } from "assets/fox.svg";
@@ -80,21 +80,21 @@ const GalleryWidget = () => {
   return (
     <div className={css.container}>
       <div className={cn(css.tabs, css.frame)}>
-        <NeumorphismButton
+        <NeumorphiсButton
           className={cn({ [css.active]: activeTab === Tab.Fox })}
           onClick={toggleActiveTab}
           disabled={activeTab === Tab.Fox || loading}
         >
           <FoxIcon />
-        </NeumorphismButton>
+        </NeumorphiсButton>
 
-        <NeumorphismButton
+        <NeumorphiсButton
           className={cn({ [css.active]: activeTab === Tab.Dog })}
           onClick={toggleActiveTab}
           disabled={activeTab === Tab.Dog || loading}
         >
           <DogIcon />
-        </NeumorphismButton>
+        </NeumorphiсButton>
       </div>
 
       <div className={css.image}>
@@ -109,11 +109,11 @@ const GalleryWidget = () => {
       </div>
 
       <div className={css.controls}>
-        <NeumorphismButton onClick={getNextImage} disabled={loading}>
+        <NeumorphiсButton onClick={getNextImage} disabled={loading}>
           <NextIcon />
-        </NeumorphismButton>
+        </NeumorphiсButton>
 
-        <NeumorphismButton
+        <NeumorphiсButton
           className={cn(css.like, {
             [css.active]: isLiked,
           })}
@@ -121,7 +121,7 @@ const GalleryWidget = () => {
           disabled={loading}
         >
           <LikeIcon />
-        </NeumorphismButton>
+        </NeumorphiсButton>
       </div>
     </div>
   );

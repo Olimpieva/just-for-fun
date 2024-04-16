@@ -1,5 +1,4 @@
-@import "utils/styles/colors.scss";
-@import "utils/styles/typography.scss";
+@import "utils/styles/extensions.scss";
 
 .titleWrapper {
   width: 100%;
@@ -7,12 +6,8 @@
 }
 
 .list {
-  margin: 0;
-  padding: 0;
-  text-decoration: none;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 20px;
-  text-transform: lowercase;
+  gap: $middleGap;
 }

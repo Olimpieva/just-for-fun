@@ -9,6 +9,8 @@ import "utils/styles/common.scss";
 import "utils/styles/indents.scss";
 import "utils/styles/typography.scss";
 import "utils/styles/colors.scss";
+import "utils/styles/animations.scss";
+import "utils/styles/extensions.scss";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement,

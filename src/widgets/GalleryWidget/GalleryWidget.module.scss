@@ -1,11 +1,7 @@
 @import "utils/styles/colors.scss";
 @import "utils/styles/typography.scss";
-
-$white: rgba(255, 255, 255, 0.2);
-$dark: rgba(0, 0, 0, 0.2);
-$radius: 10px;
-$shadow-out: -4px -2px 4px 0px $white, 4px 2px 6px 0px $dark;
-$shadow-in: 2px 2px 2px 0px $dark inset, -2px -2px 2px 0px $white inset;
+@import "utils/styles/animations.scss";
+@import "utils/styles/extensions.scss";
 
 .container {
   padding: 24px;
