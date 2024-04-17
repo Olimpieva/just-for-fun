@@ -6,6 +6,6 @@ type ResponseType = {
 };
 
 const getRandomImage = async () =>
-  axios.get<ResponseType>(`random.dog/woof.json`);
+  axios.get<ResponseType>(`https://random.dog/woof.json`);
 
 export default getRandomImage;

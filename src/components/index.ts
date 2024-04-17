@@ -1,4 +1,3 @@
-import Link from "./Link";
 import Card from "./Card";
 import RainbowTitle from "./RainbowTitle";
 import Confetti from "./Confetti";
@@ -7,11 +6,10 @@ import FlippedBadge from "./FlippedBadge";
 import ImageLazyLoad from "./ImageLazyLoad";
 import CmdTitle from "./CmdTitle";
 import ColorBlockBadge from "./ColorBlockBadge";
-import NeumorphismButton from "./NeumorphismButton";
+import NeumorphiсButton from "./NeumorphiсButton";
 import GlitchedBadge from "./GlitchedBadge";
 
 export {
-  Link,
   Card,
   RainbowTitle,
   Confetti,
@@ -20,6 +18,6 @@ export {
   ImageLazyLoad,
   CmdTitle,
   ColorBlockBadge,
-  NeumorphismButton,
+  NeumorphiсButton,
   GlitchedBadge,
 };

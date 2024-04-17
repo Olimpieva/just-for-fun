@@ -1,5 +1,14 @@
+@import "utils/styles/colors.scss";
+
 $confettiNum: 100;
-$confettiColors: (#61b4de, #91c467, #f3a14b, #e84c50, #8154e2, #4e5965);
+$confettiColors: (
+  $primaryLightBlue,
+  $secondaryGreen,
+  $secondaryOrange,
+  $secondaryRed,
+  $secondaryViolet,
+  $primaryGray
+);
 
 .container {
   height: 100%;

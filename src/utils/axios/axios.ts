@@ -8,7 +8,6 @@ const axios = applyCaseMiddleware(
       Accept: "application/json",
     },
     responseType: "json",
-    baseURL: "https://",
   }),
   {
     ignoreHeaders: true,

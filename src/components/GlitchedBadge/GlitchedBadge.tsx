@@ -1,4 +1,5 @@
 import React from "react";
+
 import css from "./GlitchedBadge.module.scss";
 
 const GlitchedBadge = () => (

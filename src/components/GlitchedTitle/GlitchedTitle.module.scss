@@ -1,5 +1,6 @@
 @import "utils/styles/colors.scss";
 @import "utils/styles/typography.scss";
+@import "utils/styles/animations.scss";
 
 .italic {
   @include OswaldFont;
@@ -11,35 +12,35 @@
 
   .title,
   .shadow {
+    @include Glitch-3;
+
     position: relative;
     font-size: $fontSizeH1;
     font-style: italic;
     font-weight: 800;
-    line-height: 0.8;
-    color: white;
+    color: $lightFontColor;
     animation: glitch 5s 5s infinite;
 
     &:before {
+      @include Glitch-1;
+
       content: attr(data-text);
       position: absolute;
       top: 0;
       left: -2px;
-
       overflow: hidden;
-      text-shadow: -4px 0 magenta;
-      animation: noise-1 3s linear infinite alternate-reverse,
-        glitch 4s 4s infinite;
+      text-shadow: -4px 0 $glitchPink;
     }
 
     &:after {
+      @include Glitch-1;
+
       content: attr(data-text);
       position: absolute;
       top: 0;
       left: 2px;
       overflow: hidden;
       text-shadow: -4px 0 lightgreen;
-      animation: noise-2 3s linear infinite alternate-reverse,
-        glitch 4s 4s infinite;
     }
   }
 
@@ -47,68 +48,23 @@
     position: absolute;
     top: 0;
     left: 0;
-    text-shadow: 0 0 1000px rgb(249, 213, 232);
+    text-shadow: 0 0 1000px $secondaryPink;
     color: transparent;
   }
 }
 
 .pixel {
   @include PixelFont;
+  @include Glitch-2;
 
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  text-shadow: 0.06rem 0 0.06rem magenta, -0.125rem 0 0.06rem lime;
+  text-shadow: 3px 0 3px $glitchPink, -3px 0 3px $glitchGreen;
   text-transform: uppercase;
   font-size: $fontSizeH3;
-  color: #eee;
+  color: $lightFontColor;
   line-height: 1;
   letter-spacing: 0.125em;
-  animation-duration: 0.01s;
-  animation-name: glitch-2;
-  animation-iteration-count: infinite;
-  animation-direction: alternate;
-}
-
-@keyframes glitch {
-  1% {
-    transform: rotateX(10deg) skewX(90deg);
-  }
-  2% {
-    transform: rotateX(0deg) skewX(0deg);
-  }
-}
-
-@keyframes glitch-2 {
-  from {
-    text-shadow: 1px 0 0 magenta, -2px 0 0 lime;
-  }
-  to {
-    text-shadow: 2px 0.5px 2px magenta, -1px -0.5px 2px lime;
-  }
-}
-
-@keyframes noise-1 {
-  $steps: 30;
-
-  @for $i from 1 through $steps {
-    #{percentage($i*(1/$steps))} {
-      $top: random(100);
-      $bottom: random(101 - $top);
-      clip-path: inset(#{$top}px 0 #{$bottom}px 0);
-    }
-  }
-}
-
-@keyframes noise-2 {
-  $steps: 30;
-
-  @for $i from 0 through $steps {
-    #{percentage($i*(1/$steps))} {
-      $top: random(100);
-      $bottom: random(101 - $top);
-      clip-path: inset(#{$top}px 0 #{$bottom}px 0);
-    }
-  }
 }
