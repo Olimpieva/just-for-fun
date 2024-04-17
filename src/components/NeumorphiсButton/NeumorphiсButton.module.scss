@@ -32,6 +32,7 @@
   }
 
   &:disabled {
+    box-shadow: $shadow-in;
     background: none;
     opacity: 1;
     cursor: auto;
