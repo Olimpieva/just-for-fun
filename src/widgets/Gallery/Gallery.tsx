@@ -18,7 +18,7 @@ import {
   likeImage,
 } from "../../redux/gallery/actions";
 
-import css from "./GalleryWidget.module.scss";
+import css from "./Gallery.module.scss";
 
 enum Tab {
   Fox = "Fox",
@@ -31,6 +31,16 @@ const GalleryWidget = () => {
   const likedImages = useAppSelector(selectLikedImages);
   const { loading } = useAppSelector(selectImageLoading);
   const [activeTab, setActiveTab] = useState<Tab>(Tab.Dog);
+  // I don't need lazy load here, I guess?
+  const [isImageLoaded, setIsImageLoaded] = useState(false);
+
+  useEffect(() => {
+    setIsImageLoaded(false);
+  }, [current]);
+
+  const onLoadImage = useCallback(() => {
+    setIsImageLoaded(true);
+  }, []);
 
   const isLiked = useMemo(
     () => current && Boolean(likedImages[current.id]),
@@ -79,26 +89,12 @@ const GalleryWidget = () => {
 
   return (
     <div className={css.container}>
-      <div className={cn(css.tabs, css.frame)}>
-        <NeumorphiсButton
-          className={cn({ [css.active]: activeTab === Tab.Fox })}
-          onClick={toggleActiveTab}
-          disabled={activeTab === Tab.Fox || loading}
-        >
-          <FoxIcon />
-        </NeumorphiсButton>
-
-        <NeumorphiсButton
-          className={cn({ [css.active]: activeTab === Tab.Dog })}
-          onClick={toggleActiveTab}
-          disabled={activeTab === Tab.Dog || loading}
-        >
-          <DogIcon />
-        </NeumorphiсButton>
-      </div>
-
-      <div className={css.image}>
-        <ImageLazyLoad src={current?.image} />
+      <div className={css.left}>
+        <ImageLazyLoad
+          onLoad={onLoadImage}
+          onError={onLoadImage}
+          src={current?.image}
+        />
 
         <div className={css.glitch1}>
           <ImageLazyLoad src={current?.image} />
@@ -108,20 +104,44 @@ const GalleryWidget = () => {
         </div>
       </div>
 
-      <div className={css.controls}>
-        <NeumorphiсButton onClick={getNextImage} disabled={loading}>
-          <NextIcon />
-        </NeumorphiсButton>
+      <div className={css.right}>
+        <div className={css.tabs}>
+          <NeumorphiсButton
+            className={cn({ [css.active]: activeTab === Tab.Fox })}
+            onClick={toggleActiveTab}
+            disabled={activeTab === Tab.Fox || loading || !isImageLoaded}
+          >
+            <FoxIcon />
+          </NeumorphiсButton>
 
-        <NeumorphiсButton
-          className={cn(css.like, {
-            [css.active]: isLiked,
-          })}
-          onClick={toggleLike}
-          disabled={loading}
-        >
-          <LikeIcon />
-        </NeumorphiсButton>
+          <NeumorphiсButton
+            className={cn({ [css.active]: activeTab === Tab.Dog })}
+            onClick={toggleActiveTab}
+            disabled={activeTab === Tab.Dog || loading || !isImageLoaded}
+          >
+            <DogIcon />
+          </NeumorphiсButton>
+        </div>
+
+        <div className={css.controls}>
+          <NeumorphiсButton
+            onClick={getNextImage}
+            disabled={loading || !isImageLoaded}
+          >
+            <NextIcon />
+          </NeumorphiсButton>
+
+          <NeumorphiсButton
+            className={cn(css.like, {
+              [css.active]: isLiked,
+              [css.liked]: isLiked,
+            })}
+            onClick={toggleLike}
+            disabled={loading || !isImageLoaded}
+          >
+            <LikeIcon />
+          </NeumorphiсButton>
+        </div>
       </div>
     </div>
   );
