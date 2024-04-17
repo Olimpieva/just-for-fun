@@ -12,7 +12,7 @@ const KeepInTouch = () => (
     <li>
       <GlitchedLink text="Telegram_" to="https://t.me/user_already_exist">
         <div className={css.item}>
-          <TelegramIcon width="64px" height="64px" color="white" />
+          <TelegramIcon width={24} color="white" />
           Telegram_
         </div>
       </GlitchedLink>
@@ -21,8 +21,8 @@ const KeepInTouch = () => (
     <li>
       <GlitchedLink text="Почта" to="mailto:522.connection.timed.out@gmail.com">
         <div className={css.item}>
-          <MailIcon width="64px" height="64px" color="white" />
-          Почта_
+          <MailIcon width={24} color="white" />
+          Mail_
         </div>
       </GlitchedLink>
     </li>
@@ -30,7 +30,7 @@ const KeepInTouch = () => (
     <li>
       <GlitchedLink text="Github_" to="https://github.com/Olimpieva">
         <div className={css.item}>
-          <GithubIcon width="64px" height="64px" color="white" />
+          <GithubIcon width={24} color="white" />
           Github_
         </div>
       </GlitchedLink>
