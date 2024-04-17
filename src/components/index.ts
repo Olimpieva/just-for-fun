@@ -8,6 +8,9 @@ import CmdTitle from "./CmdTitle";
 import ColorBlockBadge from "./ColorBlockBadge";
 import NeumorphiсButton from "./NeumorphiсButton";
 import GlitchedBadge from "./GlitchedBadge";
+import Modal from "./Modal";
+import TypingText from "./TypingText";
+import SweetTitle from "./SweetTitle";
 
 export {
   Card,
@@ -20,4 +23,7 @@ export {
   ColorBlockBadge,
   NeumorphiсButton,
   GlitchedBadge,
+  Modal,
+  TypingText,
+  SweetTitle,
 };
