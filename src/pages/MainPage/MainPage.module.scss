@@ -7,16 +7,21 @@
 }
 
 .container {
+  width: 100%;
   min-width: 500px;
   min-height: 100vh;
-  padding: 30px 60px 60px;
+  padding: 36px 36px 24px;
   margin: 0 auto;
+  position: relative;
   background: linear-gradient($white50op, transparent 2px),
     linear-gradient(90deg, $white50op, transparent 2px);
   background-size: 120px 120px;
   background-position: center center;
   border: 2px $white50op solid;
   z-index: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .header {
@@ -41,7 +46,7 @@
 .subtitle {
   @include MontserratFont;
 
-  margin-bottom: 60px;
+  margin-bottom: 36px;
   color: $neutral;
   font-size: $fontSizeH3;
   text-transform: uppercase;
@@ -56,36 +61,7 @@
   font-size: $fontSizeSecondary;
 }
 
-.info {
-  display: grid;
-  grid-template-columns: 1fr 2fr;
-  grid-template-rows: max-content 1fr 1fr 1fr;
-  gap: $bigGap;
-  margin-bottom: $bigGap;
-
-  .row {
-    grid-column: 1/3;
-  }
-}
-
-.fun {
-  display: grid;
-  grid-template-columns: 560px 1fr;
-  gap: $bigGap;
-}
-
-.flex {
-  display: flex;
-  flex-direction: column;
-  gap: $bigGap;
-}
-
-.grid {
-  display: grid;
-  grid-template-columns: 1fr 2fr;
-  gap: $bigGap;
-}
-
-.da {
-  max-width: 560px;
+.footer {
+  margin: -36px -36px -24px;
+  z-index: 2;
 }
