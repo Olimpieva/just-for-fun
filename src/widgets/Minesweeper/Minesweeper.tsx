@@ -71,7 +71,7 @@ function Minesweeper() {
   return (
     <Card title="">
       <div className={css.position}>
-        <BombIcon width={180} />
+        <BombIcon width={120} />
       </div>
 
       <div className={css.container}>
@@ -85,7 +85,7 @@ function Minesweeper() {
 
           {isConfettiVisible && (
             <div className={css.wrapper}>
-              <Confetti width={520} height={520} />
+              <Confetti width={520} height={360} />
             </div>
           )}
         </div>
