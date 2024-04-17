@@ -3,7 +3,10 @@ import KeepInTouch from "./KeepInTouch";
 import ExperienceWidget from "./Experience";
 import EducationWidget from "./Education";
 import SkillsWidget from "./Skills";
-import GalleryWidget from "./GalleryWidget";
+import GalleryWidget from "./Gallery";
+import FavoritesWidget from "./Favorites";
+import Tabs from "./Tabs";
+import ModalWrapper from "./ModalWrapper";
 
 export {
   Minesweeper,
@@ -12,4 +15,7 @@ export {
   EducationWidget,
   SkillsWidget,
   GalleryWidget,
+  FavoritesWidget,
+  Tabs,
+  ModalWrapper,
 };
