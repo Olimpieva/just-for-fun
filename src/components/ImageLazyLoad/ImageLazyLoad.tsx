@@ -6,10 +6,14 @@ interface ImageProps extends React.ImgHTMLAttributes<HTMLImageElement> {
   placeholder?: string;
   error?: string;
   className?: string;
+  onLoad?: () => void;
+  onError?: () => void;
 }
 
 const ImageLazyLoad = ({
   src,
+  onLoad,
+  onError,
   placeholder = LoadIcon,
   error = NoImageIcon,
   className,
@@ -17,25 +21,27 @@ const ImageLazyLoad = ({
 }: ImageProps) => {
   const [imgSrc, setImgSrc] = useState(placeholder || src);
 
-  const onLoad = useCallback(() => {
+  const onLoadhandler = useCallback(() => {
+    if (onLoad) onLoad();
     setImgSrc(src);
-  }, [src]);
+  }, [onLoad, src]);
 
-  const onError = useCallback(() => {
+  const onErrorHandler = useCallback(() => {
+    if (onError) onError();
     setImgSrc(error || placeholder);
-  }, [error, placeholder]);
+  }, [error, onError, placeholder]);
 
   useEffect(() => {
     const img = new Image();
     img.src = src as string;
-    img.addEventListener("load", onLoad);
-    img.addEventListener("error", onError);
+    img.addEventListener("load", onLoadhandler);
+    img.addEventListener("error", onErrorHandler);
 
     return () => {
-      img.removeEventListener("load", onLoad);
-      img.removeEventListener("error", onError);
+      img.removeEventListener("load", onLoadhandler);
+      img.removeEventListener("error", onErrorHandler);
     };
-  }, [src, onLoad, onError]);
+  }, [src, onLoadhandler, onErrorHandler]);
 
   return <img {...props} alt={imgSrc} src={imgSrc} className={className} />;
 };

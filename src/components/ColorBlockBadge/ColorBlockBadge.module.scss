@@ -4,8 +4,7 @@
 
 .container {
   width: inherit;
-  height: 120px;
-  padding: 8px;
+  height: 96px;
   position: relative;
   display: flex;
   flex-direction: column;
@@ -33,7 +32,7 @@
   @include MontserratFont;
 
   width: inherit;
-  min-height: 120px;
+  min-height: 96px;
   padding: 8px;
   display: flex;
   flex-direction: column;
