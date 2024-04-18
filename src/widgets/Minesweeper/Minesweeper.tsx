@@ -62,7 +62,7 @@ function Minesweeper() {
       return "LOOSER!";
     }
 
-    return `Осталось: ${remainingBomsCounter} ${getWordEnding(
+    return `Осталось ${remainingBomsCounter} ${getWordEnding(
       remainingBomsCounter,
       ["бомба", "бомбы", "бомб"],
     )}`;
@@ -90,7 +90,7 @@ function Minesweeper() {
 
           {isConfettiVisible && (
             <div className={css.wrapper}>
-              <Confetti width={520} height={360} />
+              <Confetti width={480} height={480} />
             </div>
           )}
         </div>
@@ -114,7 +114,7 @@ function Minesweeper() {
             [css.visible]: isLoosing,
           })}
         >
-          <TypingText text="Boom! ha-ha-ha!" />
+          <TypingText text="Boom!" />
         </div>
       </div>
     </Card>

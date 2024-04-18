@@ -21,7 +21,7 @@
 .front,
 .back {
   width: inherit;
-  min-height: 96px;
+  min-height: 112px;
   padding: 8px;
   display: flex;
   flex-direction: column;
@@ -43,7 +43,7 @@
   > p {
     @include PTMonoFont;
 
-    font-size: $fontSizeSmall;
+    font-size: $fontSizeSecondary;
   }
 }
 

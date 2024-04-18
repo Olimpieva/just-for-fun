@@ -26,7 +26,6 @@ const Modals: Record<ModalType, JSX.Element> = {
 const ModalWrapper = () => {
   const dispatch = useAppDispatch();
   const currentModal = useAppSelector(selectCurrentModal);
-  console.log({ currentModal });
 
   const onClose = () => {
     if (!currentModal) return;
