@@ -2,6 +2,6 @@
 
 just the home page to the three.js project with react, redux and typescript.
 
->  [link to page](https://just-for-fun-gold.vercel.app/)
+>  [link to this page](https://just-for-fun-gold.vercel.app/)
 
->  [link to three.js page](https://just-for-fun-three.vercel.app/)
+>  [link to the three.js page](https://just-for-fun-three.vercel.app/)
