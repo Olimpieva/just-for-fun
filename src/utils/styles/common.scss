@@ -12,3 +12,32 @@ ul {
 a {
   text-decoration: none;
 }
+
+// #heart-left,
+// #heart-right {
+//   animation-name: spin;
+//   animation-duration: 4000ms;
+//   animation-iteration-count: infinite;
+//   animation-timing-function: linear;
+//   transform-origin: 15.887px 29.88px;
+//   animation-play-state: paused;
+// }
+// #heart-right {
+//   animation-duration: 3000ms;
+//   transform-origin: 24.691px 35.778px;
+//   animation-direction: reverse;
+// }
+
+// svg:hover #heart-left,
+// svg:hover #heart-right {
+//   animation-play-state: running;
+// }
+
+// @keyframes spin {
+//   from {
+//     transform: rotate(0deg);
+//   }
+//   to {
+//     transform: rotate(90deg);
+//   }
+// }

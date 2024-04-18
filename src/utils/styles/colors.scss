@@ -1,5 +1,6 @@
-$primaryDarkBlue: #1634ea;
-$primaryLightBlue: #1cadea;
+$primaryDarkBlue: #4242e6;
+// $primaryDarkBlue: #1634ea;
+$primaryLightBlue: hsl(198, 83%, 51%);
 $primaryYellow: #dbe86a;
 $primaryPink: #e37cd3;
 $primaryViolet: #7d82e1;
@@ -16,9 +17,10 @@ $secondaryYellow: #e9cb15;
 $secondaryGreen: #91c467;
 $secondaryViolet: #a3a3dc;
 $secondaryGray: #999;
-$secondaryPink: rgb(249, 213, 232);
+$secondaryPink: #f9d5e8;
 
-$darkFontColor: #1634ea;
+$darkFontColor: #4242e6;
+// $darkFontColor: #1634ea;
 $lightFontColor: #fff;
 $neutralFontColor: #999;
 
@@ -26,5 +28,5 @@ $white: #fff;
 $white50op: rgba(255, 255, 255, 0.5);
 $white80op: rgba(255, 255, 255, 0.5);
 
-$bgColorLight: #1cadea;
-$bgColorDark: #174cea;
+$bgColorLight: #51a1e2;
+$bgColorDark: #4242e6;

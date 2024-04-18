@@ -1,5 +1,9 @@
 import { v4 as uuidv4 } from "uuid";
-import { createAction, createAsyncThunk } from "@reduxjs/toolkit";
+import {
+  PrepareAction,
+  createAction,
+  createAsyncThunk,
+} from "@reduxjs/toolkit";
 import { handleError } from "utils/axios";
 import { dogsApi, foxesApi } from "api";
 import { GalleryItem } from "entities/galleryItem";
@@ -46,8 +50,65 @@ const fetchFoxImage = createAsyncThunk<
   }
 });
 
-const likeImage = createAction<GalleryItem>("gallery/likeImage");
+const updateLikedImages = createAction<Record<string, GalleryItem>>(
+  "gallery/updateLikedImages",
+);
 
-const dislikeImage = createAction<string>("gallery/dislikeImage");
+const fetchLikedImages = createAsyncThunk<
+  void,
+  undefined,
+  {
+    rejectValue?: string;
+  }
+>("gallery/fetchLikedImages", async (_, { rejectWithValue, dispatch }) => {
+  try {
+    const liked = JSON.parse(localStorage.getItem("liked") || "{}");
 
-export { fetchFoxImage, fetchDogImage, likeImage, dislikeImage };
+    console.log({ liked });
+
+    await dispatch(updateLikedImages(liked));
+
+    return undefined;
+  } catch (e) {
+    const { axiosError, error } = handleError(e);
+    if (axiosError) {
+      return rejectWithValue(axiosError.response?.data.errorMessage);
+    }
+    return rejectWithValue(error?.message);
+  }
+});
+
+const likeImage = createAction<PrepareAction<GalleryItem>>(
+  "gallery/likeImage",
+  (newImage: GalleryItem) => {
+    const prevLiked = JSON.parse(localStorage.getItem("liked") || "{}");
+    const newLiked = { ...prevLiked, [newImage.id]: newImage };
+    localStorage.setItem("liked", JSON.stringify(newLiked));
+
+    return { payload: newImage };
+  },
+);
+
+const dislikeImage = createAction<PrepareAction<string>>(
+  "gallery/dislikeImage",
+  (id: string) => {
+    const prevLiked = JSON.parse(localStorage.getItem("liked") || "{}");
+    prevLiked[id] = undefined;
+    const newLiked = { ...prevLiked };
+    localStorage.setItem("liked", JSON.stringify(newLiked));
+
+    return { payload: id };
+  },
+);
+
+const clearCurrentImage = createAction<undefined>("gallery/clearCurrentImage");
+
+export {
+  fetchFoxImage,
+  fetchDogImage,
+  likeImage,
+  dislikeImage,
+  clearCurrentImage,
+  updateLikedImages,
+  fetchLikedImages,
+};

@@ -146,12 +146,30 @@
   -moz-animation: glitch-2 0.01s infinite alternate;
   -webkit-animation: glitch-2 0.01s infinite alternate;
 
+  & > svg {
+    animation: glitch-2-svg 0.01s infinite alternate;
+    -ms-animation: glitch-2-svg 0.01s infinite alternate;
+    -moz-animation: glitch-2-svg 0.01s infinite alternate;
+    -webkit-animation: glitch-2-svg 0.01s infinite alternate;
+  }
+
   @keyframes glitch-2 {
     from {
       text-shadow: 1px 0 0 $glitchPink, -2px 0 0 $glitchGreen;
     }
     to {
       text-shadow: 2px 0.5px 2px $glitchPink, -1px -0.5px 2px $glitchGreen;
+    }
+  }
+
+  @keyframes glitch-2-svg {
+    from {
+      filter: drop-shadow(1px 0 0 $glitchPink)
+        drop-shadow(-2px 0 0 $glitchGreen);
+    }
+    to {
+      filter: drop-shadow(2px 0.5px 2px $glitchPink)
+        drop-shadow(-1px -0.5px 2px $glitchGreen);
     }
   }
 

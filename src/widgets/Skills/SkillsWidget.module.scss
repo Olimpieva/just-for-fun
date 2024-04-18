@@ -3,8 +3,8 @@
 @import "utils/styles/extensions.scss";
 
 .container {
+  min-width: 952px;
   width: 100%;
-  max-width: 1024px;
   padding: 24px;
   border: 2px solid $glitchGreen;
   border-radius: 8px;
@@ -26,6 +26,7 @@
 }
 
 .wrapper {
+  max-width: 900px;
   .text {
     @include CourierFont;
     width: 0;
@@ -34,12 +35,13 @@
     margin: 10px 0 0 10px;
     white-space: nowrap;
     overflow: hidden;
-
     text-shadow: 0px 0px 40px $glitchGreen, 0px 0px 40px $glitchGreen;
     animation: type 4s steps(60, end);
     animation-fill-mode: forwards;
 
-    @for $i from 1 through 10 {
+    $num: 11;
+
+    @for $i from 1 through $num {
       &:nth-child(#{$i}) {
         animation-delay: #{$i * 2} + "s";
       }

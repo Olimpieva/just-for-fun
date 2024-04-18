@@ -6,7 +6,7 @@ import React, {
   useState,
 } from "react";
 import cn from "classnames";
-import { Card, RainbowTitle } from "components";
+import { Card, RainbowTitle, TypingText } from "components";
 import Confetti from "components/Confetti/Confetti";
 import { ReactComponent as BombIcon } from "assets/bomb.svg";
 import { getWordEnding } from "utils/helpers";
@@ -70,8 +70,13 @@ function Minesweeper() {
 
   return (
     <Card title="">
-      <div className={css.position}>
-        <BombIcon width={180} />
+      <div
+        className={cn(css.position, {
+          [css.visible]: isLoosing,
+          [css.boom]: isLoosing,
+        })}
+      >
+        <BombIcon width={120} />
       </div>
 
       <div className={css.container}>
@@ -85,7 +90,7 @@ function Minesweeper() {
 
           {isConfettiVisible && (
             <div className={css.wrapper}>
-              <Confetti width={520} height={520} />
+              <Confetti width={520} height={360} />
             </div>
           )}
         </div>
@@ -102,6 +107,14 @@ function Minesweeper() {
           })}
         >
           <RainbowTitle title={title} />
+        </div>
+
+        <div
+          className={cn(css.failMessage, {
+            [css.visible]: isLoosing,
+          })}
+        >
+          <TypingText text="Boom! ha-ha-ha!" />
         </div>
       </div>
     </Card>

@@ -1,0 +1,36 @@
+@import "utils/styles/typography.scss";
+@import "utils/styles/colors.scss";
+
+.container {
+  width: min-content;
+}
+
+.text {
+  @include CourierFont;
+
+  font-size: $fontSizeH3;
+  color: $lightFontColor;
+  width: 100%;
+  animation: type 2s steps(32, end), blink 0.5s step-end infinite alternate;
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 3px solid;
+}
+
+@keyframes type {
+  0% {
+    width: 0;
+  }
+  50% {
+    width: 0;
+  }
+  100% {
+    width: 100%;
+  }
+}
+
+@keyframes blink {
+  50% {
+    border-color: transparent;
+  }
+}

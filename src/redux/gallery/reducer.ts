@@ -5,6 +5,8 @@ import {
   fetchFoxImage,
   likeImage,
   dislikeImage,
+  clearCurrentImage,
+  updateLikedImages,
 } from "./actions";
 
 const initialState: InitialState = {
@@ -47,6 +49,12 @@ const galleryReducer = createReducer(initialState, builder => {
       const newLiked = state.liked;
       delete newLiked[action.payload];
       state.liked = newLiked;
+    })
+    .addCase(clearCurrentImage, state => {
+      state.current = null;
+    })
+    .addCase(updateLikedImages, (state, action) => {
+      state.liked = action.payload;
     });
 });
 

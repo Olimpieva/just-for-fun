@@ -14,11 +14,12 @@ const text = [
   "> just watching all the people coming and going",
   "> but I am still here",
   "> ...",
+  "> don't go",
 ];
 
 const SkillsWidget = () => (
   <div className={css.container}>
-    <CmdTitle title="skills" />
+    <CmdTitle title="waiting_skills" />
 
     <div className={css.position}>
       <GlitchedBadge />
