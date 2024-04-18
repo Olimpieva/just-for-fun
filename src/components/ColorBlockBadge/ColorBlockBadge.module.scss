@@ -4,7 +4,7 @@
 
 .container {
   width: inherit;
-  height: 96px;
+  min-height: 112px;
   position: relative;
   display: flex;
   flex-direction: column;
@@ -32,7 +32,7 @@
   @include MontserratFont;
 
   width: inherit;
-  min-height: 96px;
+  min-height: 112px;
   padding: 8px;
   display: flex;
   flex-direction: column;
@@ -54,7 +54,7 @@
   > p {
     @include PTMonoFont;
 
-    font-size: $fontSizeSmall;
+    font-size: $fontSizeSecondary;
   }
 }
 
@@ -79,6 +79,6 @@
   }
 
   > p {
-    color: $white50op;
+    color: $white80op;
   }
 }

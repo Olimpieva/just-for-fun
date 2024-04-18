@@ -64,8 +64,6 @@ const fetchLikedImages = createAsyncThunk<
   try {
     const liked = JSON.parse(localStorage.getItem("liked") || "{}");
 
-    console.log({ liked });
-
     await dispatch(updateLikedImages(liked));
 
     return undefined;

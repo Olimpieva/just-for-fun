@@ -12,16 +12,17 @@ $slice-5: inset(80% -6px 5% 0);
 .link::after {
   @include PTMonoFont;
 
-  width: 180px;
+  width: 240px;
   height: 60px;
   position: relative;
   display: flex;
   justify-content: center;
-  font-size: $fontSizeSecondary;
-  font-weight: 300;
   background: $primaryViolet;
   border: 1px solid white;
   border-radius: 8px;
+  font-size: $fontSizePrimary;
+  font-weight: 300;
+  text-transform: lowercase;
   color: $lightFontColor;
   box-shadow: 6px 6px 0px $glitchGreen;
   outline: transparent;

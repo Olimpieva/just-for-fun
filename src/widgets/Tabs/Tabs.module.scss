@@ -6,8 +6,8 @@
   margin: 0 auto;
   padding: 16px;
   position: relative;
-  min-width: 500px;
-  width: 70%;
+  width: 80%;
+  min-width: 1020px;
   display: flex;
   justify-content: space-between;
   gap: 20px;
@@ -30,9 +30,10 @@
   padding: 8px;
   border: 1px solid white;
   border-radius: 8px;
+  font-size: 23px;
   color: white;
   gap: 8px;
-  min-width: 100px;
+  min-width: 120px;
 
   &:hover {
     @include Glitch-2;
@@ -43,11 +44,12 @@
 .hint {
   @include PTMonoFont;
 
+  min-width: 520px;
   display: none;
   position: absolute;
   top: -10px;
   left: 50%;
   transform: translate(-50%, 0);
-  font-size: $fontSizeSmall;
+  font-size: $fontSizeSecondary;
   color: $white50op;
 }

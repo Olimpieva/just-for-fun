@@ -42,27 +42,27 @@ const Tabs = () => {
   return (
     <div className={css.container}>
       <button onDoubleClick={onSkillsClick} className={css.button}>
-        <WrenchIcon width={32} color="white" />
+        <WrenchIcon width={48} color="white" />
         skills_
       </button>
       <button onDoubleClick={onExperienceClick} className={css.button}>
-        <ExperienceIcon width={32} color="white" />
+        <ExperienceIcon width={48} color="white" />
         expierence_
       </button>
       <button onDoubleClick={onEducationClick} className={css.button}>
-        <EducationIcon width={32} color="white" />
+        <EducationIcon width={48} color="white" />
         education_
       </button>
       <button onDoubleClick={onGalleryClick} className={css.button}>
-        <GalleryIcon width={32} color="white" />
+        <GalleryIcon width={48} color="white" />
         watch me_
       </button>
       <button onDoubleClick={onMinesweeperClick} className={css.button}>
-        <BombIcon width={32} color="white" />
+        <BombIcon width={48} color="white" />
         play me_
       </button>
       <button onDoubleClick={onFavoritesClick} className={css.button}>
-        <HeartIcon width={32} color="white" />
+        <HeartIcon width={48} color="white" />
         favorites_
       </button>
 
