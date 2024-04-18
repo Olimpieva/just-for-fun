@@ -5,7 +5,6 @@ import { ReactComponent as WrenchIcon } from "assets/wrench.svg";
 import { ReactComponent as EducationIcon } from "assets/education.svg";
 import { ReactComponent as ExperienceIcon } from "assets/experience.svg";
 import { ReactComponent as HeartIcon } from "assets/heart.svg";
-
 import { useAppDispatch } from "utils/hooks";
 import { showModal } from "../../redux/modal/actions";
 import { ModalType } from "../../redux/modal/types";
