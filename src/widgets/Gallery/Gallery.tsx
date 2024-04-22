@@ -12,6 +12,7 @@ import {
   selectLikedImages,
 } from "../../redux/gallery/selectors";
 import {
+  clearCurrentImage,
   dislikeImage,
   fetchDogImage,
   fetchFoxImage,
@@ -86,6 +87,13 @@ const GalleryWidget = () => {
       getFoxImage();
     }
   }, [activeTab, getDogImage, getFoxImage]);
+
+  // eslint-disable-next-line arrow-body-style
+  useEffect(() => {
+    return () => {
+      dispatch(clearCurrentImage());
+    };
+  }, [dispatch]);
 
   return (
     <div className={css.container}>
