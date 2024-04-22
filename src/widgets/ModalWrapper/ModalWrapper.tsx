@@ -11,7 +11,6 @@ import {
 import { Modal } from "components";
 import { ModalType } from "../../redux/modal/types";
 import { hideModal } from "../../redux/modal/actions";
-import { clearCurrentImage } from "../../redux/gallery/actions";
 import { selectCurrentModal } from "../../redux/modal/selectors";
 
 const Modals: Record<ModalType, JSX.Element> = {
@@ -32,20 +31,7 @@ const ModalWrapper = () => {
     dispatch(hideModal(currentModal));
   };
 
-  const onGalleryClose = () => {
-    onClose();
-    dispatch(clearCurrentImage());
-  };
-
   if (!currentModal) return null;
-
-  if (currentModal === ModalType.GALLERY) {
-    return (
-      <Modal onClose={onGalleryClose}>
-        <GalleryWidget />
-      </Modal>
-    );
-  }
 
   return <Modal onClose={onClose}>{Modals[currentModal]}</Modal>;
 };

@@ -6,7 +6,7 @@ import React, {
   useState,
 } from "react";
 import cn from "classnames";
-import { Card, RainbowTitle, TypingText } from "components";
+import { Card, RainbowTitle } from "components";
 import Confetti from "components/Confetti/Confetti";
 import { ReactComponent as BombIcon } from "assets/bomb.svg";
 import { getWordEnding } from "utils/helpers";
@@ -107,14 +107,6 @@ function Minesweeper() {
           })}
         >
           <RainbowTitle title={title} />
-        </div>
-
-        <div
-          className={cn(css.failMessage, {
-            [css.visible]: isLoosing,
-          })}
-        >
-          <TypingText text="Boom!" />
         </div>
       </div>
     </Card>
