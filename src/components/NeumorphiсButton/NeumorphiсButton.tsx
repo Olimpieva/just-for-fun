@@ -9,7 +9,7 @@ type Props = {
   className?: string;
 };
 
-const NeumorphiсButton = ({
+const NeumorphicButton = ({
   disabled,
   onClick,
   children,
@@ -28,4 +28,4 @@ const NeumorphiсButton = ({
   </button>
 );
 
-export default NeumorphiсButton;
+export default NeumorphicButton;

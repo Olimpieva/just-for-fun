@@ -5,13 +5,23 @@ import css from "./ExperienceWidget.module.scss";
 
 const Title = () => (
   <div className={css.titleWrapper}>
-    <GlitchedTitle.Italic title="Опыт" />
+    <GlitchedTitle.Pixel title="Опыт" />
   </div>
 );
 
 const ExperienceWidget = () => (
   <Card title={<Title />} className={css.customWidth}>
     <ul className={css.list}>
+      <li>
+        <FlippedBadge
+          front={{ title: "ФИТ", subtitle: "2024-2026" }}
+          back={{
+            title: "frontend разработчик",
+            subtitle: "typescript, react, zustand",
+          }}
+        />
+      </li>
+
       <li>
         <FlippedBadge
           front={{ title: "smm games", subtitle: "2023-2024" }}
@@ -28,16 +38,6 @@ const ExperienceWidget = () => (
           back={{
             title: "frontend разработчик",
             subtitle: "typescript, react, redux",
-          }}
-        />
-      </li>
-
-      <li>
-        <FlippedBadge
-          front={{ title: "Freelance", subtitle: "2021" }}
-          back={{
-            title: "fullstack разработчик",
-            subtitle: "React, Node.js, Express",
           }}
         />
       </li>

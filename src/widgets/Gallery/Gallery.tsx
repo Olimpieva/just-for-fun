@@ -1,7 +1,12 @@
 import React, { useCallback, useEffect, useMemo, useState } from "react";
 import cn from "classnames";
 import { useAppSelector, useAppThunkDispatch } from "utils/hooks";
-import { ImageLazyLoad, NeumorphiсButton } from "components";
+import {
+  Card,
+  GlitchedTitle,
+  ImageLazyLoad,
+  NeumorphicButton,
+} from "components";
 import { ReactComponent as LikeIcon } from "assets/like.svg";
 import { ReactComponent as DogIcon } from "assets/dog.svg";
 import { ReactComponent as FoxIcon } from "assets/fox.svg";
@@ -88,7 +93,6 @@ const GalleryWidget = () => {
     }
   }, [activeTab, getDogImage, getFoxImage]);
 
-  // eslint-disable-next-line arrow-body-style
   useEffect(() => {
     return () => {
       dispatch(clearCurrentImage());
@@ -96,62 +100,78 @@ const GalleryWidget = () => {
   }, [dispatch]);
 
   return (
-    <div className={css.container}>
-      <div className={css.left}>
-        <ImageLazyLoad
-          onLoad={onLoadImage}
-          onError={onLoadImage}
-          src={current?.image}
-        />
-
-        <div className={css.glitch1}>
-          <ImageLazyLoad src={current?.image} />
+    <Card
+      title={
+        <div className={css.wrapper}>
+          <GlitchedTitle.Pixel title="Инстаграм здорового человека" />
         </div>
-        <div className={css.glitch2}>
-          <ImageLazyLoad src={current?.image} />
+      }
+    >
+      <div className={css.container}>
+        <div className={css.left}>
+          <ImageLazyLoad
+            onLoad={onLoadImage}
+            onError={onLoadImage}
+            src={current?.image}
+          />
+
+          <div className={css.glitch1}>
+            <ImageLazyLoad src={current?.image} />
+          </div>
+          <div className={css.glitch2}>
+            <ImageLazyLoad src={current?.image} />
+          </div>
+        </div>
+
+        <div className={css.right}>
+          <div className={css.tabs}>
+            <NeumorphicButton
+              className={cn({
+                [css.disabled]:
+                  activeTab === Tab.Fox || loading || !isImageLoaded,
+              })}
+              onClick={toggleActiveTab}
+              disabled={activeTab === Tab.Fox || loading || !isImageLoaded}
+            >
+              <FoxIcon />
+            </NeumorphicButton>
+
+            <NeumorphicButton
+              className={cn({
+                [css.disabled]:
+                  activeTab === Tab.Dog || loading || !isImageLoaded,
+              })}
+              onClick={toggleActiveTab}
+              disabled={activeTab === Tab.Dog || loading || !isImageLoaded}
+            >
+              <DogIcon />
+            </NeumorphicButton>
+          </div>
+
+          <div className={css.controls}>
+            <NeumorphicButton
+              onClick={getNextImage}
+              disabled={loading || !isImageLoaded}
+              className={cn({ [css.disabled]: loading || !isImageLoaded })}
+            >
+              <NextIcon />
+            </NeumorphicButton>
+
+            <NeumorphicButton
+              className={cn(css.like, {
+                [css.active]: isLiked,
+                [css.liked]: isLiked,
+                [css.disabled]: loading || !isImageLoaded,
+              })}
+              onClick={toggleLike}
+              disabled={loading || !isImageLoaded}
+            >
+              <LikeIcon />
+            </NeumorphicButton>
+          </div>
         </div>
       </div>
-
-      <div className={css.right}>
-        <div className={css.tabs}>
-          <NeumorphiсButton
-            className={cn({ [css.active]: activeTab === Tab.Fox })}
-            onClick={toggleActiveTab}
-            disabled={activeTab === Tab.Fox || loading || !isImageLoaded}
-          >
-            <FoxIcon />
-          </NeumorphiсButton>
-
-          <NeumorphiсButton
-            className={cn({ [css.active]: activeTab === Tab.Dog })}
-            onClick={toggleActiveTab}
-            disabled={activeTab === Tab.Dog || loading || !isImageLoaded}
-          >
-            <DogIcon />
-          </NeumorphiсButton>
-        </div>
-
-        <div className={css.controls}>
-          <NeumorphiсButton
-            onClick={getNextImage}
-            disabled={loading || !isImageLoaded}
-          >
-            <NextIcon />
-          </NeumorphiсButton>
-
-          <NeumorphiсButton
-            className={cn(css.like, {
-              [css.active]: isLiked,
-              [css.liked]: isLiked,
-            })}
-            onClick={toggleLike}
-            disabled={loading || !isImageLoaded}
-          >
-            <LikeIcon />
-          </NeumorphiсButton>
-        </div>
-      </div>
-    </div>
+    </Card>
   );
 };
 

@@ -9,10 +9,11 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  background: linear-gradient(to right, $primaryPink 50%, $primaryYellow 50%);
+  background: linear-gradient(to right, $primaryPink 50%, $secondaryGreen 50%);
   background-size: 220% 100%;
   background-position: bottom right;
   transition: background-position 0.4s ease-out;
+  cursor: default;
 
   &:hover {
     background-position: bottom left;
@@ -62,11 +63,11 @@
   text-transform: lowercase;
 
   > h3 {
-    color: $primaryDarkBlue;
+    color: $lightFontColor;
   }
 
   > p {
-    color: $neutralFontColor;
+    color: $white50op;
   }
 }
 
@@ -75,10 +76,10 @@
   position: absolute;
 
   > h3 {
-    color: $lightFontColor;
+    color: $primaryDarkBlue;
   }
 
   > p {
-    color: $white80op;
+    color: $lightFontColor;
   }
 }

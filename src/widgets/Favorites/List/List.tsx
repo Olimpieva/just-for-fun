@@ -14,7 +14,11 @@ const List = ({ onDislike }: Props) => {
   const favorites = useAppSelector(selectLikedImages);
 
   if (Object.keys(favorites).length === 0) {
-    return <div className={css.empty}>Ничего нет. :(</div>;
+    return (
+      <div className={css.empty}>
+        Разве ты ещё не видел этих очаровательных щеночков?
+      </div>
+    );
   }
 
   return (

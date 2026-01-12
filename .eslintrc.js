@@ -59,6 +59,8 @@ module.exports = {
     "consistent-return": "warn",
     "@typescript-eslint/no-shadow": 0,
     "import/no-absolute-path": 0,
+    "import/prefer-default-export": 0,
+    "arrow-body-style": 0,
     radix: 0,
     "react/no-unescaped-entities": 0,
     "no-bitwise": 0,

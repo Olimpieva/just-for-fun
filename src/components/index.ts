@@ -6,7 +6,7 @@ import FlippedBadge from "./FlippedBadge";
 import ImageLazyLoad from "./ImageLazyLoad";
 import CmdTitle from "./CmdTitle";
 import ColorBlockBadge from "./ColorBlockBadge";
-import NeumorphiсButton from "./NeumorphiсButton";
+import NeumorphicButton from "./NeumorphiсButton";
 import GlitchedBadge from "./GlitchedBadge";
 import Modal from "./Modal";
 import TypingText from "./TypingText";
@@ -21,7 +21,7 @@ export {
   ImageLazyLoad,
   CmdTitle,
   ColorBlockBadge,
-  NeumorphiсButton,
+  NeumorphicButton,
   GlitchedBadge,
   Modal,
   TypingText,

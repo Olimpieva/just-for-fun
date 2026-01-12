@@ -1,9 +1,10 @@
 @import "utils/styles/colors.scss";
 @import "utils/styles/typography.scss";
 @import "utils/styles/extensions.scss";
+@import "utils/styles/animations.scss";
 
 .page {
-  background: linear-gradient(to right, $bgColorLight, $bgColorDark 70%);
+  background: radial-gradient(ellipse at center, #5b7d9e 40%, #484965 80%);
 }
 
 .container {
@@ -35,26 +36,32 @@
 .title {
   @include MontserratFont;
 
-  margin: 0;
+  @include Glitch-2;
+
+  margin: 0 0 16px;
   text-transform: uppercase;
   vertical-align: baseline;
   font-size: $fontSizeH0;
-  font-weight: 800;
+  font-weight: 600;
   color: $neutral;
 }
 
 .subtitle {
   @include MontserratFont;
 
+  @include Glitch-2;
+
   margin-bottom: 36px;
-  color: $neutral;
-  font-size: $fontSizeH2;
+  color: $primaryPink;
+  font-size: $fontSizeH3;
   text-transform: uppercase;
   vertical-align: baseline;
 }
 
 .description {
   @include PTMonoFont;
+
+  @include Glitch-2;
 
   font-weight: 300;
   color: $neutral;

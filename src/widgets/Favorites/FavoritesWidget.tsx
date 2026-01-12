@@ -1,29 +1,13 @@
 import React, { useCallback, useEffect, useRef, useState } from "react";
-import { Card, SweetTitle } from "components";
+import { Card, GlitchedTitle } from "components";
 import { useAppDispatch } from "utils/hooks";
 import { dislikeImage } from "../../redux/gallery/actions";
 import Message from "./Message";
 import List from "./List";
 
 import css from "./FavoritesWidget.module.scss";
+import { messages } from "./FavoritesWidget.utils";
 
-const messages = [
-  "Don't you like little puppies? Wow.",
-  "How can you not like it?",
-  "You are the monster.",
-  "It was my favorite.",
-  "Shame on you.",
-  "Stop doing it!",
-  "Only bad person can dislike it. Think about it.",
-  "I am so disappointed about this.",
-  "Just leave them!",
-  "Why are you doing this?",
-  "No-no-no!",
-  "I have no feelings, but I don't like you.",
-  "Get out of here!",
-  "I don't have a heart, but it is broken.",
-  "What you are doing hurts.",
-];
 const FavoritesWidget = () => {
   const dispatch = useAppDispatch();
   const [message, setMessage] = useState("");
@@ -46,7 +30,6 @@ const FavoritesWidget = () => {
     [dispatch],
   );
 
-  // eslint-disable-next-line arrow-body-style
   useEffect(() => {
     return () => {
       clearTimeout(timerRef.current);
@@ -54,7 +37,13 @@ const FavoritesWidget = () => {
   }, []);
 
   return (
-    <Card title="">
+    <Card
+      title={
+        <div className={css.position}>
+          <GlitchedTitle.Pixel title="Избранное" />
+        </div>
+      }
+    >
       <div className={css.container}>
         <div className={css.content}>
           <List onDislike={dislike} />
@@ -62,10 +51,6 @@ const FavoritesWidget = () => {
       </div>
 
       <Message text={message} />
-
-      <div className={css.position}>
-        <SweetTitle title={{ top: "Такое мне", bottom: "нравится" }} />
-      </div>
     </Card>
   );
 };

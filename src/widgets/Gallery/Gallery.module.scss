@@ -9,9 +9,11 @@
   align-items: center;
   justify-content: center;
   gap: 30px;
-  background-color: $primaryPink;
-  border-radius: $radius;
-  box-shadow: $shadow-in;
+}
+
+.wrapper {
+  width: 100%;
+  position: relative;
 }
 
 .left {
@@ -81,7 +83,17 @@
 
   & > svg {
     & > path {
-      color: $primaryViolet;
+      color: $secondaryRed;
+    }
+  }
+}
+
+.disabled {
+  opacity: 0.5;
+
+  & > svg {
+    & > path {
+      opacity: 0.5;
     }
   }
 }

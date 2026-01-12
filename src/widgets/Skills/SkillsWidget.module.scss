@@ -9,13 +9,11 @@
   border: 2px solid $glitchGreen;
   border-radius: 8px;
   position: relative;
-  background-color: $neutral;
   display: flex;
   flex-direction: column;
   gap: 24px;
   min-height: 300px;
   background-color: $primaryViolet;
-  box-shadow: $shadow-in;
 }
 
 .position {

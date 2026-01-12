@@ -1,3 +1,3 @@
-import NeumorphiсButton from "./NeumorphiсButton";
+import NeumorphicButton from "./NeumorphiсButton";
 
-export default NeumorphiсButton;
+export default NeumorphicButton;
