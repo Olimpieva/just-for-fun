@@ -103,7 +103,7 @@ const GalleryWidget = () => {
     <Card
       title={
         <div className={css.wrapper}>
-          <GlitchedTitle.Pixel title="Инстаграм здорового человека" />
+          <GlitchedTitle.Pixel title="Инстаграм, который мы заслужили" />
         </div>
       }
     >

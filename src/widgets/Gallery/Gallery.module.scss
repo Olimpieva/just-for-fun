@@ -17,20 +17,20 @@
 }
 
 .left {
-  min-width: 400px;
-  min-height: 400px;
-  max-width: 400px;
-  max-height: 400px;
+  min-width: 360px;
+  min-height: 360px;
+  max-width: 360px;
+  max-height: 360px;
   position: relative;
   box-shadow: $shadow-out;
 
   .glitch1,
   .glitch2,
   img {
-    min-width: 400px;
+    min-width: 360px;
     max-width: 100%;
-    min-height: 400px;
-    max-height: 400px;
+    min-height: 360px;
+    max-height: 360px;
     flex: 1;
     object-fit: cover;
   }

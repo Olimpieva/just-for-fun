@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { KeepInTouch, Tabs, ModalWrapper } from "widgets";
 import useLocalStorageListening from "utils/hooks/useLocalStorageListening";
 import { useAppDispatch } from "utils/hooks";
+import { ReactComponent as LinkIcon } from "assets/open.svg";
 import { fetchLikedImages } from "../../redux/gallery/actions";
 
 import css from "./MainPage.module.scss";
@@ -34,6 +35,21 @@ const MainPage = () => {
         <div className={css.footer}>
           <Tabs />
         </div>
+
+        <a
+          href="https://just-for-fun-gold.vercel.app/"
+          target="_blank"
+          rel="noreferrer"
+          data-text="full-version"
+          className={css.link}
+        >
+          <LinkIcon
+            className={css.image}
+            width={54}
+            height={54}
+            color="white"
+          />
+        </a>
       </div>
     </div>
   );

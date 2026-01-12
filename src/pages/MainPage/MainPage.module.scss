@@ -11,7 +11,7 @@
   width: 100%;
   min-width: 500px;
   min-height: 100vh;
-  padding: 36px 36px 24px;
+  padding: 36px 40px 24px;
   margin: 0 auto;
   position: relative;
   background: linear-gradient($white50op, transparent 2px),
@@ -71,4 +71,25 @@
 .footer {
   margin: -36px -36px -24px;
   z-index: 2;
+}
+
+.link {
+  @include PTMonoFont;
+
+  @include Glitch-2;
+
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  z-index: 10;
+  padding: 4px;
+  border-radius: 8px;
+  transition: transform 0.1s;
+
+  &:hover {
+    transform: scale(1.1);
+  }
 }
