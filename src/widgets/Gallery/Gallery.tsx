@@ -36,7 +36,7 @@ const GalleryWidget = () => {
   const current = useAppSelector(selectCurrentImage);
   const likedImages = useAppSelector(selectLikedImages);
   const { loading } = useAppSelector(selectImageLoading);
-  const [activeTab, setActiveTab] = useState<Tab>(Tab.Dog);
+  const [activeTab, setActiveTab] = useState<Tab>(Tab.Fox);
   // I don't need lazy load here, I guess?
   const [isImageLoaded, setIsImageLoaded] = useState(false);
 
@@ -126,7 +126,7 @@ const GalleryWidget = () => {
         <div className={css.right}>
           <div className={css.tabs}>
             <NeumorphicButton
-              className={cn({
+              className={cn(css.gliched, {
                 [css.disabled]:
                   activeTab === Tab.Fox || loading || !isImageLoaded,
               })}
@@ -137,7 +137,7 @@ const GalleryWidget = () => {
             </NeumorphicButton>
 
             <NeumorphicButton
-              className={cn({
+              className={cn(css.gliched, {
                 [css.disabled]:
                   activeTab === Tab.Dog || loading || !isImageLoaded,
               })}
@@ -152,16 +152,18 @@ const GalleryWidget = () => {
             <NeumorphicButton
               onClick={getNextImage}
               disabled={loading || !isImageLoaded}
-              className={cn({ [css.disabled]: loading || !isImageLoaded })}
+              className={cn(css.gliched, {
+                [css.disabled]: loading || !isImageLoaded,
+              })}
             >
               <NextIcon />
             </NeumorphicButton>
 
             <NeumorphicButton
-              className={cn(css.like, {
+              className={cn({
                 [css.active]: isLiked,
-                [css.liked]: isLiked,
                 [css.disabled]: loading || !isImageLoaded,
+                [css.gliched]: !isLiked,
               })}
               onClick={toggleLike}
               disabled={loading || !isImageLoaded}

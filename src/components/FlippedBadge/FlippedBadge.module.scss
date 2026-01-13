@@ -1,5 +1,6 @@
 @import "utils/styles/colors.scss";
 @import "utils/styles/typography.scss";
+@import "utils/styles/animations.scss";
 
 .container {
   width: 360px;
@@ -36,13 +37,15 @@
 
   > h3 {
     @include MontserratFont;
+    @include Glitch-2;
 
     font-size: $fontSizeH3;
-    font-weight: 800;
+    font-weight: 600;
   }
 
   > p {
     @include PTMonoFont;
+    @include Glitch-2;
 
     font-size: $fontSizeSecondary;
   }
@@ -50,11 +53,11 @@
 
 .front {
   transform: rotateY(0deg);
-  background: $secondaryGreen;
+  background: $primaryYellow;
   text-transform: lowercase;
 
   > h3 {
-    color: $lightFontColor;
+    color: $primaryViolet;
   }
 
   > p {
