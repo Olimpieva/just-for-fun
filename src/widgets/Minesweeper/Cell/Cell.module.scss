@@ -7,19 +7,30 @@
   width: 36px;
   height: 36px;
   margin: 2px;
+  padding: 0;
   display: flex;
   justify-content: center;
   align-items: center;
+  font-size: inherit;
   background-color: $primaryViolet;
   color: $neutral;
+  border: none;
   border-radius: 4px;
   cursor: pointer;
-  transition: scale 0.3s easy;
+  transition: scale 0.3s ease;
+
+  &:focus-visible {
+    outline: 2px solid $primaryYellow;
+    outline-offset: 1px;
+  }
 }
 
-.passive {
+.hidden {
   &:hover {
     scale: 1.05;
-    box-shadow: gray;
   }
+}
+
+.exploded {
+  background-color: $secondaryRed;
 }

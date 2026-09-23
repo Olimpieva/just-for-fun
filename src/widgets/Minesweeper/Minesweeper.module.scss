@@ -109,3 +109,40 @@
     transform: scale(1);
   }
 }
+
+.toolbar {
+  position: absolute;
+  top: 16px;
+  right: 60px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  z-index: 2;
+}
+
+.timer {
+  @include PTMonoFont;
+  padding: 7px 12px;
+  border: 2px solid $primaryDarkBlue;
+  border-radius: 4px;
+  background: $primaryDarkBlue;
+  color: $primaryYellow;
+  font-variant-numeric: tabular-nums;
+}
+
+.leaderboardButton {
+  @include PTMonoFont;
+  padding: 7px 12px;
+  border: 2px solid $primaryDarkBlue;
+  background: $neutral;
+  color: $primaryDarkBlue;
+  cursor: pointer;
+  border-radius: 4px;
+  &:hover {
+    background: $primaryYellow;
+  }
+  &:focus-visible {
+    outline: 3px solid $primaryDarkBlue;
+    outline-offset: 3px;
+  }
+}
