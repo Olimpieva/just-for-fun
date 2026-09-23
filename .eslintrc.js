@@ -1,15 +1,24 @@
 // eslint-disable-next-line
-const a11yOff = Object.keys(require("eslint-plugin-jsx-a11y").rules).reduce((acc, rule) => {
-  acc[`jsx-a11y/${rule}`] = "off"
-  return acc
-}, {})
+const a11yOff = Object.keys(require("eslint-plugin-jsx-a11y").rules).reduce(
+  (acc, rule) => {
+    acc[`jsx-a11y/${rule}`] = "off";
+    return acc;
+  },
+  {},
+);
 
 module.exports = {
   env: {
     browser: true,
     es2021: true,
   },
-  extends: ["plugin:react/recommended", "airbnb", "airbnb-typescript", "prettier", "airbnb/hooks"],
+  extends: [
+    "plugin:react/recommended",
+    "airbnb",
+    "airbnb-typescript",
+    "prettier",
+    "airbnb/hooks",
+  ],
   parser: "@typescript-eslint/parser",
   parserOptions: {
     project: "./tsconfig.json",
@@ -34,9 +43,21 @@ module.exports = {
   plugins: ["react", "@typescript-eslint", "import"],
   overrides: [
     {
+      files: ["src/setupTests.ts"],
+      rules: {
+        "import/no-extraneous-dependencies": [
+          "warn",
+          { devDependencies: true },
+        ],
+      },
+    },
+    {
       files: ["**/redux/**"],
       rules: {
-        "no-param-reassign": ["error", { props: true, ignorePropertyModificationsFor: ["state"] }],
+        "no-param-reassign": [
+          "error",
+          { props: true, ignorePropertyModificationsFor: ["state"] },
+        ],
       },
     },
     {
@@ -74,5 +95,25 @@ module.exports = {
     "react/no-array-index-key": 0,
     "@typescript-eslint/no-unused-vars": "warn",
     "react/destructuring-assignment": "warn",
+    "import/no-restricted-paths": [
+      "error",
+      {
+        zones: [
+          { target: "./src/entities", from: ["./src/widgets", "./src/pages"] },
+          { target: "./src/widgets", from: "./src/pages" },
+        ],
+      },
+    ],
+    "no-restricted-imports": [
+      "error",
+      {
+        patterns: [
+          {
+            group: ["entities/*/*", "widgets/*/*", "pages/*/*"],
+            message: "Import slices through their public API (index.ts).",
+          },
+        ],
+      },
+    ],
   },
-}
+};
