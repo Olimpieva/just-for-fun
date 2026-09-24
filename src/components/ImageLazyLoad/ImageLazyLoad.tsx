@@ -1,5 +1,5 @@
 import React, { useCallback, useEffect, useState } from "react";
-import NoImageIcon from "assets/no-image.svg";
+import NoImageIcon from "assets/no-image-floppy.png";
 import LoadIcon from "assets/load.svg";
 
 interface ImageProps extends React.ImgHTMLAttributes<HTMLImageElement> {

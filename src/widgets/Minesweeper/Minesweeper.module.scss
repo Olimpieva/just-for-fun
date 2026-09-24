@@ -36,6 +36,9 @@
 }
 
 .bottom {
+  cursor: default;
+  user-select: none;
+  -webkit-user-select: none;
   position: absolute;
   bottom: 120px;
   right: -240px;

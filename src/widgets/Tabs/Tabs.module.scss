@@ -11,12 +11,6 @@
   display: flex;
   justify-content: space-between;
   gap: 20px;
-
-  &:hover {
-    .hint {
-      display: block;
-    }
-  }
 }
 
 .button {
@@ -42,17 +36,4 @@
   &:hover {
     scale: 1.06;
   }
-}
-
-.hint {
-  @include PTMonoFont;
-
-  min-width: 520px;
-  display: none;
-  position: absolute;
-  top: -10px;
-  left: 50%;
-  transform: translate(-50%, 0);
-  font-size: $fontSizeSecondary;
-  color: $white50op;
 }
