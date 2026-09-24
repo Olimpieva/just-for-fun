@@ -17,7 +17,8 @@ const ExperienceWidget = () => (
           front={{ title: "ФИТ", subtitle: "2024-2026" }}
           back={{
             title: "frontend разработчик",
-            subtitle: "typescript, react, zustand",
+            subtitle:
+              "TypeScript · React · Next.js · Redux · Zustand · TanStack Query",
           }}
         />
       </li>
@@ -27,7 +28,8 @@ const ExperienceWidget = () => (
           front={{ title: "smm games", subtitle: "2023-2024" }}
           back={{
             title: "frontend разработчик",
-            subtitle: "typescript, react, redux",
+            subtitle:
+              "TypeScript · React · Redux · React Router · Ant Design · Playwright · ECharts",
           }}
         />
       </li>
@@ -37,7 +39,8 @@ const ExperienceWidget = () => (
           front={{ title: "jiff food", subtitle: "2021-2023" }}
           back={{
             title: "frontend разработчик",
-            subtitle: "typescript, react, redux",
+            subtitle:
+              "TypeScript · React · Redux · React Router · Jest · Playwright",
           }}
         />
       </li>

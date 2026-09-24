@@ -1,0 +1,103 @@
+@import "utils/styles/colors.scss";
+@import "utils/styles/typography.scss";
+
+.button {
+  --pixel-outline: polygon(
+    12px 0,
+    calc(100% - 12px) 0,
+    calc(100% - 12px) 4px,
+    calc(100% - 4px) 4px,
+    calc(100% - 4px) 12px,
+    100% 12px,
+    100% calc(100% - 12px),
+    calc(100% - 4px) calc(100% - 12px),
+    calc(100% - 4px) calc(100% - 4px),
+    calc(100% - 12px) calc(100% - 4px),
+    calc(100% - 12px) 100%,
+    12px 100%,
+    12px calc(100% - 4px),
+    4px calc(100% - 4px),
+    4px calc(100% - 12px),
+    0 calc(100% - 12px),
+    0 12px,
+    4px 12px,
+    4px 4px,
+    12px 4px
+  );
+  @include PTMonoFont;
+  position: relative;
+  isolation: isolate;
+  width: 100%;
+  padding: 0 6px 8px 0;
+  border: 0;
+  background: transparent;
+  color: $primaryDarkBlue;
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 1.3;
+  text-transform: uppercase;
+  -webkit-tap-highlight-color: transparent;
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 8px 0 0 6px;
+    clip-path: var(--pixel-outline);
+    background: $primaryDarkBlue;
+    z-index: -1;
+  }
+
+  &:hover:not(:disabled) .face {
+    transform: translate(2px, 2px);
+  }
+  &:active:not(:disabled) .face {
+    transform: translate(6px, 8px);
+  }
+  &[aria-pressed="true"] .face::before {
+    background: $primaryPink;
+  }
+  &:focus-visible {
+    outline: 3px solid $primaryDarkBlue;
+    outline-offset: 5px;
+  }
+  &:disabled {
+    cursor: wait;
+    opacity: 0.55;
+  }
+}
+
+.face {
+  position: relative;
+  isolation: isolate;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  min-height: 88px;
+  padding: 16px;
+  clip-path: var(--pixel-outline);
+  background: $primaryDarkBlue;
+  transition: transform 100ms ease-out;
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 4px;
+    clip-path: var(--pixel-outline);
+    background: $primaryYellow;
+    z-index: -1;
+  }
+
+  svg {
+    width: 38px;
+    height: 38px;
+    flex-shrink: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .face {
+    transition: none;
+  }
+}

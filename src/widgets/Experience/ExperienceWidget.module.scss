@@ -1,3 +1,4 @@
+@import "utils/styles/colors.scss";
 @import "utils/styles/extensions.scss";
 
 .titleWrapper {
@@ -10,4 +11,32 @@
   flex-direction: column;
   align-items: center;
   gap: $middleGap;
+}
+
+.list > li > div {
+  width: min(620px, calc(100vw - 96px));
+  > div {
+    min-height: 140px;
+  }
+  > div:first-child {
+    display: grid;
+    grid-template-columns: 0.9fr 1.1fr;
+    gap: 20px;
+    padding: 20px 24px;
+
+    > p {
+      color: $white50op;
+      font-size: clamp(16px, 3vw, 24px);
+      white-space: nowrap;
+    }
+
+    > h3 {
+      font-size: clamp(24px, 5vw, 40px);
+    }
+  }
+
+  > div:last-child > p {
+    color: $primaryDarkBlue;
+    line-height: 1.4;
+  }
 }

@@ -7,7 +7,7 @@ const EducationWidget = () => (
   <Card
     title={
       <div className={css.wrapper}>
-        <GlitchedTitle.Pixel title="образование и курсы" />
+        <GlitchedTitle.Pixel title="образование" />
       </div>
     }
     className={css.customWidth}
