@@ -1,11 +1,15 @@
 @mixin Glitch-1 {
-  animation: noise-1 3s linear infinite alternate-reverse,
+  animation:
+    noise-1 3s linear infinite alternate-reverse,
     glitch-1 4s 4s infinite;
-  -ms-animation: noise-1 3s linear infinite alternate-reverse,
+  -ms-animation:
+    noise-1 3s linear infinite alternate-reverse,
     glitch-1 4s 4s infinite;
-  -moz-animation: noise-1 3s linear infinite alternate-reverse,
+  -moz-animation:
+    noise-1 3s linear infinite alternate-reverse,
     glitch-1 4s 4s infinite;
-  -webkit-animation: noise-1 3s linear infinite alternate-reverse,
+  -webkit-animation:
+    noise-1 3s linear infinite alternate-reverse,
     glitch-1 4s 4s infinite;
 
   @keyframes glitch-1 {
@@ -155,10 +159,14 @@
 
   @keyframes glitch-2 {
     from {
-      text-shadow: 1px 0 0 $glitchPink, -2px 0 0 $glitchGreen;
+      text-shadow:
+        1px 0 0 $glitchPink,
+        -2px 0 0 $glitchGreen;
     }
     to {
-      text-shadow: 2px 0.5px 2px $glitchPink, -1px -0.5px 2px $glitchGreen;
+      text-shadow:
+        2px 0.5px 2px $glitchPink,
+        -1px -0.5px 2px $glitchGreen;
     }
   }
 
@@ -175,28 +183,40 @@
 
   @-webkit-keyframes glitch-2 {
     from {
-      text-shadow: 1px 0 0 $glitchPink, -2px 0 0 $glitchGreen;
+      text-shadow:
+        1px 0 0 $glitchPink,
+        -2px 0 0 $glitchGreen;
     }
     to {
-      text-shadow: 2px 0.5px 2px $glitchPink, -1px -0.5px 2px $glitchGreen;
+      text-shadow:
+        2px 0.5px 2px $glitchPink,
+        -1px -0.5px 2px $glitchGreen;
     }
   }
 
   @-moz-keyframes glitch-2 {
     from {
-      text-shadow: 1px 0 0 $glitchPink, -2px 0 0 $glitchGreen;
+      text-shadow:
+        1px 0 0 $glitchPink,
+        -2px 0 0 $glitchGreen;
     }
     to {
-      text-shadow: 2px 0.5px 2px $glitchPink, -1px -0.5px 2px $glitchGreen;
+      text-shadow:
+        2px 0.5px 2px $glitchPink,
+        -1px -0.5px 2px $glitchGreen;
     }
   }
 
   @-ms-keyframes glitch-2 {
     from {
-      text-shadow: 1px 0 0 $glitchPink, -2px 0 0 $glitchGreen;
+      text-shadow:
+        1px 0 0 $glitchPink,
+        -2px 0 0 $glitchGreen;
     }
     to {
-      text-shadow: 2px 0.5px 2px $glitchPink, -1px -0.5px 2px $glitchGreen;
+      text-shadow:
+        2px 0.5px 2px $glitchPink,
+        -1px -0.5px 2px $glitchGreen;
     }
   }
 }

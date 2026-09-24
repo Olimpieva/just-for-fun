@@ -7,6 +7,8 @@ export enum ModalType {
   FAVORITES = "favorites",
 }
 
-export type InitialState = {
-  current: null | ModalType;
+export type ModalState = {
+  current: ModalType | null;
+  showModal: (modal: ModalType) => void;
+  hideModal: () => void;
 };

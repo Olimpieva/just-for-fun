@@ -6,39 +6,37 @@ import { ReactComponent as WrenchIcon } from "assets/wrench.svg";
 import { ReactComponent as EducationIcon } from "assets/education.svg";
 import { ReactComponent as ExperienceIcon } from "assets/experience.svg";
 import { ReactComponent as HeartIcon } from "assets/heart.svg";
-import { useAppDispatch } from "utils/hooks";
-import { showModal } from "../../redux/modal/actions";
-import { ModalType } from "../../redux/modal/types";
+import { ModalType, useShowModal } from "store/modal";
 
 import css from "./Tabs.module.scss";
 
 const SECTION_TOOLTIP = "Двойной клик откроет раздел";
 
 const Tabs = () => {
-  const dispatch = useAppDispatch();
+  const showModal = useShowModal();
 
   const onSkillsClick = () => {
-    dispatch(showModal(ModalType.SKILLS));
+    showModal(ModalType.SKILLS);
   };
 
   const onEducationClick = () => {
-    dispatch(showModal(ModalType.EDUCATION));
+    showModal(ModalType.EDUCATION);
   };
 
   const onExperienceClick = () => {
-    dispatch(showModal(ModalType.EXPERIENCE));
+    showModal(ModalType.EXPERIENCE);
   };
 
   const onMinesweeperClick = () => {
-    dispatch(showModal(ModalType.MINESWEEPER));
+    showModal(ModalType.MINESWEEPER);
   };
 
   const onGalleryClick = () => {
-    dispatch(showModal(ModalType.GALLERY));
+    showModal(ModalType.GALLERY);
   };
 
   const onFavoritesClick = () => {
-    dispatch(showModal(ModalType.FAVORITES));
+    showModal(ModalType.FAVORITES);
   };
 
   return (

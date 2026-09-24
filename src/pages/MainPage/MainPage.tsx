@@ -1,18 +1,11 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { KeepInTouch, Tabs, ModalWrapper } from "widgets";
-import useLocalStorageListening from "utils/hooks/useLocalStorageListening";
-import { useAppDispatch } from "utils/hooks";
-import { fetchLikedImages } from "../../redux/gallery/actions";
+import { useFavoritesSync } from "store/favorites";
 
 import css from "./MainPage.module.scss";
 
 const MainPage = () => {
-  const dispatch = useAppDispatch();
-  useLocalStorageListening();
-
-  useEffect(() => {
-    dispatch(fetchLikedImages());
-  }, [dispatch]);
+  useFavoritesSync();
 
   return (
     <div className={css.page}>

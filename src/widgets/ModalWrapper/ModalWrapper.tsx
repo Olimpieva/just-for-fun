@@ -1,5 +1,4 @@
 import React from "react";
-import { useAppDispatch, useAppSelector } from "utils/hooks";
 import {
   EducationWidget,
   ExperienceWidget,
@@ -9,9 +8,7 @@ import {
   SkillsWidget,
 } from "widgets";
 import { Modal } from "components";
-import { ModalType } from "../../redux/modal/types";
-import { hideModal } from "../../redux/modal/actions";
-import { selectCurrentModal } from "../../redux/modal/selectors";
+import { ModalType, useCurrentModal, useHideModal } from "store/modal";
 
 const Modals: Record<ModalType, JSX.Element> = {
   skills: <SkillsWidget />,
@@ -23,12 +20,12 @@ const Modals: Record<ModalType, JSX.Element> = {
 };
 
 const ModalWrapper = () => {
-  const dispatch = useAppDispatch();
-  const currentModal = useAppSelector(selectCurrentModal);
+  const hideModal = useHideModal();
+  const currentModal = useCurrentModal();
 
   const onClose = () => {
     if (!currentModal) return;
-    dispatch(hideModal(currentModal));
+    hideModal();
   };
 
   if (!currentModal) return null;

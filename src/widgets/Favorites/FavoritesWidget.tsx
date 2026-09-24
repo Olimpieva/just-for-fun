@@ -1,7 +1,6 @@
 import React, { useCallback, useEffect, useRef, useState } from "react";
 import { Card, GlitchedTitle } from "components";
-import { useAppDispatch } from "utils/hooks";
-import { dislikeImage } from "../../redux/gallery/actions";
+import { useDislikeCutie } from "store/favorites";
 import Message from "./Message";
 import List from "./List";
 
@@ -9,13 +8,13 @@ import css from "./FavoritesWidget.module.scss";
 import { messages } from "./FavoritesWidget.utils";
 
 const FavoritesWidget = () => {
-  const dispatch = useAppDispatch();
+  const dislikeImage = useDislikeCutie();
   const [message, setMessage] = useState("");
   const timerRef = useRef<NodeJS.Timeout>();
 
   const dislike = useCallback(
     (id: string) => {
-      dispatch(dislikeImage(id));
+      dislikeImage(id);
 
       if (!timerRef.current) {
         const randomMessage =
@@ -27,7 +26,7 @@ const FavoritesWidget = () => {
         }, 4000);
       }
     },
-    [dispatch],
+    [dislikeImage],
   );
 
   useEffect(() => {

@@ -1,175 +1,159 @@
 import React, { useCallback, useEffect, useMemo, useState } from "react";
-import cn from "classnames";
-import { useAppSelector, useAppThunkDispatch } from "utils/hooks";
-import {
-  Card,
-  GlitchedTitle,
-  ImageLazyLoad,
-  NeumorphicButton,
-} from "components";
+import { useDislikeCutie, useLikeCutie, useLikedCuties } from "store/favorites";
+import { Card, GlitchedTitle, ImageLazyLoad } from "components";
+import PixelButton from "components/PixelButton/PixelButton";
 import { ReactComponent as LikeIcon } from "assets/like.svg";
 import { ReactComponent as DogIcon } from "assets/dog.svg";
 import { ReactComponent as FoxIcon } from "assets/fox.svg";
 import { ReactComponent as NextIcon } from "assets/next.svg";
-import {
-  selectCurrentImage,
-  selectImageLoading,
-  selectLikedImages,
-} from "../../redux/gallery/selectors";
-import {
-  clearCurrentImage,
-  dislikeImage,
-  fetchDogImage,
-  fetchFoxImage,
-  likeImage,
-} from "../../redux/gallery/actions";
+import ImageLoadingIcon from "assets/image-loading-star.png";
+
+import { AnimalEnum, useRandomCutieQuery } from "entities/cutie";
 
 import css from "./Gallery.module.scss";
 
-enum Tab {
-  Fox = "Fox",
-  Dog = "Dog",
-}
-
 const GalleryWidget = () => {
-  const dispatch = useAppThunkDispatch();
-  const current = useAppSelector(selectCurrentImage);
-  const likedImages = useAppSelector(selectLikedImages);
-  const { loading } = useAppSelector(selectImageLoading);
-  const [activeTab, setActiveTab] = useState<Tab>(Tab.Fox);
-  // I don't need lazy load here, I guess?
+  const [activeTab, setActiveTab] = useState<AnimalEnum>(AnimalEnum.FOX);
+  const {
+    data: current,
+    isFetching: loading,
+    isError,
+    isPaused,
+    refetch,
+  } = useRandomCutieQuery(activeTab);
+
+  const likedImages = useLikedCuties();
+  const likeImage = useLikeCutie();
+  const dislikeImage = useDislikeCutie();
   const [isImageLoaded, setIsImageLoaded] = useState(false);
+  const [loadedImageSrc, setLoadedImageSrc] = useState<string>();
 
   useEffect(() => {
     setIsImageLoaded(false);
+    setLoadedImageSrc(undefined);
   }, [current]);
 
   const onLoadImage = useCallback(() => {
     setIsImageLoaded(true);
+    setLoadedImageSrc(current?.image);
+  }, [current?.image]);
+
+  const onImageError = useCallback(() => {
+    setIsImageLoaded(true);
+    setLoadedImageSrc(undefined);
   }, []);
+
+  const canShowImageEffect = Boolean(
+    !loading && loadedImageSrc && loadedImageSrc === current?.image,
+  );
 
   const isLiked = useMemo(
     () => current && Boolean(likedImages[current.id]),
     [current, likedImages],
   );
 
-  const getDogImage = useCallback(() => {
-    dispatch(fetchDogImage());
-  }, [dispatch]);
-
-  const getFoxImage = useCallback(() => {
-    dispatch(fetchFoxImage());
-  }, [dispatch]);
-
-  const toggleActiveTab = () => {
-    setActiveTab(prev => (prev === Tab.Dog ? Tab.Fox : Tab.Dog));
-  };
-
   const getNextImage = () => {
-    if (activeTab === Tab.Dog) {
-      getDogImage();
-      return;
-    }
-
-    getFoxImage();
+    refetch();
   };
 
   const toggleLike = () => {
     if (!current) return;
 
     if (isLiked) {
-      dispatch(dislikeImage(current.id));
+      dislikeImage(current.id);
       return;
     }
 
-    dispatch(likeImage(current));
+    likeImage(current);
   };
-
-  useEffect(() => {
-    if (activeTab === Tab.Dog) {
-      getDogImage();
-    } else {
-      getFoxImage();
-    }
-  }, [activeTab, getDogImage, getFoxImage]);
-
-  useEffect(() => {
-    return () => {
-      dispatch(clearCurrentImage());
-    };
-  }, [dispatch]);
 
   return (
     <Card
       title={
         <div className={css.wrapper}>
-          <GlitchedTitle.Pixel title="Инстаграм, который мы заслужили" />
+          <GlitchedTitle.Pixel title="Галерея" />
         </div>
       }
     >
       <div className={css.container}>
         <div className={css.left}>
-          <ImageLazyLoad
-            onLoad={onLoadImage}
-            onError={onLoadImage}
-            src={current?.image}
-          />
+          {loading ? (
+            <img src={ImageLoadingIcon} alt="Загрузка изображения" />
+          ) : (
+            <ImageLazyLoad
+              key={current?.image}
+              placeholder={ImageLoadingIcon}
+              onLoad={onLoadImage}
+              onError={onImageError}
+              src={current?.image}
+            />
+          )}
 
-          <div className={css.glitch1}>
-            <ImageLazyLoad src={current?.image} />
-          </div>
-          <div className={css.glitch2}>
-            <ImageLazyLoad src={current?.image} />
-          </div>
+          {canShowImageEffect && (
+            <>
+              <div className={css.glitch1} aria-hidden="true">
+                <img src={loadedImageSrc} alt="" />
+              </div>
+              <div className={css.glitch2} aria-hidden="true">
+                <img src={loadedImageSrc} alt="" />
+              </div>
+            </>
+          )}
         </div>
 
         <div className={css.right}>
-          <div className={css.tabs}>
-            <NeumorphicButton
-              className={cn(css.gliched, {
-                [css.disabled]:
-                  activeTab === Tab.Fox || loading || !isImageLoaded,
-              })}
-              onClick={toggleActiveTab}
-              disabled={activeTab === Tab.Fox || loading || !isImageLoaded}
+          <div
+            className={css.tabs}
+            role="group"
+            aria-label="Категория фотографий"
+          >
+            <PixelButton
+              className={css.category}
+              aria-pressed={activeTab === AnimalEnum.FOX}
+              onClick={() => setActiveTab(AnimalEnum.FOX)}
+              disabled={loading || (!isImageLoaded && !isError && !isPaused)}
             >
-              <FoxIcon />
-            </NeumorphicButton>
-
-            <NeumorphicButton
-              className={cn(css.gliched, {
-                [css.disabled]:
-                  activeTab === Tab.Dog || loading || !isImageLoaded,
-              })}
-              onClick={toggleActiveTab}
-              disabled={activeTab === Tab.Dog || loading || !isImageLoaded}
+              <FoxIcon aria-hidden="true" />
+              <span>Лисы</span>
+            </PixelButton>
+            <PixelButton
+              className={css.category}
+              aria-pressed={activeTab === AnimalEnum.DOG}
+              onClick={() => setActiveTab(AnimalEnum.DOG)}
+              disabled={loading || (!isImageLoaded && !isError && !isPaused)}
             >
-              <DogIcon />
-            </NeumorphicButton>
+              <DogIcon aria-hidden="true" />
+              <span>Собаки</span>
+            </PixelButton>
           </div>
 
+          {isError && (
+            <p role="alert">
+              Не удалось загрузить изображение. Нажми «Дальше», чтобы повторить.
+            </p>
+          )}
+          {isPaused && (
+            <p role="status">
+              Нет подключения к интернету. Ждём восстановления связи.
+            </p>
+          )}
           <div className={css.controls}>
-            <NeumorphicButton
+            <PixelButton
               onClick={getNextImage}
-              disabled={loading || !isImageLoaded}
-              className={cn(css.gliched, {
-                [css.disabled]: loading || !isImageLoaded,
-              })}
+              disabled={loading || (!isImageLoaded && !isError && !isPaused)}
             >
-              <NextIcon />
-            </NeumorphicButton>
-
-            <NeumorphicButton
-              className={cn({
-                [css.active]: isLiked,
-                [css.disabled]: loading || !isImageLoaded,
-                [css.gliched]: !isLiked,
-              })}
+              <NextIcon aria-hidden="true" />
+              <span>Дальше</span>
+            </PixelButton>
+            <PixelButton
+              aria-label="В избранное"
+              aria-pressed={Boolean(isLiked)}
               onClick={toggleLike}
-              disabled={loading || !isImageLoaded}
+              disabled={!current || loading || !isImageLoaded}
             >
-              <LikeIcon />
-            </NeumorphicButton>
+              <LikeIcon aria-hidden="true" />
+              <span>В избранное</span>
+            </PixelButton>
           </div>
         </div>
       </div>

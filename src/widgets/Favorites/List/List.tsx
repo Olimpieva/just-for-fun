@@ -1,9 +1,8 @@
 import React from "react";
 import { ImageLazyLoad } from "components";
-import { useAppSelector } from "utils/hooks";
+import { useLikedCuties } from "store/favorites";
 import { ReactComponent as BrokenHeartIcon } from "assets/broken_heart.svg";
 import ImageLoadingIcon from "assets/image-loading-star.png";
-import { selectLikedImages } from "../../../redux/gallery/selectors";
 
 import css from "./List.module.scss";
 
@@ -12,14 +11,10 @@ type Props = {
 };
 
 const List = ({ onDislike }: Props) => {
-  const favorites = useAppSelector(selectLikedImages);
+  const favorites = useLikedCuties();
 
   if (Object.keys(favorites).length === 0) {
-    return (
-      <div className={css.empty}>
-        Здесь пока ничего нет
-      </div>
-    );
+    return <div className={css.empty}>Здесь пока ничего нет</div>;
   }
 
   return (
@@ -29,7 +24,11 @@ const List = ({ onDislike }: Props) => {
         return (
           <div className={css.image} key={item.id}>
             <div className={css.visual}>
-              <ImageLazyLoad src={item.image} alt={item.id} placeholder={ImageLoadingIcon} />
+              <ImageLazyLoad
+                src={item.image}
+                alt={item.id}
+                placeholder={ImageLoadingIcon}
+              />
             </div>
             <button
               type="button"
@@ -38,7 +37,9 @@ const List = ({ onDislike }: Props) => {
               onClick={() => onDislike(item.id)}
             >
               <BrokenHeartIcon width={32} height={32} aria-hidden="true" />
-              <span className={css.tooltip} aria-hidden="true">Удалить</span>
+              <span className={css.tooltip} aria-hidden="true">
+                Удалить
+              </span>
             </button>
           </div>
         );
