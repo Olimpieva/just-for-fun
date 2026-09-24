@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import cn from "classnames";
 import { Card, Confetti, RainbowTitle } from "components";
-import { ReactComponent as BombIcon } from "assets/bomb.svg";
+import BombIcon from "assets/bomb.svg?react";
 import { Leaderboard, demoRecords } from "widgets/Leaderboard";
 import { getWordEnding } from "utils/helpers";
 import { useMinesweeper } from "./hooks";

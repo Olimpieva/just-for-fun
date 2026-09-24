@@ -1,11 +1,11 @@
 import React from "react";
 import Tooltip from "components/Tooltip";
-import { ReactComponent as BombIcon } from "assets/bomb_lines.svg";
-import { ReactComponent as GalleryIcon } from "assets/gallery.svg";
-import { ReactComponent as WrenchIcon } from "assets/wrench.svg";
-import { ReactComponent as EducationIcon } from "assets/education.svg";
-import { ReactComponent as ExperienceIcon } from "assets/experience.svg";
-import { ReactComponent as HeartIcon } from "assets/heart.svg";
+import BombIcon from "assets/bomb_lines.svg?react";
+import GalleryIcon from "assets/gallery.svg?react";
+import WrenchIcon from "assets/wrench.svg?react";
+import EducationIcon from "assets/education.svg?react";
+import ExperienceIcon from "assets/experience.svg?react";
+import HeartIcon from "assets/heart.svg?react";
 import { ModalType, useShowModal } from "store/modal";
 
 import css from "./Tabs.module.scss";

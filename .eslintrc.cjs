@@ -52,15 +52,6 @@ module.exports = {
       },
     },
     {
-      files: ["**/redux/**"],
-      rules: {
-        "no-param-reassign": [
-          "error",
-          { props: true, ignorePropertyModificationsFor: ["state"] },
-        ],
-      },
-    },
-    {
       files: ["**/*.tsx"],
       rules: {
         ...a11yOff,
@@ -99,6 +90,10 @@ module.exports = {
       "error",
       {
         zones: [
+          {
+            target: ["./src/pages", "./src/widgets", "./src/entities"],
+            from: "./src/app",
+          },
           { target: "./src/entities", from: ["./src/widgets", "./src/pages"] },
           { target: "./src/widgets", from: "./src/pages" },
         ],

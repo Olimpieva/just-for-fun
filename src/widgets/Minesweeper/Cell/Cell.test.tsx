@@ -11,8 +11,8 @@ const hiddenCell: CellState = {
 };
 
 const renderCell = (cell: CellState = hiddenCell) => {
-  const onReveal = jest.fn();
-  const onToggleFlag = jest.fn();
+  const onReveal = vi.fn();
+  const onToggleFlag = vi.fn();
 
   render(
     <Cell

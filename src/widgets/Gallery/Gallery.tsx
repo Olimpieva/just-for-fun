@@ -2,10 +2,10 @@ import React, { useCallback, useEffect, useMemo, useState } from "react";
 import { useDislikeCutie, useLikeCutie, useLikedCuties } from "store/favorites";
 import { Card, GlitchedTitle, ImageLazyLoad } from "components";
 import PixelButton from "components/PixelButton/PixelButton";
-import { ReactComponent as LikeIcon } from "assets/like.svg";
-import { ReactComponent as DogIcon } from "assets/dog.svg";
-import { ReactComponent as FoxIcon } from "assets/fox.svg";
-import { ReactComponent as NextIcon } from "assets/next.svg";
+import LikeIcon from "assets/like.svg?react";
+import DogIcon from "assets/dog.svg?react";
+import FoxIcon from "assets/fox.svg?react";
+import NextIcon from "assets/next.svg?react";
 import ImageLoadingIcon from "assets/image-loading-star.png";
 
 import { AnimalEnum, useRandomCutieQuery } from "entities/cutie";

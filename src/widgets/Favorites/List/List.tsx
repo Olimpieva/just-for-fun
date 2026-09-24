@@ -1,7 +1,7 @@
 import React from "react";
 import { ImageLazyLoad } from "components";
 import { useLikedCuties } from "store/favorites";
-import { ReactComponent as BrokenHeartIcon } from "assets/broken_heart.svg";
+import BrokenHeartIcon from "assets/broken_heart.svg?react";
 import ImageLoadingIcon from "assets/image-loading-star.png";
 
 import css from "./List.module.scss";

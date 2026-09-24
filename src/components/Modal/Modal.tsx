@@ -1,5 +1,5 @@
 import React, { PropsWithChildren } from "react";
-import { ReactComponent as CloseIcon } from "assets/close-icon-red.svg";
+import CloseIcon from "assets/close-icon-red.svg?react";
 
 import css from "./Modal.module.scss";
 

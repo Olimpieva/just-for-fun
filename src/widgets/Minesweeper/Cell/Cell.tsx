@@ -1,7 +1,7 @@
 import React, { KeyboardEvent, MouseEvent, memo } from "react";
 import cn from "classnames";
-import { ReactComponent as FireIcon } from "assets/fire.svg";
-import { ReactComponent as FlagIcon } from "assets/flag.svg";
+import FireIcon from "assets/fire.svg?react";
+import FlagIcon from "assets/flag.svg?react";
 import type { Cell as CellState } from "../Minesweeper.types";
 
 import css from "./Cell.module.scss";
