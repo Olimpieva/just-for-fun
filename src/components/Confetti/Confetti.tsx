@@ -1,5 +1,3 @@
-import React from "react";
-
 import css from "./Confetti.module.scss";
 
 const particlesNum = 100;

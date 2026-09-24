@@ -1,4 +1,3 @@
-import React from "react";
 import { TypingText } from "components";
 
 import css from "./Message.module.scss";

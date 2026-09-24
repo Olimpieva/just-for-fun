@@ -1,4 +1,3 @@
-import React from "react";
 import css from "./FlippedBadge.module.scss";
 
 type Props = {

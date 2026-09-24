@@ -1,4 +1,4 @@
-import React, { PropsWithChildren, ReactElement } from "react";
+import { PropsWithChildren, ReactElement } from "react";
 import cn from "classnames";
 import css from "./Card.module.scss";
 
@@ -7,7 +7,6 @@ type Props = {
   className?: string;
 };
 
-// eslint-disable-next-line arrow-body-style
 const Card = ({ title, className, children }: PropsWithChildren<Props>) => {
   return (
     <div className={cn(css.card, className)}>

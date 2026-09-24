@@ -1,4 +1,4 @@
-import React, { cloneElement, ReactElement, ReactNode, useId } from "react";
+import { cloneElement, ReactElement, ReactNode, useId } from "react";
 import cn from "classnames";
 
 import css from "./Tooltip.module.scss";

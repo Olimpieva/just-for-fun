@@ -1,4 +1,3 @@
-import React from "react";
 import TelegramImg from "assets/telegram.png";
 import GithubImg from "assets/github.png";
 import MailImg from "assets/mail.png";

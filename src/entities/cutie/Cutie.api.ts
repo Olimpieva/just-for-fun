@@ -16,7 +16,7 @@ export const useRandomCutieQuery = (animal: AnimalEnum) => {
     },
     staleTime: Infinity,
     gcTime: 0,
-    refetchOnMount: "always",
+    refetchOnMount: false,
     refetchOnWindowFocus: false,
     refetchOnReconnect: false,
     retry: 1,

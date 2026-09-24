@@ -1,5 +1,3 @@
-import React from "react";
-
 import css from "./SweetTitle.module.scss";
 
 type Props = {

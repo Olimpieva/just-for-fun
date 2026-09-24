@@ -1,4 +1,3 @@
-import React from "react";
 import { Card, FlippedBadge, GlitchedTitle } from "components";
 
 import css from "./ExperienceWidget.module.scss";

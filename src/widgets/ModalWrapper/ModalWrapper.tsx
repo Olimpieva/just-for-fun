@@ -10,7 +10,7 @@ import {
 import { Modal } from "components";
 import { ModalType, useCurrentModal, useHideModal } from "store/modal";
 
-const Modals: Record<ModalType, JSX.Element> = {
+const Modals: Record<ModalType, React.JSX.Element> = {
   skills: <SkillsWidget />,
   experience: <ExperienceWidget />,
   gallery: <GalleryWidget />,

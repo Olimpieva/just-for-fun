@@ -2,7 +2,9 @@
 @import "utils/styles/typography.scss";
 @import "utils/styles/animations.scss";
 
-$text-shadow: 0px 0px 30px rgb(21, 232, 42, 0.5), 0px 0px 30px $glitchGreen;
+$text-shadow:
+  0px 0px 30px rgb(21, 232, 42, 0.5),
+  0px 0px 30px $glitchGreen;
 
 .arrow {
   @include MontserratFont;

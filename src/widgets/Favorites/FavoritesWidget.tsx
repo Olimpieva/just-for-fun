@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { Card, GlitchedTitle } from "components";
 import { useDislikeCutie } from "store/favorites";
 import Message from "./Message";
@@ -10,7 +10,7 @@ import { messages } from "./FavoritesWidget.utils";
 const FavoritesWidget = () => {
   const dislikeImage = useDislikeCutie();
   const [message, setMessage] = useState("");
-  const timerRef = useRef<NodeJS.Timeout>();
+  const timerRef = useRef<ReturnType<typeof setTimeout>>(undefined);
 
   const dislike = useCallback(
     (id: string) => {

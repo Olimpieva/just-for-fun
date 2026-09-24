@@ -1,4 +1,4 @@
-import React, { PropsWithChildren } from "react";
+import { PropsWithChildren } from "react";
 import CloseIcon from "assets/close-icon-red.svg?react";
 
 import css from "./Modal.module.scss";

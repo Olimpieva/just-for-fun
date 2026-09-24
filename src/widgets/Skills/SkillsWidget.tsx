@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { GlitchedTitle } from "components";
 import Tooltip from "components/Tooltip";
 import hoverSparkle from "assets/skills/hover-sparkle.png";

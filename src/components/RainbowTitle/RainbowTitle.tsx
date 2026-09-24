@@ -7,7 +7,6 @@ type Props = {
   icon?: React.ReactElement;
 };
 
-// eslint-disable-next-line arrow-body-style
 const RainbowTitle = ({ title, icon }: Props) => {
   return (
     <div className={css.container}>

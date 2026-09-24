@@ -43,7 +43,9 @@ $slice-5: inset(80% -6px 5% 0);
     $glitchGreen 5%,
     $primaryViolet 5%
   );
-  text-shadow: -3px -3px 0px magenta, 3px 3px 0px $glitchGreen;
+  text-shadow:
+    -3px -3px 0px magenta,
+    3px 3px 0px $glitchGreen;
   clip-path: $slice-0;
 }
 

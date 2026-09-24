@@ -1,4 +1,4 @@
-import React, { ButtonHTMLAttributes } from "react";
+import { ButtonHTMLAttributes } from "react";
 import cn from "classnames";
 import css from "./PixelButton.module.scss";
 

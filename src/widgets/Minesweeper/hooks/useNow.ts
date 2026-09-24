@@ -6,7 +6,6 @@ export const useNow = (isRunning: boolean, intervalMs = 1000) => {
   useEffect(() => {
     if (!isRunning) return undefined;
 
-    setNow(Date.now());
     const timer = setInterval(() => setNow(Date.now()), intervalMs);
     return () => clearInterval(timer);
   }, [isRunning, intervalMs]);

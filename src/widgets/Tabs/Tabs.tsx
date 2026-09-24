@@ -1,4 +1,3 @@
-import React from "react";
 import Tooltip from "components/Tooltip";
 import BombIcon from "assets/bomb_lines.svg?react";
 import GalleryIcon from "assets/gallery.svg?react";

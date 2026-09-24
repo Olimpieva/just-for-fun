@@ -1,4 +1,3 @@
-import React from "react";
 import css from "./GlitchedTitle.module.scss";
 
 type Props = {

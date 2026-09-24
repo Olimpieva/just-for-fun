@@ -1,4 +1,3 @@
-import React from "react";
 import { QueryProvider } from "./providers";
 import Router from "./router";
 

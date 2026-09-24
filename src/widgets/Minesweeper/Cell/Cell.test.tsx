@@ -1,4 +1,3 @@
-import React from "react";
 import { fireEvent, render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import type { Cell as CellState } from "../Minesweeper.types";

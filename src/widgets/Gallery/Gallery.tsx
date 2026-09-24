@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useMemo, useState } from "react";
+import { useCallback, useMemo, useState } from "react";
 import { useDislikeCutie, useLikeCutie, useLikedCuties } from "store/favorites";
 import { Card, GlitchedTitle, ImageLazyLoad } from "components";
 import PixelButton from "components/PixelButton/PixelButton";
@@ -25,27 +25,25 @@ const GalleryWidget = () => {
   const likedImages = useLikedCuties();
   const likeImage = useLikeCutie();
   const dislikeImage = useDislikeCutie();
-  const [isImageLoaded, setIsImageLoaded] = useState(false);
-  const [loadedImageSrc, setLoadedImageSrc] = useState<string>();
+  const [settledImage, setSettledImage] = useState<{
+    src?: string;
+    isLoaded: boolean;
+  }>();
 
-  useEffect(() => {
-    setIsImageLoaded(false);
-    setLoadedImageSrc(undefined);
-  }, [current]);
+  const isImageLoaded =
+    settledImage !== undefined && settledImage.src === current?.image;
+  const loadedImageSrc =
+    isImageLoaded && settledImage.isLoaded ? settledImage.src : undefined;
 
   const onLoadImage = useCallback(() => {
-    setIsImageLoaded(true);
-    setLoadedImageSrc(current?.image);
+    setSettledImage({ src: current?.image, isLoaded: true });
   }, [current?.image]);
 
   const onImageError = useCallback(() => {
-    setIsImageLoaded(true);
-    setLoadedImageSrc(undefined);
-  }, []);
+    setSettledImage({ src: current?.image, isLoaded: false });
+  }, [current?.image]);
 
-  const canShowImageEffect = Boolean(
-    !loading && loadedImageSrc && loadedImageSrc === current?.image,
-  );
+  const canShowImageEffect = !loading && Boolean(loadedImageSrc);
 
   const isLiked = useMemo(
     () => current && Boolean(likedImages[current.id]),

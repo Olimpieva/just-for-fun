@@ -1,4 +1,4 @@
-import React, { CSSProperties } from "react";
+import { CSSProperties } from "react";
 import type { Cell as CellState } from "../Minesweeper.types";
 import Cell from "../Cell";
 

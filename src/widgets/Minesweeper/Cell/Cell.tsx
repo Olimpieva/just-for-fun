@@ -1,4 +1,4 @@
-import React, { KeyboardEvent, MouseEvent, memo } from "react";
+import { KeyboardEvent, MouseEvent, memo } from "react";
 import cn from "classnames";
 import FireIcon from "assets/fire.svg?react";
 import FlagIcon from "assets/flag.svg?react";

@@ -107,7 +107,9 @@
   border-radius: 4px;
   background: $primaryDarkBlue;
   color: $neutral;
-  font: 20px/28px "PT Mono", monospace;
+  font:
+    20px/28px "PT Mono",
+    monospace;
   white-space: nowrap;
   opacity: 0;
   pointer-events: none;

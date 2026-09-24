@@ -1,4 +1,3 @@
-import React from "react";
 import { KeepInTouch, Tabs, ModalWrapper } from "widgets";
 import { useFavoritesSync } from "store/favorites";
 

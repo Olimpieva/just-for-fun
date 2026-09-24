@@ -1,4 +1,3 @@
-import React from "react";
 import { Card, ColorBlockBadge, GlitchedTitle } from "components";
 
 import css from "./EducationWidget.module.scss";
