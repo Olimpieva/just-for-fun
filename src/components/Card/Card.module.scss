@@ -1,16 +1,16 @@
-@import "utils/styles/colors.scss";
-@import "utils/styles/typography.scss";
-@import "utils/styles/extensions.scss";
+@use "utils/styles/colors.scss";
+@use "utils/styles/typography.scss";
+@use "utils/styles/extensions.scss";
 
 .card {
   position: relative;
-  border-radius: $primaryBorderRadius;
-  background-color: $neutral;
-  box-shadow: 12px 12px 1px 1px $bgColorDark;
+  border-radius: extensions.$primaryBorderRadius;
+  background-color: colors.$neutral;
+  box-shadow: 12px 12px 1px 1px colors.$bgColorDark;
 }
 
 .title {
-  @include MontserratFont;
+  @include typography.MontserratFont;
 
   width: 100%;
   min-height: 60px;
@@ -19,9 +19,10 @@
   align-items: center;
   justify-content: center;
   text-align: center;
-  border-radius: $primaryBorderRadius $primaryBorderRadius 0 0;
-  background-color: $primaryPink;
-  font-size: $fontSizeH2;
+  border-radius: extensions.$primaryBorderRadius extensions.$primaryBorderRadius
+    0 0;
+  background-color: colors.$primaryPink;
+  font-size: typography.$fontSizeH2;
   font-weight: 900;
-  color: $lightFontColor;
+  color: colors.$lightFontColor;
 }

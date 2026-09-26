@@ -1,15 +1,15 @@
-@import "utils/styles/typography.scss";
-@import "utils/styles/colors.scss";
+@use "utils/styles/typography.scss";
+@use "utils/styles/colors.scss";
 
 .container {
   width: min-content;
 }
 
 .text {
-  @include CourierFont;
+  @include typography.CourierFont;
 
-  font-size: $fontSizeH3;
-  color: $lightFontColor;
+  font-size: typography.$fontSizeH3;
+  color: colors.$lightFontColor;
   width: 100%;
   animation:
     type 2s steps(32, end),

@@ -1,6 +1,6 @@
-@import "utils/styles/colors.scss";
-@import "utils/styles/typography.scss";
-@import "utils/styles/animations.scss";
+@use "utils/styles/colors.scss";
+@use "utils/styles/typography.scss";
+@use "utils/styles/animations.scss";
 
 .container {
   width: 360px;
@@ -36,32 +36,32 @@
   cursor: default;
 
   > h3 {
-    @include MontserratFont;
-    @include Glitch-2;
+    @include typography.MontserratFont;
+    @include animations.Glitch-2;
 
-    font-size: $fontSizeH3;
+    font-size: typography.$fontSizeH3;
     font-weight: 600;
   }
 
   > p {
-    @include PTMonoFont;
-    @include Glitch-2;
+    @include typography.PTMonoFont;
+    @include animations.Glitch-2;
 
-    font-size: $fontSizeSecondary;
+    font-size: typography.$fontSizeSecondary;
   }
 }
 
 .front {
   transform: rotateY(0deg);
-  background: $primaryYellow;
+  background: colors.$primaryYellow;
   text-transform: lowercase;
 
   > h3 {
-    color: $primaryViolet;
+    color: colors.$primaryViolet;
   }
 
   > p {
-    color: $white50op;
+    color: colors.$white50op;
   }
 }
 
@@ -72,14 +72,14 @@
   position: absolute;
   top: 0;
   left: 0;
-  background: $primaryPink;
+  background: colors.$primaryPink;
   transform: rotateY(-180deg);
 
   > h3 {
-    color: $lightFontColor;
+    color: colors.$lightFontColor;
   }
 
   > p {
-    color: $white50op;
+    color: colors.$white50op;
   }
 }

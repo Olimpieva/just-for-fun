@@ -1,5 +1,5 @@
-@import "utils/styles/colors.scss";
-@import "utils/styles/typography.scss";
+@use "utils/styles/colors.scss";
+@use "utils/styles/typography.scss";
 
 .modal {
   width: 100%;
@@ -27,7 +27,7 @@
   top: 6px;
   right: 6px;
   border: 0;
-  color: $white;
+  color: colors.$white;
   background: transparent;
   cursor: pointer;
   z-index: 3;
@@ -39,7 +39,7 @@
   }
 
   &:hover {
-    color: $primaryDarkBlue;
+    color: colors.$primaryDarkBlue;
   }
 
   &:active {
@@ -47,7 +47,7 @@
   }
 
   &:focus-visible {
-    outline: 3px solid $primaryDarkBlue;
+    outline: 3px solid colors.$primaryDarkBlue;
     outline-offset: 2px;
   }
 }

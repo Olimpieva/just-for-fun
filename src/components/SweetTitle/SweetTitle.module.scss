@@ -1,30 +1,30 @@
-@import "utils/styles/typography.scss";
-@import "utils/styles/colors.scss";
+@use "utils/styles/typography.scss";
+@use "utils/styles/colors.scss";
 
 .title {
-  @include MontserratFont;
+  @include typography.MontserratFont;
 
   order: 2;
   transform: skew(0, -8deg);
   text-align: center;
-  font-size: $fontSizeH1;
+  font-size: typography.$fontSizeH1;
   font-weight: 900;
   text-transform: uppercase;
   line-height: 0.9;
-  color: $lightFontColor;
+  color: colors.$lightFontColor;
   text-shadow:
     3px 1px 1px #4af7ff,
-    2px 2px 1px $primaryDarkBlue,
+    2px 2px 1px colors.$primaryDarkBlue,
     4px 2px 1px #4af7ff,
-    3px 3px 1px $primaryDarkBlue,
+    3px 3px 1px colors.$primaryDarkBlue,
     5px 3px 1px #4af7ff,
-    4px 4px 1px $primaryDarkBlue,
+    4px 4px 1px colors.$primaryDarkBlue,
     6px 4px 1px #4af7ff,
-    5px 5px 1px $primaryDarkBlue,
+    5px 5px 1px colors.$primaryDarkBlue,
     7px 5px 1px #4af7ff,
-    6px 6px 1px $primaryDarkBlue,
+    6px 6px 1px colors.$primaryDarkBlue,
     8px 6px 1px #4af7ff,
-    7px 7px 1px $primaryDarkBlue,
+    7px 7px 1px colors.$primaryDarkBlue,
     9px 7px 1px #4af7ff;
 
   span {
@@ -36,7 +36,7 @@
       position: absolute;
       text-shadow:
         2px 2px 1px #e94aa1,
-        -1px -1px 1px $glitchPink,
+        -1px -1px 1px colors.$glitchPink,
         -2px 2px 1px #e94aa1,
         1px -1px 1px #f736f9;
     }

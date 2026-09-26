@@ -1,39 +1,39 @@
-@import "utils/styles/colors.scss";
-@import "utils/styles/typography.scss";
+@use "utils/styles/colors.scss";
+@use "utils/styles/typography.scss";
 
 $shadow:
-  1px 1px $primaryLightBlue,
-  2px 2px $primaryLightBlue,
-  3px 3px $primaryLightBlue,
-  4px 4px $primaryLightBlue,
-  5px 5px $primaryLightBlue,
-  6px 6px $secondaryGreen,
-  7px 7px $secondaryGreen,
-  8px 8px $secondaryGreen,
-  9px 9px $secondaryGreen,
-  10px 10px $secondaryGreen,
-  11px 11px $secondaryOrange,
-  12px 12px $secondaryOrange,
-  13px 13px $secondaryOrange,
-  14px 14px $secondaryOrange,
-  15px 15px $secondaryOrange,
-  16px 16px $secondaryRed,
-  17px 17px $secondaryRed,
-  18px 18px $secondaryRed,
-  19px 19px $secondaryRed,
-  20px 20px $secondaryRed,
-  21px 21px$primaryGray,
-  22px 22px$primaryGray,
-  23px 23px$primaryGray,
-  24px 24px$primaryGray,
-  25px 25px$primaryGray;
+  1px 1px colors.$primaryLightBlue,
+  2px 2px colors.$primaryLightBlue,
+  3px 3px colors.$primaryLightBlue,
+  4px 4px colors.$primaryLightBlue,
+  5px 5px colors.$primaryLightBlue,
+  6px 6px colors.$secondaryGreen,
+  7px 7px colors.$secondaryGreen,
+  8px 8px colors.$secondaryGreen,
+  9px 9px colors.$secondaryGreen,
+  10px 10px colors.$secondaryGreen,
+  11px 11px colors.$secondaryOrange,
+  12px 12px colors.$secondaryOrange,
+  13px 13px colors.$secondaryOrange,
+  14px 14px colors.$secondaryOrange,
+  15px 15px colors.$secondaryOrange,
+  16px 16px colors.$secondaryRed,
+  17px 17px colors.$secondaryRed,
+  18px 18px colors.$secondaryRed,
+  19px 19px colors.$secondaryRed,
+  20px 20px colors.$secondaryRed,
+  21px 21px colors.$primaryGray,
+  22px 22px colors.$primaryGray,
+  23px 23px colors.$primaryGray,
+  24px 24px colors.$primaryGray,
+  25px 25px colors.$primaryGray;
 
 $shadow-hover:
-  1px 1px $primaryLightBlue,
-  2px 2px $secondaryGreen,
-  3px 3px $secondaryOrange,
-  4px 4px $secondaryRed,
-  5px 5px$primaryGray;
+  1px 1px colors.$primaryLightBlue,
+  2px 2px colors.$secondaryGreen,
+  3px 3px colors.$secondaryOrange,
+  4px 4px colors.$secondaryRed,
+  5px 5px colors.$primaryGray;
 
 .container {
   display: flex;
@@ -42,10 +42,10 @@ $shadow-hover:
   margin-bottom: 16px;
 
   .title {
-    @include PixelFont;
+    @include typography.PixelFont;
 
     color: #ededed;
-    font-size: $fontSizeH3;
+    font-size: typography.$fontSizeH3;
     transition: 0.5s all ease;
     text-transform: uppercase;
     text-decoration: none;

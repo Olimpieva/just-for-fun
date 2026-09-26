@@ -1,5 +1,5 @@
-@import "utils/styles/colors.scss";
-@import "utils/styles/typography.scss";
+@use "utils/styles/colors.scss";
+@use "utils/styles/typography.scss";
 
 .button {
   --pixel-outline: polygon(
@@ -24,14 +24,14 @@
     4px 4px,
     12px 4px
   );
-  @include PTMonoFont;
+  @include typography.PTMonoFont;
   position: relative;
   isolation: isolate;
   width: 100%;
   padding: 0 6px 8px 0;
   border: 0;
   background: transparent;
-  color: $primaryDarkBlue;
+  color: colors.$primaryDarkBlue;
   cursor: pointer;
   font-size: 15px;
   font-weight: 700;
@@ -44,7 +44,7 @@
     position: absolute;
     inset: 8px 0 0 6px;
     clip-path: var(--pixel-outline);
-    background: $primaryDarkBlue;
+    background: colors.$primaryDarkBlue;
     z-index: -1;
   }
 
@@ -55,10 +55,10 @@
     transform: translate(6px, 8px);
   }
   &[aria-pressed="true"] .face::before {
-    background: $primaryPink;
+    background: colors.$primaryPink;
   }
   &:focus-visible {
-    outline: 3px solid $primaryDarkBlue;
+    outline: 3px solid colors.$primaryDarkBlue;
     outline-offset: 5px;
   }
   &:disabled {
@@ -77,7 +77,7 @@
   min-height: 88px;
   padding: 16px;
   clip-path: var(--pixel-outline);
-  background: $primaryDarkBlue;
+  background: colors.$primaryDarkBlue;
   transition: transform 100ms ease-out;
 
   &::before {
@@ -85,7 +85,7 @@
     position: absolute;
     inset: 4px;
     clip-path: var(--pixel-outline);
-    background: $primaryYellow;
+    background: colors.$primaryYellow;
     z-index: -1;
   }
 

@@ -1,7 +1,7 @@
-@import "utils/styles/colors.scss";
-@import "utils/styles/typography.scss";
-@import "utils/styles/animations.scss";
-@import "utils/styles/extensions.scss";
+@use "utils/styles/colors.scss";
+@use "utils/styles/typography.scss";
+@use "utils/styles/animations.scss";
+@use "utils/styles/extensions.scss";
 
 .container {
   padding: 24px;

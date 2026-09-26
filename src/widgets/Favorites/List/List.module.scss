@@ -1,4 +1,4 @@
-@import "utils/styles/colors.scss";
+@use "utils/styles/colors.scss";
 
 .image {
   position: relative;
@@ -41,10 +41,10 @@
     content: "";
     position: absolute;
     inset: -6px;
-    border: 4px solid $primaryYellow;
+    border: 4px solid colors.$primaryYellow;
     border-radius: 5px;
-    outline: 2px solid $primaryDarkBlue;
-    box-shadow: 6px 6px 0 2px $primaryDarkBlue;
+    outline: 2px solid colors.$primaryDarkBlue;
+    box-shadow: 6px 6px 0 2px colors.$primaryDarkBlue;
     opacity: 0;
     pointer-events: none;
   }
@@ -61,11 +61,11 @@
   width: 48px;
   height: 48px;
   padding: 0;
-  border: 2px solid $primaryDarkBlue;
+  border: 2px solid colors.$primaryDarkBlue;
   border-radius: 5px;
-  background: $secondaryRed;
-  box-shadow: 3px 3px 0 $primaryDarkBlue;
-  color: $neutral;
+  background: colors.$secondaryRed;
+  box-shadow: 3px 3px 0 colors.$primaryDarkBlue;
+  color: colors.$neutral;
   opacity: 0;
   pointer-events: none;
   cursor: pointer;
@@ -82,12 +82,12 @@
   }
 
   &:focus-visible {
-    outline: 2px solid $primaryYellow;
+    outline: 2px solid colors.$primaryYellow;
     outline-offset: 2px;
   }
 
   &:active {
-    box-shadow: 1px 1px 0 $primaryDarkBlue;
+    box-shadow: 1px 1px 0 colors.$primaryDarkBlue;
 
     svg path:first-of-type {
       transform: translateX(-60px);
@@ -105,8 +105,8 @@
   top: 2px;
   padding: 6px 10px;
   border-radius: 4px;
-  background: $primaryDarkBlue;
-  color: $neutral;
+  background: colors.$primaryDarkBlue;
+  color: colors.$neutral;
   font:
     20px/28px "PT Mono",
     monospace;

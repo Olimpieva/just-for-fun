@@ -1,28 +1,28 @@
-@import "utils/styles/colors.scss";
-@import "utils/styles/typography.scss";
+@use "utils/styles/colors.scss";
+@use "utils/styles/typography.scss";
 
 .container {
-  @include PTMonoFont;
+  @include typography.PTMonoFont;
   width: min(1120px, calc(100vw - 48px));
-  color: $primaryDarkBlue;
-  background: $neutral;
-  border: 2px solid $primaryDarkBlue;
+  color: colors.$primaryDarkBlue;
+  background: colors.$neutral;
+  border: 2px solid colors.$primaryDarkBlue;
   border-radius: 8px;
-  box-shadow: 10px 10px 0 $primaryDarkBlue;
+  box-shadow: 10px 10px 0 colors.$primaryDarkBlue;
 }
 .header {
   min-height: 60px;
   padding: 14px 64px;
-  background: $primaryYellow;
+  background: colors.$primaryYellow;
   border-radius: 6px 6px 0 0;
   h2 {
-    @include PixelFont;
+    @include typography.PixelFont;
     margin: 0;
     font-size: 32px;
     line-height: 32px;
     text-align: center;
     text-transform: uppercase;
-    color: $primaryDarkBlue;
+    color: colors.$primaryDarkBlue;
   }
 }
 .content {
@@ -47,7 +47,7 @@
   }
 }
 .technology {
-  @include PTMonoFont;
+  @include typography.PTMonoFont;
   width: 100%;
   display: flex;
   align-items: center;
@@ -61,7 +61,7 @@
   cursor: pointer;
   -webkit-tap-highlight-color: transparent;
   &:focus-visible {
-    outline: 2px solid $primaryDarkBlue;
+    outline: 2px solid colors.$primaryDarkBlue;
     outline-offset: 5px;
   }
   &:focus-visible,
@@ -123,7 +123,7 @@
   justify-content: center;
   gap: 48px;
   padding-top: 18px;
-  border-top: 1px solid rgba($primaryDarkBlue, 0.35);
+  border-top: 1px solid rgba(colors.$primaryDarkBlue, 0.35);
   > div {
     display: flex;
     align-items: center;
@@ -316,6 +316,6 @@
   .content {
     max-height: max(200px, calc(100dvh - 180px));
     overflow-y: auto;
-    scrollbar-color: $primaryLightBlue $neutral;
+    scrollbar-color: colors.$primaryLightBlue colors.$neutral;
   }
 }

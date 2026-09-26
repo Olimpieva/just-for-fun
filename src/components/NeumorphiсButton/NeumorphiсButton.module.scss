@@ -1,6 +1,6 @@
-@import "utils/styles/colors.scss";
-@import "utils/styles/typography.scss";
-@import "utils/styles/extensions.scss";
+@use "utils/styles/colors.scss";
+@use "utils/styles/typography.scss";
+@use "utils/styles/extensions.scss";
 
 .button {
   width: 100%;
@@ -10,12 +10,12 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: $neutral;
+  background-color: colors.$neutral;
   border: none;
-  border-radius: $radius;
+  border-radius: extensions.$radius;
   cursor: pointer;
-  color: $primaryViolet;
-  box-shadow: $shadow-out;
+  color: colors.$primaryViolet;
+  box-shadow: extensions.$shadow-out;
   transition: box-shadow 0.6s cubic-bezier(0.79, 0.21, 0.06, 0.8);
 
   &:hover {
@@ -23,7 +23,7 @@
   }
 
   &:active {
-    box-shadow: $shadow-in;
+    box-shadow: extensions.$shadow-in;
     opacity: 0.9;
 
     > svg {
@@ -32,7 +32,7 @@
   }
 
   &:disabled {
-    box-shadow: $shadow-in;
+    box-shadow: extensions.$shadow-in;
     background: none;
     opacity: 1;
     cursor: auto;
@@ -44,11 +44,11 @@
 }
 
 .active {
-  box-shadow: $shadow-in;
+  box-shadow: extensions.$shadow-in;
 
   & > svg {
     & > path {
-      color: $primaryViolet;
+      color: colors.$primaryViolet;
     }
   }
 }

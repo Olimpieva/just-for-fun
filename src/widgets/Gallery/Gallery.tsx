@@ -1,4 +1,4 @@
-import { useCallback, useMemo, useState } from "react";
+import { useState } from "react";
 import { useDislikeCutie, useLikeCutie, useLikedCuties } from "store/favorites";
 import { Card, GlitchedTitle, ImageLazyLoad } from "components";
 import PixelButton from "components/PixelButton/PixelButton";
@@ -35,20 +35,17 @@ const GalleryWidget = () => {
   const loadedImageSrc =
     isImageLoaded && settledImage.isLoaded ? settledImage.src : undefined;
 
-  const onLoadImage = useCallback(() => {
+  const onLoadImage = () => {
     setSettledImage({ src: current?.image, isLoaded: true });
-  }, [current?.image]);
+  };
 
-  const onImageError = useCallback(() => {
+  const onImageError = () => {
     setSettledImage({ src: current?.image, isLoaded: false });
-  }, [current?.image]);
+  };
 
   const canShowImageEffect = !loading && Boolean(loadedImageSrc);
 
-  const isLiked = useMemo(
-    () => current && Boolean(likedImages[current.id]),
-    [current, likedImages],
-  );
+  const isLiked = current && Boolean(likedImages[current.id]);
 
   const getNextImage = () => {
     refetch();

@@ -1,25 +1,25 @@
-@import "utils/styles/colors.scss";
-@import "utils/styles/typography.scss";
-@import "utils/styles/animations.scss";
+@use "utils/styles/colors.scss";
+@use "utils/styles/typography.scss";
+@use "utils/styles/animations.scss";
 
 $text-shadow:
   0px 0px 30px rgb(21, 232, 42, 0.5),
-  0px 0px 30px $glitchGreen;
+  0px 0px 30px colors.$glitchGreen;
 
 .arrow {
-  @include MontserratFont;
+  @include typography.MontserratFont;
 
   margin-right: 8px;
   text-shadow: $text-shadow;
 }
 
 .container {
-  @include CourierFont;
+  @include typography.CourierFont;
 
   width: max-content;
   display: flex;
-  font-size: $fontSizeH2;
-  color: $glitchGreen;
+  font-size: typography.$fontSizeH2;
+  color: colors.$glitchGreen;
 }
 
 .title {
@@ -29,8 +29,8 @@ $text-shadow:
 }
 
 .dash {
-  @include PTMonoFont;
-  @include Blink-1;
+  @include typography.PTMonoFont;
+  @include animations.Blink-1;
 
-  text-shadow: $text-shadow, $glitchGreen;
+  text-shadow: $text-shadow, colors.$glitchGreen;
 }

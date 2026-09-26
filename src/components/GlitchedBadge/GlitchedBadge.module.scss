@@ -1,5 +1,5 @@
-@import "utils/styles/colors.scss";
-@import "utils/styles/typography.scss";
+@use "utils/styles/colors.scss";
+@use "utils/styles/typography.scss";
 
 $bg-color: #4242e6;
 $glitch-bg-color: $bg-color;
@@ -11,13 +11,13 @@ $glitch-bg-color: $bg-color;
   right: 20%;
   display: block;
   transform: translate(-50%, 50%);
-  font-size: $fontSizeH1;
+  font-size: typography.$fontSizeH1;
   font-weight: bold;
 }
 
 .glitch {
-  @include PixelFont;
-  font-size: $fontSizeH0;
+  @include typography.PixelFont;
+  font-size: typography.$fontSizeH0;
   color: #a5a5ff;
   background: $bg-color;
   position: relative;
@@ -40,7 +40,7 @@ $glitch-bg-color: $bg-color;
   animation-name: glitch-animation;
   animation-duration: 4s;
   left: 4px;
-  text-shadow: -2px 0 $glitchPink;
+  text-shadow: -2px 0 colors.$glitchPink;
   background: $bg-color;
 }
 
@@ -48,7 +48,7 @@ $glitch-bg-color: $bg-color;
   animation-name: glitch-animation-2;
   animation-duration: 6s;
   left: -4px;
-  text-shadow: 2px 0 $glitchGreen;
+  text-shadow: 2px 0 colors.$glitchGreen;
   background: $bg-color;
 }
 

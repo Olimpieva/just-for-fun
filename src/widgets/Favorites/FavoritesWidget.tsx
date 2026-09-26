@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Card, GlitchedTitle } from "components";
 import { useDislikeCutie } from "store/favorites";
 import Message from "./Message";
@@ -12,22 +12,19 @@ const FavoritesWidget = () => {
   const [message, setMessage] = useState("");
   const timerRef = useRef<ReturnType<typeof setTimeout>>(undefined);
 
-  const dislike = useCallback(
-    (id: string) => {
-      dislikeImage(id);
+  const dislike = (id: string) => {
+    dislikeImage(id);
 
-      if (!timerRef.current) {
-        const randomMessage =
-          messages[Math.floor(Math.random() * messages.length)];
-        setMessage(randomMessage);
-        timerRef.current = setTimeout(() => {
-          setMessage("");
-          timerRef.current = undefined;
-        }, 4000);
-      }
-    },
-    [dislikeImage],
-  );
+    if (!timerRef.current) {
+      const randomMessage =
+        messages[Math.floor(Math.random() * messages.length)];
+      setMessage(randomMessage);
+      timerRef.current = setTimeout(() => {
+        setMessage("");
+        timerRef.current = undefined;
+      }, 4000);
+    }
+  };
 
   useEffect(() => {
     return () => {

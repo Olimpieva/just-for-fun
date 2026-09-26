@@ -1,7 +1,7 @@
-@import "utils/styles/colors.scss";
-@import "utils/styles/typography.scss";
-@import "utils/styles/extensions.scss";
-@import "utils/styles/animations.scss";
+@use "utils/styles/colors.scss";
+@use "utils/styles/typography.scss";
+@use "utils/styles/extensions.scss";
+@use "utils/styles/animations.scss";
 
 .page {
   background: radial-gradient(ellipse at center, #5b7d9e 40%, #484965 80%);
@@ -15,11 +15,11 @@
   margin: 0 auto;
   position: relative;
   background:
-    linear-gradient($white50op, transparent 2px),
-    linear-gradient(90deg, $white50op, transparent 2px);
+    linear-gradient(colors.$white50op, transparent 2px),
+    linear-gradient(90deg, colors.$white50op, transparent 2px);
   background-size: 120px 120px;
   background-position: center center;
-  border: 2px $white50op solid;
+  border: 2px colors.$white50op solid;
   z-index: 2;
   display: flex;
   flex-direction: column;
@@ -31,39 +31,39 @@
   grid-template-columns: 1fr 0.5fr;
   justify-content: space-between;
   align-items: flex-start;
-  margin-bottom: $bigGap;
+  margin-bottom: extensions.$bigGap;
 }
 
 .title {
-  @include MontserratFont;
-  @include Glitch-2;
+  @include typography.MontserratFont;
+  @include animations.Glitch-2;
 
   margin: 0 0 16px;
   text-transform: uppercase;
   vertical-align: baseline;
-  font-size: $fontSizeH0;
+  font-size: typography.$fontSizeH0;
   font-weight: 600;
-  color: $neutral;
+  color: colors.$neutral;
 }
 
 .subtitle {
-  @include MontserratFont;
-  @include Glitch-2;
+  @include typography.MontserratFont;
+  @include animations.Glitch-2;
 
   margin-bottom: 36px;
   color: #47021e;
-  font-size: $fontSizeH3;
+  font-size: typography.$fontSizeH3;
   text-transform: uppercase;
   vertical-align: baseline;
 }
 
 .description {
-  @include PTMonoFont;
-  @include Glitch-2;
+  @include typography.PTMonoFont;
+  @include animations.Glitch-2;
 
   font-weight: 300;
-  color: $neutral;
-  font-size: $fontSizePrimary;
+  color: colors.$neutral;
+  font-size: typography.$fontSizePrimary;
 }
 
 .footer {
@@ -72,8 +72,8 @@
 }
 
 .link {
-  @include PTMonoFont;
-  @include Glitch-2;
+  @include typography.PTMonoFont;
+  @include animations.Glitch-2;
 
   position: absolute;
   top: 0;

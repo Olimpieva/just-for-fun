@@ -1,8 +1,8 @@
-@import "utils/styles/colors.scss";
-@import "utils/styles/typography.scss";
+@use "utils/styles/colors.scss";
+@use "utils/styles/typography.scss";
 
 .cell {
-  @include PTMonoFont;
+  @include typography.PTMonoFont;
 
   width: 36px;
   height: 36px;
@@ -12,8 +12,8 @@
   justify-content: center;
   align-items: center;
   font-size: inherit;
-  background-color: $primaryViolet;
-  color: $neutral;
+  background-color: colors.$primaryViolet;
+  color: colors.$neutral;
   border: none;
   border-radius: 4px;
   cursor: pointer;
@@ -21,7 +21,7 @@
 
   &:hover,
   &:focus-visible {
-    outline: 2px solid $primaryYellow;
+    outline: 2px solid colors.$primaryYellow;
     outline-offset: -2px;
   }
 }
@@ -34,5 +34,5 @@
 }
 
 .exploded {
-  background-color: $secondaryRed;
+  background-color: colors.$secondaryRed;
 }

@@ -1,5 +1,5 @@
-@import "utils/styles/colors.scss";
-@import "utils/styles/extensions.scss";
+@use "utils/styles/colors.scss";
+@use "utils/styles/extensions.scss";
 
 .titleWrapper {
   width: 100%;
@@ -10,33 +10,57 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: $middleGap;
+  gap: extensions.$middleGap;
 }
 
 .list > li > div {
   width: min(620px, calc(100vw - 96px));
   > div {
     min-height: 140px;
+    border-radius: 8px;
+    backface-visibility: hidden;
   }
   > div:first-child {
     display: grid;
-    grid-template-columns: 0.9fr 1.1fr;
+    grid-template-columns: max-content minmax(0, 1fr);
     gap: 20px;
     padding: 20px 24px;
+    overflow: hidden;
 
     > p {
-      color: $white50op;
+      color: colors.$white50op;
       font-size: clamp(16px, 3vw, 24px);
       white-space: nowrap;
+      text-align: left;
     }
 
     > h3 {
-      font-size: clamp(24px, 5vw, 40px);
+      min-width: 0;
+      font-size: clamp(24px, 5vw, 48px);
+      font-weight: 600;
+      line-height: 1.15;
+      letter-spacing: -0.035em;
+      white-space: nowrap;
+      text-align: right;
+      animation: none;
+      color: colors.$primaryViolet;
     }
   }
 
   > div:last-child > p {
-    color: $primaryDarkBlue;
+    color: colors.$primaryDarkBlue;
     line-height: 1.4;
+  }
+}
+
+@media (max-width: 480px) {
+  .list > li > div > div:first-child {
+    grid-template-columns: max-content minmax(0, 1fr);
+    gap: 12px;
+    padding: 16px 12px;
+
+    > h3 {
+      font-size: clamp(18px, 5vw, 24px);
+    }
   }
 }

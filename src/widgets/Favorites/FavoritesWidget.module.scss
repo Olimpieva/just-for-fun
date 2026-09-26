@@ -1,4 +1,4 @@
-@import "utils/styles/typography.scss";
+@use "utils/styles/typography.scss";
 
 .container {
   padding: 0;
@@ -11,7 +11,7 @@
 }
 
 .content {
-  @include PTMonoFont;
+  @include typography.PTMonoFont;
   position: relative;
   width: 100%;
   height: auto;

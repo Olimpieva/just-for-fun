@@ -1,6 +1,6 @@
-@import "utils/styles/colors.scss";
-@import "utils/styles/typography.scss";
-@import "utils/styles/animations.scss";
+@use "utils/styles/colors.scss";
+@use "utils/styles/typography.scss";
+@use "utils/styles/animations.scss";
 
 .container {
   display: flex;
@@ -124,28 +124,28 @@
 }
 
 .timer {
-  @include PTMonoFont;
+  @include typography.PTMonoFont;
   padding: 7px 12px;
-  border: 2px solid $primaryDarkBlue;
+  border: 2px solid colors.$primaryDarkBlue;
   border-radius: 4px;
-  background: $primaryDarkBlue;
-  color: $primaryYellow;
+  background: colors.$primaryDarkBlue;
+  color: colors.$primaryYellow;
   font-variant-numeric: tabular-nums;
 }
 
 .leaderboardButton {
-  @include PTMonoFont;
+  @include typography.PTMonoFont;
   padding: 7px 12px;
-  border: 2px solid $primaryDarkBlue;
-  background: $neutral;
-  color: $primaryDarkBlue;
+  border: 2px solid colors.$primaryDarkBlue;
+  background: colors.$neutral;
+  color: colors.$primaryDarkBlue;
   cursor: pointer;
   border-radius: 4px;
   &:hover {
-    background: $primaryYellow;
+    background: colors.$primaryYellow;
   }
   &:focus-visible {
-    outline: 3px solid $primaryDarkBlue;
+    outline: 3px solid colors.$primaryDarkBlue;
     outline-offset: 3px;
   }
 }

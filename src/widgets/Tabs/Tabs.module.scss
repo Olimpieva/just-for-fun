@@ -1,6 +1,6 @@
-@import "utils/styles/colors.scss";
-@import "utils/styles/typography.scss";
-@import "utils/styles/animations.scss";
+@use "utils/styles/colors.scss";
+@use "utils/styles/typography.scss";
+@use "utils/styles/animations.scss";
 
 .container {
   margin: 0 auto;
@@ -14,9 +14,9 @@
 }
 
 .button {
-  @include PTMonoFont;
+  @include typography.PTMonoFont;
 
-  @include Glitch-2;
+  @include animations.Glitch-2;
 
   min-width: 120px;
   display: flex;

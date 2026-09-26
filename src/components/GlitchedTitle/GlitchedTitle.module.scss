@@ -1,9 +1,9 @@
-@import "utils/styles/colors.scss";
-@import "utils/styles/typography.scss";
-@import "utils/styles/animations.scss";
+@use "utils/styles/colors.scss";
+@use "utils/styles/typography.scss";
+@use "utils/styles/animations.scss";
 
 .italic {
-  @include OswaldFont;
+  @include typography.OswaldFont;
 
   width: 100%;
   position: absolute;
@@ -13,28 +13,28 @@
 
   .title,
   .shadow {
-    @include Glitch-3;
+    @include animations.Glitch-3;
 
     position: relative;
-    font-size: $fontSizeH1;
+    font-size: typography.$fontSizeH1;
     font-style: italic;
     font-weight: 800;
-    color: $lightFontColor;
+    color: colors.$lightFontColor;
     animation: glitch 5s 5s infinite;
 
     &:before {
-      @include Glitch-1;
+      @include animations.Glitch-1;
 
       content: attr(data-text);
       position: absolute;
       top: 0;
       left: -2px;
       overflow: hidden;
-      text-shadow: -4px 0 $glitchPink;
+      text-shadow: -4px 0 colors.$glitchPink;
     }
 
     &:after {
-      @include Glitch-1;
+      @include animations.Glitch-1;
 
       content: attr(data-text);
       position: absolute;
@@ -49,14 +49,14 @@
     position: absolute;
     top: 0;
     left: 0;
-    text-shadow: 0 0 1000px $secondaryPink;
+    text-shadow: 0 0 1000px colors.$secondaryPink;
     color: transparent;
   }
 }
 
 .pixel {
-  @include PixelFont;
-  @include Glitch-2;
+  @include typography.PixelFont;
+  @include animations.Glitch-2;
 
   width: 100%;
   position: absolute;
@@ -64,11 +64,11 @@
   left: 50%;
   transform: translate(-50%, -50%);
   text-shadow:
-    3px 0 3px $glitchPink,
-    -3px 0 3px $glitchGreen;
+    3px 0 3px colors.$glitchPink,
+    -3px 0 3px colors.$glitchGreen;
   text-transform: uppercase;
-  font-size: $fontSizeH3;
-  color: $lightFontColor;
+  font-size: typography.$fontSizeH3;
+  color: colors.$lightFontColor;
   line-height: 1;
   letter-spacing: 0.125em;
 }

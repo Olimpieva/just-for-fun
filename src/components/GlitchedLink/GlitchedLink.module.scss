@@ -1,5 +1,5 @@
-@import "utils/styles/colors.scss";
-@import "utils/styles/typography.scss";
+@use "utils/styles/colors.scss";
+@use "utils/styles/typography.scss";
 
 $slice-0: inset(50% 50% 50% 50%);
 $slice-1: inset(80% -6px 0 0);
@@ -10,21 +10,21 @@ $slice-5: inset(80% -6px 5% 0);
 
 .link,
 .link::after {
-  @include PTMonoFont;
+  @include typography.PTMonoFont;
 
   width: 240px;
   height: 80px;
   position: relative;
   display: flex;
   justify-content: center;
-  background: $primaryViolet;
+  background: colors.$primaryViolet;
   border: 1px solid white;
   border-radius: 8px;
-  font-size: $fontSizePrimary;
+  font-size: typography.$fontSizePrimary;
   font-weight: 300;
   text-transform: lowercase;
-  color: $lightFontColor;
-  box-shadow: 6px 6px 0px $secondaryGreen;
+  color: colors.$lightFontColor;
+  box-shadow: 6px 6px 0px colors.$secondaryGreen;
   outline: transparent;
 }
 
@@ -39,13 +39,13 @@ $slice-5: inset(80% -6px 5% 0);
   background: linear-gradient(
     45deg,
     transparent 3%,
-    $glitchGreen 3%,
-    $glitchGreen 5%,
-    $primaryViolet 5%
+    colors.$glitchGreen 3%,
+    colors.$glitchGreen 5%,
+    colors.$primaryViolet 5%
   );
   text-shadow:
     -3px -3px 0px magenta,
-    3px 3px 0px $glitchGreen;
+    3px 3px 0px colors.$glitchGreen;
   clip-path: $slice-0;
 }
 

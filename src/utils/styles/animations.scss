@@ -1,3 +1,6 @@
+@use "sass:math";
+@use "colors";
+
 @mixin Glitch-1 {
   animation:
     noise-1 3s linear infinite alternate-reverse,
@@ -51,9 +54,9 @@
     $steps: 30;
 
     @for $i from 1 through $steps {
-      #{percentage($i*(1/$steps))} {
-        $top: random(100);
-        $bottom: random(101 - $top);
+      #{math.percentage($i*math.div(1, $steps))} {
+        $top: math.random(100);
+        $bottom: math.random(101 - $top);
         clip-path: inset(#{$top}px 0 #{$bottom}px 0);
       }
     }
@@ -63,9 +66,9 @@
     $steps: 30;
 
     @for $i from 1 through $steps {
-      #{percentage($i*(1/$steps))} {
-        $top: random(100);
-        $bottom: random(101 - $top);
+      #{math.percentage($i*math.div(1, $steps))} {
+        $top: math.random(100);
+        $bottom: math.random(101 - $top);
         clip-path: inset(#{$top}px 0 #{$bottom}px 0);
       }
     }
@@ -75,9 +78,9 @@
     $steps: 30;
 
     @for $i from 1 through $steps {
-      #{percentage($i*(1/$steps))} {
-        $top: random(100);
-        $bottom: random(101 - $top);
+      #{math.percentage($i*math.div(1, $steps))} {
+        $top: math.random(100);
+        $bottom: math.random(101 - $top);
         clip-path: inset(#{$top}px 0 #{$bottom}px 0);
       }
     }
@@ -87,9 +90,9 @@
     $steps: 30;
 
     @for $i from 1 through $steps {
-      #{percentage($i*(1/$steps))} {
-        $top: random(100);
-        $bottom: random(101 - $top);
+      #{math.percentage($i*math.div(1, $steps))} {
+        $top: math.random(100);
+        $bottom: math.random(101 - $top);
         clip-path: inset(#{$top}px 0 #{$bottom}px 0);
       }
     }
@@ -99,9 +102,9 @@
     $steps: 30;
 
     @for $i from 0 through $steps {
-      #{percentage($i*(1/$steps))} {
-        $top: random(100);
-        $bottom: random(101 - $top);
+      #{math.percentage($i*math.div(1, $steps))} {
+        $top: math.random(100);
+        $bottom: math.random(101 - $top);
         clip-path: inset(#{$top}px 0 #{$bottom}px 0);
       }
     }
@@ -111,9 +114,9 @@
     $steps: 30;
 
     @for $i from 0 through $steps {
-      #{percentage($i*(1/$steps))} {
-        $top: random(100);
-        $bottom: random(101 - $top);
+      #{math.percentage($i*math.div(1, $steps))} {
+        $top: math.random(100);
+        $bottom: math.random(101 - $top);
         clip-path: inset(#{$top}px 0 #{$bottom}px 0);
       }
     }
@@ -123,9 +126,9 @@
     $steps: 30;
 
     @for $i from 0 through $steps {
-      #{percentage($i*(1/$steps))} {
-        $top: random(100);
-        $bottom: random(101 - $top);
+      #{math.percentage($i*math.div(1, $steps))} {
+        $top: math.random(100);
+        $bottom: math.random(101 - $top);
         clip-path: inset(#{$top}px 0 #{$bottom}px 0);
       }
     }
@@ -135,9 +138,9 @@
     $steps: 30;
 
     @for $i from 0 through $steps {
-      #{percentage($i*(1/$steps))} {
-        $top: random(100);
-        $bottom: random(101 - $top);
+      #{math.percentage($i*math.div(1, $steps))} {
+        $top: math.random(100);
+        $bottom: math.random(101 - $top);
         clip-path: inset(#{$top}px 0 #{$bottom}px 0);
       }
     }
@@ -160,63 +163,63 @@
   @keyframes glitch-2 {
     from {
       text-shadow:
-        1px 0 0 $glitchPink,
-        -2px 0 0 $glitchGreen;
+        1px 0 0 colors.$glitchPink,
+        -2px 0 0 colors.$glitchGreen;
     }
     to {
       text-shadow:
-        2px 0.5px 2px $glitchPink,
-        -1px -0.5px 2px $glitchGreen;
+        2px 0.5px 2px colors.$glitchPink,
+        -1px -0.5px 2px colors.$glitchGreen;
     }
   }
 
   @keyframes glitch-2-svg {
     from {
-      filter: drop-shadow(1px 0 0 $glitchPink)
-        drop-shadow(-2px 0 0 $glitchGreen);
+      filter: drop-shadow(1px 0 0 colors.$glitchPink)
+        drop-shadow(-2px 0 0 colors.$glitchGreen);
     }
     to {
-      filter: drop-shadow(2px 0.5px 2px $glitchPink)
-        drop-shadow(-1px -0.5px 2px $glitchGreen);
+      filter: drop-shadow(2px 0.5px 2px colors.$glitchPink)
+        drop-shadow(-1px -0.5px 2px colors.$glitchGreen);
     }
   }
 
   @-webkit-keyframes glitch-2 {
     from {
       text-shadow:
-        1px 0 0 $glitchPink,
-        -2px 0 0 $glitchGreen;
+        1px 0 0 colors.$glitchPink,
+        -2px 0 0 colors.$glitchGreen;
     }
     to {
       text-shadow:
-        2px 0.5px 2px $glitchPink,
-        -1px -0.5px 2px $glitchGreen;
+        2px 0.5px 2px colors.$glitchPink,
+        -1px -0.5px 2px colors.$glitchGreen;
     }
   }
 
   @-moz-keyframes glitch-2 {
     from {
       text-shadow:
-        1px 0 0 $glitchPink,
-        -2px 0 0 $glitchGreen;
+        1px 0 0 colors.$glitchPink,
+        -2px 0 0 colors.$glitchGreen;
     }
     to {
       text-shadow:
-        2px 0.5px 2px $glitchPink,
-        -1px -0.5px 2px $glitchGreen;
+        2px 0.5px 2px colors.$glitchPink,
+        -1px -0.5px 2px colors.$glitchGreen;
     }
   }
 
   @-ms-keyframes glitch-2 {
     from {
       text-shadow:
-        1px 0 0 $glitchPink,
-        -2px 0 0 $glitchGreen;
+        1px 0 0 colors.$glitchPink,
+        -2px 0 0 colors.$glitchGreen;
     }
     to {
       text-shadow:
-        2px 0.5px 2px $glitchPink,
-        -1px -0.5px 2px $glitchGreen;
+        2px 0.5px 2px colors.$glitchPink,
+        -1px -0.5px 2px colors.$glitchGreen;
     }
   }
 }

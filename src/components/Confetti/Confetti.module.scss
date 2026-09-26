@@ -1,13 +1,16 @@
-@import "utils/styles/colors.scss";
+@use "sass:list";
+@use "sass:math";
+@use "sass:string";
+@use "utils/styles/colors.scss";
 
 $confettiNum: 100;
 $confettiColors: (
-  $primaryLightBlue,
-  $secondaryGreen,
-  $secondaryOrange,
-  $secondaryRed,
-  $secondaryViolet,
-  $primaryGray
+  colors.$primaryLightBlue,
+  colors.$secondaryGreen,
+  colors.$secondaryOrange,
+  colors.$secondaryRed,
+  colors.$secondaryViolet,
+  colors.$primaryGray
 );
 
 .container {
@@ -21,22 +24,22 @@ $confettiColors: (
 
   @for $i from 1 through $confettiNum {
     &:nth-child(#{$i}) {
-      $size: random(15);
-      $left: random(100);
+      $size: math.random(15);
+      $left: math.random(100);
 
       width: #{$size}px;
       height: #{$size * 0.4}px;
-      left: unquote($left + "%");
-      opacity: random() + 0.5;
-      transform: rotate(#{random(360)}deg);
-      animation: explose-#{$i} #{4 + random()} + "s" infinite ease-out;
-      z-index: random(5);
-      background-color: nth($confettiColors, random(6));
+      left: string.unquote($left + "%");
+      opacity: math.random() + 0.5;
+      transform: rotate(#{math.random(360)}deg);
+      animation: explose-#{$i} #{4 + math.random()} + "s" infinite ease-out;
+      z-index: math.random(5);
+      background-color: list.nth($confettiColors, math.random(6));
 
       @keyframes explose-#{$i} {
         100% {
           top: 110%;
-          left: unquote($left + random(15) + "%");
+          left: string.unquote($left + math.random(15) + "%");
         }
       }
     }
