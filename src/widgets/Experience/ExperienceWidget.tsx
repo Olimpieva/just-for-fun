@@ -28,7 +28,7 @@ const ExperienceWidget = () => (
           back={{
             title: "frontend разработчик",
             subtitle:
-              "TypeScript · React · Redux · React Router · Ant Design · Playwright · ECharts",
+              "TypeScript · React · Redux · React Router · Playwright · ECharts",
           }}
         />
       </li>

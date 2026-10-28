@@ -6,7 +6,6 @@ import SkillsWidget from "./Skills";
 import GalleryWidget from "./Gallery";
 import FavoritesWidget from "./Favorites";
 import Tabs from "./Tabs";
-import ModalWrapper from "./ModalWrapper";
 
 export {
   Minesweeper,
@@ -17,5 +16,4 @@ export {
   GalleryWidget,
   FavoritesWidget,
   Tabs,
-  ModalWrapper,
 };

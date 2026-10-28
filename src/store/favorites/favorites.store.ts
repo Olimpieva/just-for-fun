@@ -7,8 +7,7 @@ export const readFavorites = (): Favorites => {
     if (!value || typeof value !== "object" || Array.isArray(value)) return {};
     return Object.fromEntries(
       Object.entries(value).filter(
-        ([id, item]) =>
-          item && item.id === id && typeof item.image === "string",
+        ([id, item]) => item && item.id === id && typeof item.image === "string",
       ),
     );
   } catch {
@@ -26,8 +25,8 @@ const saveFavorites = (liked: Favorites) => {
 
 export const useFavoritesStore = create<FavoritesState>()((set, get) => ({
   liked: readFavorites(),
-  likeCutie: cutie => {
-    const liked = { ...get().liked, [cutie.id]: cutie };
+  likeCutie: ({ id, image }) => {
+    const liked = { ...get().liked, [id]: { id, image } };
     saveFavorites(liked);
     set({ liked });
   },

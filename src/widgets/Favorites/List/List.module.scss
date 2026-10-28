@@ -35,6 +35,12 @@
     height: 100%;
     object-fit: cover;
     border-radius: 3px;
+    background: url("../../../assets/image-loading-star.png") center / 50%
+      no-repeat;
+
+    &.failed {
+      background: none;
+    }
   }
 
   &::after {

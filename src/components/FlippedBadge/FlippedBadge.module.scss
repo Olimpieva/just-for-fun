@@ -1,34 +1,52 @@
 @use "utils/styles/colors.scss";
 @use "utils/styles/typography.scss";
 @use "utils/styles/animations.scss";
+@use "utils/styles/pixel-frame.scss";
 
 .container {
-  width: 360px;
+  display: grid;
+  width: 100%;
+  height: 100%;
   position: relative;
   user-select: none;
 
   &:hover {
     > .front {
       transform: rotateY(180deg);
+
+      > h3,
+      > p {
+        animation-play-state: paused;
+      }
     }
 
     > .back {
       opacity: 1;
       transform: rotateY(0deg);
+
+      > h3,
+      > p {
+        animation-play-state: running;
+      }
     }
   }
 }
 
 .front,
 .back {
-  width: inherit;
-  min-height: 112px;
-  padding: 8px;
+  grid-area: 1 / 1;
+  position: relative;
+  overflow: hidden;
+  min-width: 0;
+  min-height: 260px;
+  padding: 20px 16px;
+  @include pixel-frame.frame;
+  backface-visibility: hidden;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 8px;
+  gap: 16px;
   text-align: center;
   transition-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
   transition-duration: 0.5s;
@@ -36,11 +54,10 @@
   cursor: default;
 
   > h3 {
-    @include typography.MontserratFont;
+    @include typography.IBMPlexMonoFont;
     @include animations.Glitch-2;
 
     font-size: typography.$fontSizeH3;
-    font-weight: 600;
   }
 
   > p {
@@ -57,29 +74,48 @@
   text-transform: lowercase;
 
   > h3 {
-    color: colors.$primaryViolet;
+    order: -1;
+    min-height: 92px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: var(--flipped-badge-front-title-size, #{typography.$fontSizeH3});
+    line-height: 1.15;
+    color: colors.$primaryDarkBlue;
   }
 
   > p {
-    color: colors.$white50op;
+    font-size: typography.$fontSizePrimary;
+    color: colors.$primaryPink;
+    white-space: nowrap;
   }
 }
 
 .back {
   opacity: 0;
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
-  background: colors.$primaryPink;
+  background: colors.$secondaryBlue;
   transform: rotateY(-180deg);
 
   > h3 {
-    color: colors.$lightFontColor;
+    color: colors.$primaryDarkBlue;
+    line-height: 1.2;
   }
 
   > p {
-    color: colors.$white50op;
+    color: colors.$primaryDarkBlue;
+    font-size: 18px;
+    line-height: 1.4;
+  }
+
+  > h3,
+  > p {
+    animation-play-state: paused;
+  }
+}
+
+@media (max-width: 700px) {
+  .front,
+  .back {
+    min-height: 200px;
   }
 }

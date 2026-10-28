@@ -6,10 +6,7 @@ export const useFavoritesSync = () => {
 
   useEffect(() => {
     const onStorage = (event: StorageEvent) => {
-      if (
-        event.storageArea === localStorage &&
-        (event.key === "liked" || event.key === null)
-      ) {
+      if (event.storageArea === localStorage && (event.key === "liked" || event.key === null)) {
         syncFromStorage();
       }
     };

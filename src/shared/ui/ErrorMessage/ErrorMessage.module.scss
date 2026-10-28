@@ -1,0 +1,5 @@
+@use "utils/styles/colors.scss";
+
+.error {
+  color: colors.$secondaryRed;
+}

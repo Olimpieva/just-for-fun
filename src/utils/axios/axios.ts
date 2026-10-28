@@ -1,4 +1,4 @@
-import Axios, { AxiosResponse } from "axios";
+import Axios from "axios";
 import applyCaseMiddleware from "axios-case-converter";
 
 const axios = applyCaseMiddleware(
@@ -14,5 +14,4 @@ const axios = applyCaseMiddleware(
   },
 );
 
-export type Response<T> = AxiosResponse<T>;
 export default axios;

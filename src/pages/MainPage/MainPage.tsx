@@ -1,6 +1,7 @@
-import { KeepInTouch, Tabs, ModalWrapper } from "widgets";
+import { KeepInTouch, Tabs } from "widgets";
 import { useFavoritesSync } from "store/favorites";
 
+import { ModalWrapper } from "./components";
 import css from "./MainPage.module.scss";
 
 const MainPage = () => {
@@ -13,9 +14,7 @@ const MainPage = () => {
           <div>
             <h1 className={css.title}>Олимпиева Наталья Игоревна</h1>
             <h3 className={css.subtitle}>Фронтенд разработчик</h3>
-            <p className={css.description}>
-              Люблю и умею искать простые решения сложных задач.
-            </p>
+            <p className={css.description}>Люблю и умею искать простые решения сложных задач.</p>
           </div>
 
           <KeepInTouch />

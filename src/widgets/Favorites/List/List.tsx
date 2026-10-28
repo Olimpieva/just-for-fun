@@ -1,7 +1,8 @@
-import { ImageLazyLoad } from "components";
+import { useState } from "react";
+import cn from "classnames";
 import { useLikedCuties } from "store/favorites";
 import BrokenHeartIcon from "assets/broken_heart.svg?react";
-import ImageLoadingIcon from "assets/image-loading-star.png";
+import NoImageIcon from "assets/no-image-floppy.png";
 
 import css from "./List.module.scss";
 
@@ -11,6 +12,7 @@ type Props = {
 
 const List = ({ onDislike }: Props) => {
   const favorites = useLikedCuties();
+  const [failedIds, setFailedIds] = useState<ReadonlySet<string>>(new Set());
 
   if (Object.keys(favorites).length === 0) {
     return <div className={css.empty}>Здесь пока ничего нет</div>;
@@ -20,13 +22,17 @@ const List = ({ onDislike }: Props) => {
     <>
       {Object.keys(favorites).map(id => {
         const item = favorites[id];
+        const isFailed = failedIds.has(item.id);
         return (
           <div className={css.image} key={item.id}>
             <div className={css.visual}>
-              <ImageLazyLoad
-                src={item.image}
-                alt={item.id}
-                placeholder={ImageLoadingIcon}
+              <img
+                className={cn({ [css.failed]: isFailed })}
+                src={isFailed ? NoImageIcon : item.image}
+                alt="Фото из избранного"
+                loading="lazy"
+                decoding="async"
+                onError={() => setFailedIds(ids => new Set(ids).add(item.id))}
               />
             </div>
             <button

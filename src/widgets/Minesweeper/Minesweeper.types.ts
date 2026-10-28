@@ -1,4 +1,4 @@
-export type CellStatus = "hidden" | "revealed" | "flagged";
+type CellStatus = "hidden" | "revealed" | "flagged";
 
 export type Cell = {
   isMine: boolean;

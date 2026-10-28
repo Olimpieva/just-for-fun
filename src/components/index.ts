@@ -3,10 +3,8 @@ import RainbowTitle from "./RainbowTitle";
 import Confetti from "./Confetti";
 import * as GlitchedTitle from "./GlitchedTitle";
 import FlippedBadge from "./FlippedBadge";
-import ImageLazyLoad from "./ImageLazyLoad";
 import CmdTitle from "./CmdTitle";
 import ColorBlockBadge from "./ColorBlockBadge";
-import NeumorphicButton from "./NeumorphiсButton";
 import GlitchedBadge from "./GlitchedBadge";
 import Modal from "./Modal";
 import TypingText from "./TypingText";
@@ -18,10 +16,8 @@ export {
   Confetti,
   FlippedBadge,
   GlitchedTitle,
-  ImageLazyLoad,
   CmdTitle,
   ColorBlockBadge,
-  NeumorphicButton,
   GlitchedBadge,
   Modal,
   TypingText,

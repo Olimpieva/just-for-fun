@@ -1,14 +1,16 @@
 @use "utils/styles/colors.scss";
-@use "utils/styles/typography.scss";
-@use "utils/styles/animations.scss";
-@use "utils/styles/extensions.scss";
+@use "utils/styles/pixel-frame.scss";
 
 .container {
-  padding: 24px;
-  display: flex;
+  @include pixel-frame.frame;
+  position: relative;
+  width: min(700px, calc(100dvh - 168px), calc(100vw - 80px));
+  padding: 36px;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 128px;
   align-items: center;
-  justify-content: center;
-  gap: 30px;
+  gap: 16px 20px;
+  background: colors.$secondaryBlue;
 }
 
 .wrapper {
@@ -16,156 +18,127 @@
   position: relative;
 }
 
+.cornerDot {
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  background: colors.$primaryDarkBlue;
+  clip-path: polygon(30% 0, 70% 0, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0 70%, 0 30%);
+  pointer-events: none;
+}
+.topLeft {
+  top: 20px;
+  left: 20px;
+}
+.topRight {
+  top: 20px;
+  right: 20px;
+}
+.bottomLeft {
+  bottom: 20px;
+  left: 20px;
+}
+.bottomRight {
+  bottom: 20px;
+  right: 20px;
+}
+
 .left {
-  min-width: 360px;
-  min-height: 360px;
-  max-width: 360px;
-  max-height: 360px;
+  @include pixel-frame.frame;
   position: relative;
+  min-width: 0;
+  width: 100%;
+  aspect-ratio: 1;
+  padding: 6px;
+  background: colors.$primaryDarkBlue;
 
-  .glitch1,
-  .glitch2,
   img {
-    min-width: 360px;
-    max-width: 100%;
-    min-height: 360px;
-    max-height: 360px;
-    flex: 1;
+    display: block;
+    width: 100%;
+    height: 100%;
     object-fit: cover;
-  }
-
-  &:hover {
-    .glitch1 {
-      opacity: 0.5;
-      top: -4px;
-      left: -6px;
-      animation:
-        glitch 3s 2s infinite,
-        noise-1 2s 8s infinite;
-    }
-
-    .glitch2 {
-      opacity: 0.5;
-      top: 6px;
-      left: 4px;
-      animation:
-        glitch 5s 5s infinite,
-        noise-2 3s 5s infinite;
-    }
   }
 }
 
 .right {
-  width: 260px;
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
+  display: contents;
 }
 
 .tabs {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 12px;
+  gap: 20px;
+  align-self: center;
 }
 
 .category > span {
   flex-direction: column;
-  min-height: 112px;
-  gap: 8px;
+  min-height: 88px;
+  padding: 12px;
+  gap: 6px;
+}
+
+.category > span svg,
+.controls > button > span svg {
+  width: 28px;
+  height: 28px;
 }
 
 .controls {
-  display: flex;
-  flex-direction: column;
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 20px;
 }
 
-@media (max-width: 720px) {
+.controls > button > span {
+  min-height: 60px;
+  padding: 10px;
+  gap: 8px;
+}
+
+.container > .right > p {
+  grid-column: 1 / -1;
+  margin: 0;
+  text-align: center;
+}
+
+@media (max-width: 600px) {
   .container {
-    flex-direction: column;
-    gap: 24px;
-    padding: 20px;
+    width: calc(100vw - 64px);
+    padding: 28px 20px;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 16px;
+    max-height: calc(100dvh - 200px);
+    overflow-y: auto;
   }
   .left {
-    width: min(360px, calc(100vw - 80px));
-    min-width: 0;
-    min-height: 0;
-    aspect-ratio: 1;
-    .glitch1,
-    .glitch2,
-    img {
-      min-width: 0;
-      min-height: 0;
-      width: 100%;
-      height: 100%;
-    }
-  }
-  .right {
     width: 100%;
+    justify-self: center;
+  }
+  .tabs {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+  }
+  .category > span {
+    min-height: 76px;
+  }
+  .controls {
+    gap: 12px;
+  }
+  .controls > button > span {
+    min-height: 76px;
+    flex-direction: column;
+    gap: 6px;
+    padding: 12px 6px;
+    font-size: 16px;
   }
 }
 
-.glitch1,
-.glitch2 {
-  opacity: 0;
+.loader {
   position: absolute;
-  top: 0;
-  left: 0;
-}
-
-.glitch1 {
-  filter: hue-rotate(120deg);
-  mix-blend-mode: difference;
-}
-
-.glitch2 {
-  filter: hue-rotate(-120deg);
-}
-
-@keyframes glitch {
-  1% {
-    transform: rotateX(10deg) skewX(90deg);
-  }
-  2% {
-    transform: rotateX(0deg) skewX(0deg);
-  }
-}
-
-@keyframes noise-1 {
-  1% {
-    opacity: 0;
-  }
-  2% {
-    opacity: 0.5;
-  }
-}
-
-@keyframes noise-2 {
-  1% {
-    scale: 0.8;
-  }
-  2% {
-    scale: 1;
-  }
-}
-
-@keyframes heartbeat {
-  0% {
-    transform: scale(1);
-  }
-  5% {
-    transform: scale(1.2);
-  }
-  10% {
-    transform: scale(1.1);
-  }
-  15% {
-    transform: scale(1.4);
-  }
-  50% {
-    transform: scale(1);
-  }
-  100% {
-    transform: scale(1);
-  }
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 3;
+  max-width: calc(100% - 32px);
 }

@@ -43,6 +43,13 @@
   line-height: 1;
 }
 
+@mixin IBMPlexMonoFont {
+  font-family: "IBM Plex Mono", "PT Mono", monospace;
+  font-weight: 600;
+  font-style: normal;
+  line-height: 1;
+}
+
 $fontSizeH0: 64px;
 $fontSizeH1: 54px;
 $fontSizeH2: 48px;

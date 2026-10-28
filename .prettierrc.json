@@ -4,5 +4,6 @@
   "endOfLine": "lf",
   "proseWrap": "always",
   "trailingComma": "all",
-  "arrowParens": "avoid"
+  "arrowParens": "avoid",
+  "printWidth": 100
 }

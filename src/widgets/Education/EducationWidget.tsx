@@ -9,38 +9,49 @@ const EducationWidget = () => (
         <GlitchedTitle.Pixel title="образование" />
       </div>
     }
-    className={css.customWidth}
   >
     <ul className={css.grid}>
-      <ColorBlockBadge
-        front={{ title: "математическое моделирование", subtitle: "2016" }}
-        back={{ subtitle: "Курский государственный университет" }}
-      />
+      <li>
+        <ColorBlockBadge
+          front={{ title: "Математическое моделирование", subtitle: "2016" }}
+          back={{ subtitle: "Курский государственный университет" }}
+        />
+      </li>
 
-      <ColorBlockBadge
-        front={{ title: "информационная безопасность", subtitle: "2018" }}
-        back={{ subtitle: "Курский государственный университет" }}
-      />
+      <li>
+        <ColorBlockBadge
+          front={{ title: "Информационная безопасность", subtitle: "2018" }}
+          back={{ subtitle: "Курский государственный университет" }}
+        />
+      </li>
 
-      <ColorBlockBadge
-        front={{ title: "веб-разработчик", subtitle: "2021" }}
-        back={{ subtitle: "Яндекс" }}
-      />
+      <li>
+        <ColorBlockBadge
+          front={{ title: "Веб-разработчик", subtitle: "2021" }}
+          back={{ subtitle: "Яндекс" }}
+        />
+      </li>
 
-      <ColorBlockBadge
-        front={{ title: "React + Redux", subtitle: "2021" }}
-        back={{ subtitle: "Javascript.ru" }}
-      />
+      <li>
+        <ColorBlockBadge
+          front={{ title: "React + Redux", subtitle: "2021" }}
+          back={{ subtitle: "Javascript.ru" }}
+        />
+      </li>
 
-      <ColorBlockBadge
-        front={{ title: "Typescipt", subtitle: "2022" }}
-        back={{ subtitle: "Javascript.ru" }}
-      />
+      <li>
+        <ColorBlockBadge
+          front={{ title: "TypeScript", subtitle: "2022" }}
+          back={{ subtitle: "Javascript.ru" }}
+        />
+      </li>
 
-      <ColorBlockBadge
-        front={{ title: "Three.js", subtitle: "2024" }}
-        back={{ subtitle: "threejs-journey.com" }}
-      />
+      <li>
+        <ColorBlockBadge
+          front={{ title: "Three.js", subtitle: "2024" }}
+          back={{ subtitle: "threejs-journey.com" }}
+        />
+      </li>
     </ul>
   </Card>
 );

@@ -1,21 +1,23 @@
-import { useQuery } from "@tanstack/react-query";
-import { v4 as uuidv4 } from "uuid";
+import { keepPreviousData, useQuery } from "@tanstack/react-query";
 import { dogsApi, foxesApi } from "api";
 import { useEffect } from "react";
-import { AnimalEnum, type Cutie } from "./Cutie.types";
+import { AnimalEnum, type RandomCutie } from "./Cutie.types";
+import { preloadImage } from "./Cutie.utils";
 
 export const useRandomCutieQuery = (animal: AnimalEnum) => {
-  const query = useQuery<Cutie>({
+  const query = useQuery<RandomCutie>({
     queryKey: ["cutie", "random", animal],
     queryFn: async ({ signal }) => {
       const image =
         animal === AnimalEnum.DOG
           ? (await dogsApi.getRandomImage(signal)).data.url
           : (await foxesApi.getRandomImage(signal)).data.image;
-      return { id: uuidv4(), image };
+      const preloaded = await preloadImage(image, signal);
+      return { id: image, image, animal, preloaded };
     },
+    placeholderData: keepPreviousData,
     staleTime: Infinity,
-    gcTime: 0,
+    gcTime: Infinity,
     refetchOnMount: false,
     refetchOnWindowFocus: false,
     refetchOnReconnect: false,

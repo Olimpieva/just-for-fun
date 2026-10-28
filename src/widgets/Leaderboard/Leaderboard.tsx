@@ -1,5 +1,5 @@
 import { Fragment } from "react";
-import PixelButton from "components/PixelButton/PixelButton";
+import { PixelButton } from "shared/ui";
 import star from "assets/pixel-record-star.png";
 import css from "./Leaderboard.module.scss";
 

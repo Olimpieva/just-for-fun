@@ -19,7 +19,7 @@ const ColorBlockBadge = ({ front, back }: Props) => (
     </div>
 
     <div className={css.back}>
-      <h3>{back.title}</h3>
+      {back.title && <h3>{back.title}</h3>}
       <p>{back.subtitle}</p>
     </div>
   </div>
