@@ -17,7 +17,7 @@ const NEIGHBOUR_OFFSETS = [
   [1, 1],
 ] as const;
 
-export const getNeighbours = (index: number, size: number): number[] => {
+const getNeighbours = (index: number, size: number): number[] => {
   const x = index % size;
   const y = Math.floor(index / size);
 
@@ -119,7 +119,7 @@ const floodReveal = (
   return result;
 };
 
-export const countFlags = (cells: readonly Cell[]): number =>
+const countFlags = (cells: readonly Cell[]): number =>
   cells.filter(cell => cell.status === "flagged").length;
 
 export const getFlagsLeft = (game: Game): number =>
@@ -163,7 +163,7 @@ const finishIfWon = (game: Game, time: number): Game =>
       }
     : game;
 
-export const reveal = (game: Game, index: number, time: number): Game => {
+const reveal = (game: Game, index: number, time: number): Game => {
   if (isGameOver(game.status) || game.cells[index].status !== "hidden") {
     return game;
   }
@@ -194,7 +194,7 @@ export const reveal = (game: Game, index: number, time: number): Game => {
   );
 };
 
-export const toggleFlag = (game: Game, index: number, time: number): Game => {
+const toggleFlag = (game: Game, index: number, time: number): Game => {
   const cell = game.cells[index];
 
   if (isGameOver(game.status) || cell.status === "revealed") {

@@ -1,7 +1,7 @@
 import { create } from "zustand";
 import type { FavoritesState, Favorites } from "./favorites.types";
 
-export const readFavorites = (): Favorites => {
+const readFavorites = (): Favorites => {
   try {
     const value: unknown = JSON.parse(localStorage.getItem("liked") || "{}");
     if (!value || typeof value !== "object" || Array.isArray(value)) return {};

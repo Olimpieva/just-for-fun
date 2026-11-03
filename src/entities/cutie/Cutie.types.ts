@@ -10,7 +10,5 @@ export type Cutie = {
 
 export type RandomCutie = Cutie & {
   animal: AnimalEnum;
-  // Keeps the decoded image in browser memory while the query is cached,
-  // so a remounted <img> shows it without revalidating (random.dog sends max-age=0).
   preloaded: HTMLImageElement;
 };
