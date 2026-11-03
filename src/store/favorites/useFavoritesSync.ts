@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+
 import { useSyncFavoritesFromStorage } from "./favorites.selectors";
 
 export const useFavoritesSync = () => {

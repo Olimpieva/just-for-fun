@@ -1,3 +1,1 @@
-import EducationWidget from "./EducationWidget";
-
-export default EducationWidget;
+export { Education } from "./Education";

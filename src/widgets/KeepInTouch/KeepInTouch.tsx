@@ -1,10 +1,10 @@
-import TelegramImg from "assets/telegram.png";
-import GithubImg from "assets/github.png";
-import MailImg from "assets/mail.png";
+import GithubImg from "assets/contacts/github.png";
+import MailImg from "assets/contacts/mail.png";
+import TelegramImg from "assets/contacts/telegram.png";
 
 import css from "./KeepInTouch.module.scss";
 
-const KeepInTouch = () => (
+export const KeepInTouch = () => (
   <ul className={css.container}>
     <li>
       <a
@@ -33,12 +33,7 @@ const KeepInTouch = () => (
     </li>
 
     <li>
-      <a
-        href="https://github.com/Olimpieva"
-        target="_blank"
-        rel="noreferrer"
-        data-text="Github"
-      >
+      <a href="https://github.com/Olimpieva" target="_blank" rel="noreferrer" data-text="Github">
         <div className={css.item}>
           <img src={GithubImg} className={css.image} alt="Github" />
         </div>
@@ -46,5 +41,3 @@ const KeepInTouch = () => (
     </li>
   </ul>
 );
-
-export default KeepInTouch;

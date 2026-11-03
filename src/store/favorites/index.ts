@@ -1,2 +1,2 @@
-export { useLikedCuties, useLikeCutie, useDislikeCutie } from "./favorites.selectors";
+export { useDislikeCutie, useLikeCutie, useLikedCuties } from "./favorites.selectors";
 export { useFavoritesSync } from "./useFavoritesSync";

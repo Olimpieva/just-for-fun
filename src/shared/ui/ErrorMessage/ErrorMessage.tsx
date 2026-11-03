@@ -1,5 +1,6 @@
-import type { ReactNode } from "react";
 import cn from "classnames";
+import type { ReactNode } from "react";
+
 import css from "./ErrorMessage.module.scss";
 
 type Props = {
@@ -7,10 +8,8 @@ type Props = {
   className?: string;
 };
 
-const ErrorMessage = ({ children, className }: Props) => (
+export const ErrorMessage = ({ children, className }: Props) => (
   <p className={cn(css.error, className)} role="alert">
     {children}
   </p>
 );
-
-export default ErrorMessage;

@@ -1,25 +1,19 @@
-import React from "react";
-import {
-  EducationWidget,
-  ExperienceWidget,
-  FavoritesWidget,
-  GalleryWidget,
-  Minesweeper,
-  SkillsWidget,
-} from "widgets";
-import { Modal } from "components";
-import { ModalType, useCurrentModal, useHideModal } from "store/modal";
+import type React from "react";
 
-const Modals: Record<ModalType, React.JSX.Element> = {
-  skills: <SkillsWidget />,
-  experience: <ExperienceWidget />,
-  gallery: <GalleryWidget />,
-  education: <EducationWidget />,
-  minesweeper: <Minesweeper />,
-  favorites: <FavoritesWidget />,
+import { Modal } from "shared/ui";
+import { useCurrentModal, useHideModal, type ModalType } from "store/modal";
+import { Education, Experience, Favorites, Gallery, Minesweeper, Skills } from "widgets";
+
+const modals: Record<ModalType, { title: string; content: React.JSX.Element }> = {
+  skills: { title: "Навыки", content: <Skills /> },
+  experience: { title: "Опыт", content: <Experience /> },
+  gallery: { title: "Галерея", content: <Gallery /> },
+  education: { title: "Образование", content: <Education /> },
+  minesweeper: { title: "Сапёр", content: <Minesweeper /> },
+  favorites: { title: "Избранное", content: <Favorites /> },
 };
 
-const ModalWrapper = () => {
+export const ModalWrapper = () => {
   const hideModal = useHideModal();
   const currentModal = useCurrentModal();
 
@@ -30,7 +24,11 @@ const ModalWrapper = () => {
 
   if (!currentModal) return null;
 
-  return <Modal onClose={onClose}>{Modals[currentModal]}</Modal>;
-};
+  const { title, content } = modals[currentModal];
 
-export default ModalWrapper;
+  return (
+    <Modal key={currentModal} title={title} onClose={onClose}>
+      {content}
+    </Modal>
+  );
+};

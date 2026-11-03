@@ -1,12 +1,10 @@
 import { QueryProvider } from "./providers";
-import Router from "./router";
+import { MainRouter } from "./router";
 
 import "./styles/index.scss";
 
-const App = () => (
+export const App = () => (
   <QueryProvider>
-    <Router />
+    <MainRouter />
   </QueryProvider>
 );
-
-export default App;

@@ -1,3 +1,1 @@
-import MainRouter from "./MainRouter";
-
-export default MainRouter;
+export { MainRouter } from "./MainRouter";

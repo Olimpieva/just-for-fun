@@ -1,3 +1,1 @@
-import PixelButton from "./PixelButton";
-
-export default PixelButton;
+export { PixelButton } from "./PixelButton";

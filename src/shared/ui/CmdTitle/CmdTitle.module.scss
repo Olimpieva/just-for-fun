@@ -1,0 +1,36 @@
+@use "shared/styles/colors.scss";
+@use "shared/styles/typography.scss";
+@use "shared/styles/animations.scss";
+
+$text-shadow:
+  0px 0px 30px rgb(21, 232, 42, 0.5),
+  0px 0px 30px colors.$glitchGreen;
+
+.arrow {
+  @include typography.MontserratFont;
+
+  margin-right: 8px;
+  text-shadow: $text-shadow;
+}
+
+.container {
+  @include typography.CourierFont;
+
+  width: max-content;
+  display: flex;
+  font-size: typography.$fontSizeH2;
+  color: colors.$glitchGreen;
+}
+
+.title {
+  width: 100%;
+  text-shadow: $text-shadow;
+  text-transform: lowercase;
+}
+
+.dash {
+  @include typography.PTMonoFont;
+  @include animations.Blink-1;
+
+  text-shadow: $text-shadow, colors.$glitchGreen;
+}

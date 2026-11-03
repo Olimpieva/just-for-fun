@@ -1,5 +1,6 @@
 import { create } from "zustand";
-import type { FavoritesState, Favorites } from "./favorites.types";
+
+import type { Favorites, FavoritesState } from "./favorites.types";
 
 const readFavorites = (): Favorites => {
   try {

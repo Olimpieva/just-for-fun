@@ -1,3 +1,1 @@
-import FavoritesWidget from "./FavoritesWidget";
-
-export default FavoritesWidget;
+export { Favorites } from "./Favorites";

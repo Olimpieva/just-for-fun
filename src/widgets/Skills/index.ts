@@ -1,3 +1,1 @@
-import SkillsWidget from "./SkillsWidget";
-
-export default SkillsWidget;
+export { Skills } from "./Skills";

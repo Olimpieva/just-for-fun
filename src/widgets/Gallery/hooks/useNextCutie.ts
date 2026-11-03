@@ -1,4 +1,4 @@
-import { type AnimalEnum, useRandomCutieQuery } from "entities/cutie";
+import { useRandomCutieQuery, type AnimalEnum } from "entities/cutie";
 
 export const useNextCutie = (animal: AnimalEnum) => {
   const {

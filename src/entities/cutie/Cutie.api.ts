@@ -1,19 +1,27 @@
 import { keepPreviousData, useQuery } from "@tanstack/react-query";
-import { dogsApi, foxesApi } from "api";
 import { useEffect } from "react";
-import { AnimalEnum, type RandomCutie } from "./Cutie.types";
-import { preloadImage } from "./Cutie.utils";
+
+import { dogsApi, foxesApi } from "api";
+import { preloadImage } from "shared/helpers";
+
+import { AnimalEnum, type IRandomCutie } from "./Cutie.types";
+
+const VIDEO_EXTENSIONS = ["mp4", "webm"];
 
 export const useRandomCutieQuery = (animal: AnimalEnum) => {
-  const query = useQuery<RandomCutie>({
+  const query = useQuery<IRandomCutie>({
     queryKey: ["cutie", "random", animal],
     queryFn: async ({ signal }) => {
       const image =
         animal === AnimalEnum.DOG
-          ? (await dogsApi.getRandomImage(signal)).data.url
-          : (await foxesApi.getRandomImage(signal)).data.image;
-      const preloaded = await preloadImage(image, signal);
-      return { id: image, image, animal, preloaded };
+          ? (await dogsApi.getRandom({ filter: VIDEO_EXTENSIONS.join(","), signal })).data.url
+          : (await foxesApi.getRandom(signal)).data.image;
+      const extension = new URL(image).pathname.split(".").at(-1)?.toLowerCase();
+      if (VIDEO_EXTENSIONS.includes(extension ?? "")) {
+        throw new Error("Expected an image but received a video");
+      }
+      await preloadImage(image, signal);
+      return { id: image, image, animal };
     },
     placeholderData: keepPreviousData,
     staleTime: Infinity,

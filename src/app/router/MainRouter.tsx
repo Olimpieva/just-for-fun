@@ -1,12 +1,11 @@
-import { MainPage } from "pages";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
-const Router = () => (
+import { MainPage } from "pages";
+
+export const MainRouter = () => (
   <BrowserRouter>
     <Routes>
       <Route path="/" element={<MainPage />} />
     </Routes>
   </BrowserRouter>
 );
-
-export default Router;

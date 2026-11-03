@@ -1,19 +1,7 @@
-import Minesweeper from "./Minesweeper";
-import KeepInTouch from "./KeepInTouch";
-import ExperienceWidget from "./Experience";
-import EducationWidget from "./Education";
-import SkillsWidget from "./Skills";
-import GalleryWidget from "./Gallery";
-import FavoritesWidget from "./Favorites";
-import Tabs from "./Tabs";
-
-export {
-  Minesweeper,
-  KeepInTouch,
-  ExperienceWidget,
-  EducationWidget,
-  SkillsWidget,
-  GalleryWidget,
-  FavoritesWidget,
-  Tabs,
-};
+export { Education } from "./Education";
+export { Experience } from "./Experience";
+export { Favorites } from "./Favorites";
+export { Gallery } from "./Gallery";
+export { KeepInTouch } from "./KeepInTouch";
+export { Minesweeper } from "./Minesweeper";
+export { Skills } from "./Skills";

@@ -1,3 +1,1 @@
-import GalleryWidget from "./Gallery";
-
-export default GalleryWidget;
+export { Gallery } from "./Gallery";

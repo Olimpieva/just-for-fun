@@ -1,5 +1,5 @@
-@use "utils/styles/colors.scss";
-@use "utils/styles/typography.scss";
+@use "shared/styles/colors.scss";
+@use "shared/styles/typography.scss";
 
 .button {
   --pixel-outline: polygon(

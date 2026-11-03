@@ -1,10 +1,6 @@
-import type {
-  Cell,
-  Game,
-  GameAction,
-  GameConfig,
-  GameStatus,
-} from "./Minesweeper.types";
+import { pluralize } from "shared/helpers";
+
+import type { Cell, Game, GameAction, GameConfig, GameStatus } from "./Minesweeper.types";
 
 const NEIGHBOUR_OFFSETS = [
   [-1, -1],
@@ -37,10 +33,7 @@ const shuffle = <T>(items: readonly T[], random: () => number): T[] => {
   return result;
 };
 
-export const createGame = (
-  config: GameConfig,
-  random: () => number = Math.random,
-): Game => {
+export const createGame = (config: GameConfig, random: () => number = Math.random): Game => {
   const { size, mines } = config;
   const total = size * size;
 
@@ -69,31 +62,21 @@ export const createGame = (
 const placeMines = (game: Game, safeIndex: number): Cell[] => {
   const { size, mines } = game.config;
   const safeZone = new Set([safeIndex, ...getNeighbours(safeIndex, size)]);
-  const excluded =
-    game.cells.length - safeZone.size >= mines
-      ? safeZone
-      : new Set([safeIndex]);
+  const excluded = game.cells.length - safeZone.size >= mines ? safeZone : new Set([safeIndex]);
 
-  const mineIndices = new Set(
-    game.mineOrder.filter(index => !excluded.has(index)).slice(0, mines),
-  );
+  const mineIndices = new Set(game.mineOrder.filter(index => !excluded.has(index)).slice(0, mines));
 
   return game.cells.map((cell, index) => ({
     ...cell,
     isMine: mineIndices.has(index),
-    adjacentMines: getNeighbours(index, size).filter(n => mineIndices.has(n))
-      .length,
+    adjacentMines: getNeighbours(index, size).filter(n => mineIndices.has(n)).length,
   }));
 };
 
 const revealAll = (cells: readonly Cell[]): Cell[] =>
   cells.map(cell => ({ ...cell, status: "revealed" }));
 
-const floodReveal = (
-  cells: readonly Cell[],
-  start: number,
-  size: number,
-): Cell[] => {
+const floodReveal = (cells: readonly Cell[], start: number, size: number): Cell[] => {
   const result = [...cells];
   const stack = [start];
   const visited = new Set(stack);
@@ -122,19 +105,13 @@ const floodReveal = (
 const countFlags = (cells: readonly Cell[]): number =>
   cells.filter(cell => cell.status === "flagged").length;
 
-export const getFlagsLeft = (game: Game): number =>
-  game.config.mines - countFlags(game.cells);
+export const getFlagsLeft = (game: Game): number => game.config.mines - countFlags(game.cells);
 
-export const isGameOver = (status: GameStatus): boolean =>
-  status === "won" || status === "lost";
+export const isGameOver = (status: GameStatus): boolean => status === "won" || status === "lost";
 
 const isWon = (cells: readonly Cell[]): boolean => {
-  const allSafeRevealed = cells.every(
-    cell => cell.isMine || cell.status === "revealed",
-  );
-  const allMinesFlagged = cells.every(
-    cell => cell.isMine === (cell.status === "flagged"),
-  );
+  const allSafeRevealed = cells.every(cell => cell.isMine || cell.status === "revealed");
+  const allMinesFlagged = cells.every(cell => cell.isMine === (cell.status === "flagged"));
 
   return allSafeRevealed || allMinesFlagged;
 };
@@ -151,6 +128,20 @@ export const formatDuration = (durationMs: number): string => {
   const seconds = String(totalSeconds % 60).padStart(2, "0");
 
   return `${minutes}:${seconds}`;
+};
+
+export const getStatusTitle = (status: GameStatus, flagsLeft: number): string => {
+  if (status === "won") return "WINNER!";
+  if (status === "lost") return "LOSER!";
+
+  return `Осталось ${flagsLeft} ${pluralize(flagsLeft, ["бомба", "бомбы", "бомб"])}`;
+};
+
+export const getCellLabel = ({ status, isMine, adjacentMines }: Cell): string => {
+  if (status === "flagged") return "Флажок";
+  if (status === "hidden") return "Закрытая клетка";
+  if (isMine) return "Бомба";
+  return `Бомб рядом: ${adjacentMines}`;
 };
 
 const finishIfWon = (game: Game, time: number): Game =>

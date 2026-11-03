@@ -1,0 +1,47 @@
+@use "sass:list";
+@use "sass:math";
+@use "sass:string";
+@use "shared/styles/colors.scss";
+
+$confettiNum: 100;
+$confettiColors: (
+  colors.$primaryLightBlue,
+  colors.$secondaryGreen,
+  colors.$secondaryOrange,
+  colors.$secondaryRed,
+  colors.$secondaryViolet,
+  colors.$primaryGray
+);
+
+.container {
+  height: 100%;
+  position: relative;
+}
+
+.particle {
+  position: absolute;
+  top: -10%;
+
+  @for $i from 1 through $confettiNum {
+    &:nth-child(#{$i}) {
+      $size: math.random(15);
+      $left: math.random(100);
+
+      width: #{$size}px;
+      height: #{$size * 0.4}px;
+      left: string.unquote($left + "%");
+      opacity: math.random() + 0.5;
+      transform: rotate(#{math.random(360)}deg);
+      animation: explose-#{$i} #{4 + math.random()} + "s" infinite ease-out;
+      z-index: math.random(5);
+      background-color: list.nth($confettiColors, math.random(6));
+
+      @keyframes explose-#{$i} {
+        100% {
+          top: 110%;
+          left: string.unquote($left + math.random(15) + "%");
+        }
+      }
+    }
+  }
+}

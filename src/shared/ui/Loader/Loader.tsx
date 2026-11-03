@@ -1,4 +1,5 @@
 import cn from "classnames";
+
 import css from "./Loader.module.scss";
 
 type Props = {
@@ -6,7 +7,7 @@ type Props = {
   className?: string;
 };
 
-const Loader = ({ label, className }: Props) => (
+export const Loader = ({ label, className }: Props) => (
   <div className={cn(css.loader, className)} role="status" aria-label={label}>
     <span className={css.dots} aria-hidden="true">
       <span />
@@ -15,5 +16,3 @@ const Loader = ({ label, className }: Props) => (
     </span>
   </div>
 );
-
-export default Loader;

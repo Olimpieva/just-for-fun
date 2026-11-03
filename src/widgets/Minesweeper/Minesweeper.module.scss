@@ -1,6 +1,6 @@
-@use "utils/styles/colors.scss";
-@use "utils/styles/typography.scss";
-@use "utils/styles/animations.scss";
+@use "shared/styles/colors.scss";
+@use "shared/styles/typography.scss";
+@use "shared/styles/animations.scss";
 
 .container {
   display: flex;
@@ -131,21 +131,4 @@
   background: colors.$primaryDarkBlue;
   color: colors.$primaryYellow;
   font-variant-numeric: tabular-nums;
-}
-
-.leaderboardButton {
-  @include typography.PTMonoFont;
-  padding: 7px 12px;
-  border: 2px solid colors.$primaryDarkBlue;
-  background: colors.$neutral;
-  color: colors.$primaryDarkBlue;
-  cursor: pointer;
-  border-radius: 4px;
-  &:hover {
-    background: colors.$primaryYellow;
-  }
-  &:focus-visible {
-    outline: 3px solid colors.$primaryDarkBlue;
-    outline-offset: 3px;
-  }
 }

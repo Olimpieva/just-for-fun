@@ -1,16 +1,15 @@
-import { Card, GlitchedTitle } from "components";
-import { ErrorMessage, Loader, PixelButton } from "shared/ui";
-import LikeIcon from "assets/like.svg?react";
-import DogIcon from "assets/dog.svg?react";
-import FoxIcon from "assets/fox.svg?react";
-import NextIcon from "assets/next.svg?react";
-
+import DachshundIcon from "assets/ui/dachshund.svg?react";
+import FoxIcon from "assets/ui/fox.svg?react";
+import LikeIcon from "assets/ui/like.svg?react";
+import NextIcon from "assets/ui/next.svg?react";
 import { AnimalEnum } from "entities/cutie";
+import { Card, ErrorMessage, GlitchedTitle, Loader, PixelButton } from "shared/ui";
 
 import { useActiveTab, useNextCutie, useToggleLike } from "./hooks";
+
 import css from "./Gallery.module.scss";
 
-const GalleryWidget = () => {
+export const Gallery = () => {
   const [activeTab, setActiveTab] = useActiveTab();
 
   const { cutie: displayed, isLoading, isError, isPaused, getNext } = useNextCutie(activeTab);
@@ -49,7 +48,7 @@ const GalleryWidget = () => {
               onClick={() => setActiveTab(AnimalEnum.FOX)}
               disabled={isLoading}
             >
-              <FoxIcon aria-hidden="true" />
+              <FoxIcon className={css.fox} aria-hidden="true" />
               <span>лисы</span>
             </PixelButton>
 
@@ -59,7 +58,7 @@ const GalleryWidget = () => {
               onClick={() => setActiveTab(AnimalEnum.DOG)}
               disabled={isLoading}
             >
-              <DogIcon aria-hidden="true" />
+              <DachshundIcon className={css.dachshund} aria-hidden="true" />
               <span>собаки</span>
             </PixelButton>
           </div>
@@ -91,5 +90,3 @@ const GalleryWidget = () => {
     </Card>
   );
 };
-
-export default GalleryWidget;

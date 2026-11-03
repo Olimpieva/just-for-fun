@@ -1,7 +1,7 @@
-import type { Cutie } from "entities/cutie";
+import type { ICutie } from "entities/cutie";
 import { useDislikeCutie, useLikeCutie, useLikedCuties } from "store/favorites";
 
-export const useToggleLike = (cutie: Cutie | undefined) => {
+export const useToggleLike = (cutie: ICutie | undefined) => {
   const likedCuties = useLikedCuties();
   const likeCutie = useLikeCutie();
   const dislikeCutie = useDislikeCutie();

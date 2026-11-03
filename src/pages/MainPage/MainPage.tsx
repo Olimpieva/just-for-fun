@@ -1,11 +1,14 @@
-import { KeepInTouch, Tabs } from "widgets";
 import { useFavoritesSync } from "store/favorites";
+import { useRecordSync } from "store/record";
+import { KeepInTouch } from "widgets";
 
-import { ModalWrapper } from "./components";
+import { ModalWrapper, SectionsMenu } from "./components";
+
 import css from "./MainPage.module.scss";
 
-const MainPage = () => {
+export const MainPage = () => {
   useFavoritesSync();
+  useRecordSync();
 
   return (
     <div className={css.page}>
@@ -23,11 +26,9 @@ const MainPage = () => {
         <ModalWrapper />
 
         <div className={css.footer}>
-          <Tabs />
+          <SectionsMenu />
         </div>
       </div>
     </div>
   );
 };
-
-export default MainPage;

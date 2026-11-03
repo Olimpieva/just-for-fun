@@ -1,7 +1,7 @@
-@use "utils/styles/colors.scss";
-@use "utils/styles/typography.scss";
-@use "utils/styles/extensions.scss";
-@use "utils/styles/animations.scss";
+@use "shared/styles/colors.scss";
+@use "shared/styles/typography.scss";
+@use "shared/styles/extensions.scss";
+@use "shared/styles/animations.scss";
 
 .page {
   background: radial-gradient(ellipse at center, #5b7d9e 40%, #484965 80%);

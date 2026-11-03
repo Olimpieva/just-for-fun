@@ -1,1 +1,2 @@
-export { default as ModalWrapper } from "./ModalWrapper";
+export { ModalWrapper } from "./ModalWrapper";
+export { SectionsMenu } from "./SectionsMenu";

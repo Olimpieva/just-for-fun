@@ -1,10 +1,10 @@
-import type { Cutie } from "entities/cutie";
+import type { ICutie } from "entities/cutie";
 
-export type Favorites = Record<string, Cutie>;
+export type Favorites = Record<string, ICutie>;
 
 export type FavoritesState = {
   liked: Favorites;
-  likeCutie: (cutie: Cutie) => void;
+  likeCutie: (cutie: ICutie) => void;
   dislikeCutie: (id: string) => void;
   syncFromStorage: () => void;
 };

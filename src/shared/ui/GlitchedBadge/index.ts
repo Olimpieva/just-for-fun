@@ -1,0 +1,1 @@
+export { GlitchedBadge } from "./GlitchedBadge";

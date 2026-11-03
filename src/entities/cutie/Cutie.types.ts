@@ -3,12 +3,11 @@ export enum AnimalEnum {
   DOG = "Dog",
 }
 
-export type Cutie = {
+export interface ICutie {
   id: string;
   image: string;
-};
+}
 
-export type RandomCutie = Cutie & {
+export interface IRandomCutie extends ICutie {
   animal: AnimalEnum;
-  preloaded: HTMLImageElement;
-};
+}

@@ -1,5 +1,5 @@
-@use "utils/styles/colors.scss";
-@use "utils/styles/pixel-frame.scss";
+@use "shared/styles/colors.scss";
+@use "shared/styles/pixel-frame.scss";
 
 .container {
   @include pixel-frame.frame;
@@ -81,6 +81,17 @@
 .controls > button > span svg {
   width: 28px;
   height: 28px;
+}
+
+// Pixel art stays crisp only at a whole number of screen pixels per art pixel.
+.category > span svg.dachshund {
+  width: 54px;
+  height: 34px;
+}
+
+.category > span svg.fox {
+  width: 54px;
+  height: 46px;
 }
 
 .controls {
