@@ -1,0 +1,41 @@
+import { create } from "zustand";
+
+import type { Favorites, FavoritesState } from "./favorites.types";
+
+const readFavorites = (): Favorites => {
+  try {
+    const value: unknown = JSON.parse(localStorage.getItem("liked") || "{}");
+    if (!value || typeof value !== "object" || Array.isArray(value)) return {};
+    return Object.fromEntries(
+      Object.entries(value).filter(
+        ([id, item]) => item && item.id === id && typeof item.image === "string",
+      ),
+    );
+  } catch {
+    return {};
+  }
+};
+
+const saveFavorites = (liked: Favorites) => {
+  try {
+    localStorage.setItem("liked", JSON.stringify(liked));
+  } catch {
+    // nothing to do
+  }
+};
+
+export const useFavoritesStore = create<FavoritesState>()((set, get) => ({
+  liked: readFavorites(),
+  likeCutie: ({ id, image }) => {
+    const liked = { ...get().liked, [id]: { id, image } };
+    saveFavorites(liked);
+    set({ liked });
+  },
+  dislikeCutie: id => {
+    const liked = { ...get().liked };
+    delete liked[id];
+    saveFavorites(liked);
+    set({ liked });
+  },
+  syncFromStorage: () => set({ liked: readFavorites() }),
+}));

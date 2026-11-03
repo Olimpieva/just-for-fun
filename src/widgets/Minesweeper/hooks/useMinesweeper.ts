@@ -1,32 +1,27 @@
-import { useCallback, useReducer } from "react";
-import {
-  createGame,
-  gameReducer,
-  getElapsedMs,
-  getFlagsLeft,
-} from "../Minesweeper.utils";
-import type { GameConfig } from "../Minesweeper.types";
-import { useNow } from "./useNow";
+import { useReducer } from "react";
 
-export const useMinesweeper = (config: GameConfig) => {
+import { useNow } from "shared/hooks";
+
+import type { GameAction, GameConfig } from "../Minesweeper.types";
+import { createGame, gameReducer, getElapsedMs, getFlagsLeft } from "../Minesweeper.utils";
+
+export const useMinesweeper = (config: GameConfig, onWin?: (durationMs: number) => void) => {
   const [game, dispatch] = useReducer(gameReducer, config, createGame);
   const now = useNow(game.status === "playing");
 
-  const reveal = useCallback(
-    (index: number) => dispatch({ type: "reveal", index, time: Date.now() }),
-    [],
-  );
+  const play = (action: GameAction) => {
+    const next = gameReducer(game, action);
+    if (game.status !== "won" && next.status === "won") {
+      onWin?.(getElapsedMs(next, Date.now()));
+    }
+    dispatch(action);
+  };
 
-  const toggleFlag = useCallback(
-    (index: number) =>
-      dispatch({ type: "toggleFlag", index, time: Date.now() }),
-    [],
-  );
+  const reveal = (index: number) => play({ type: "reveal", index, time: Date.now() });
 
-  const restart = useCallback(
-    () => dispatch({ type: "restart", game: createGame(config) }),
-    [config],
-  );
+  const toggleFlag = (index: number) => play({ type: "toggleFlag", index, time: Date.now() });
+
+  const restart = () => dispatch({ type: "restart", game: createGame(config) });
 
   return {
     cells: game.cells,

@@ -1,0 +1,31 @@
+/// <reference types="vitest/config" />
+import babel from "@rolldown/plugin-babel";
+import react, { reactCompilerPreset } from "@vitejs/plugin-react";
+import path from "node:path";
+import { defineConfig } from "vite";
+import svgr from "vite-plugin-svgr";
+
+export default defineConfig({
+  plugins: [react(), babel({ presets: [reactCompilerPreset()] }), svgr()],
+  resolve: {
+    tsconfigPaths: true,
+  },
+  css: {
+    preprocessorOptions: {
+      scss: {
+        loadPaths: [path.resolve(import.meta.dirname, "src")],
+      },
+    },
+  },
+  server: {
+    port: 3000,
+  },
+  build: {
+    outDir: "build",
+  },
+  test: {
+    environment: "jsdom",
+    globals: true,
+    setupFiles: "./src/setupTests.ts",
+  },
+});

@@ -1,0 +1,1 @@
+export { ColorBlockBadge } from "./ColorBlockBadge";

@@ -1,3 +1,1 @@
-import KeepInTouch from "./KeepInTouch";
-
-export default KeepInTouch;
+export { KeepInTouch } from "./KeepInTouch";

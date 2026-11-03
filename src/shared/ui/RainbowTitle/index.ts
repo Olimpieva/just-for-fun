@@ -1,0 +1,1 @@
+export { RainbowTitle } from "./RainbowTitle";

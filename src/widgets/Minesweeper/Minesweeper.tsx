@@ -1,56 +1,31 @@
-import React, { useEffect, useState } from "react";
 import cn from "classnames";
-import { Card, Confetti, RainbowTitle } from "components";
-import { ReactComponent as BombIcon } from "assets/bomb.svg";
-import { Leaderboard, demoRecords } from "widgets/Leaderboard";
-import { getWordEnding } from "utils/helpers";
-import { useMinesweeper } from "./hooks";
-import { formatDuration, isGameOver } from "./Minesweeper.utils";
-import type { GameStatus } from "./Minesweeper.types";
-import { GAME_CONFIG, AUTO_RESTART_DELAY_MS } from "./Minesweeper.config";
-import Board from "./Board";
+
+import BombIcon from "assets/game/bomb.svg?react";
+import { Card, Confetti, RainbowTitle } from "shared/ui";
+
+import { Board, Leaderboard } from "./components";
+import { useAutoRestart, useLeaderboard, useMinesweeper } from "./hooks";
+import { GAME_CONFIG } from "./Minesweeper.config";
+import { formatDuration, getStatusTitle, isGameOver } from "./Minesweeper.utils";
 
 import css from "./Minesweeper.module.scss";
 
-const getTitle = (status: GameStatus, flagsLeft: number) => {
-  if (status === "won") return "WINNER!";
-  if (status === "lost") return "LOSER!";
+export const Minesweeper = () => {
+  const leaderboard = useLeaderboard();
 
-  return `Осталось ${flagsLeft} ${getWordEnding(flagsLeft, [
-    "бомба",
-    "бомбы",
-    "бомб",
-  ])}`;
-};
+  const { cells, status, explodedIndex, flagsLeft, elapsedMs, reveal, toggleFlag, restart } =
+    useMinesweeper(GAME_CONFIG, leaderboard.submitResult);
 
-const Minesweeper = () => {
-  const {
-    cells,
-    status,
-    explodedIndex,
-    flagsLeft,
-    elapsedMs,
-    reveal,
-    toggleFlag,
-    restart,
-  } = useMinesweeper(GAME_CONFIG);
+  useAutoRestart(status, restart);
 
-  const [showLeaderboard, setShowLeaderboard] = useState(false);
   const isLost = status === "lost";
 
-  useEffect(() => {
-    if (status !== "won") return undefined;
-
-    const timer = setTimeout(restart, AUTO_RESTART_DELAY_MS);
-    return () => clearTimeout(timer);
-  }, [status, restart]);
-
-  if (showLeaderboard) {
+  if (leaderboard.isOpen) {
     return (
       <Leaderboard
-        records={demoRecords}
+        records={leaderboard.records}
         onRestart={() => {
-          setShowLeaderboard(false);
+          leaderboard.close();
           restart();
         }}
       />
@@ -76,14 +51,6 @@ const Minesweeper = () => {
         >
           {formatDuration(elapsedMs)}
         </time>
-
-        <button
-          type="button"
-          className={css.leaderboardButton}
-          onClick={() => setShowLeaderboard(true)}
-        >
-          Рейтинг
-        </button>
       </div>
 
       <div className={css.container}>
@@ -115,11 +82,9 @@ const Minesweeper = () => {
           })}
           aria-live="polite"
         >
-          <RainbowTitle title={getTitle(status, flagsLeft)} />
+          <RainbowTitle title={getStatusTitle(status, flagsLeft)} />
         </div>
       </div>
     </Card>
   );
 };
-
-export default Minesweeper;

@@ -1,0 +1,59 @@
+@mixin PixelFont {
+  font-family: "Press Start 2P", "Helvetica", system-ui;
+  font-weight: 400;
+  font-style: normal;
+  line-height: 1;
+}
+
+@mixin PTMonoFont {
+  font-family: "PT Mono", "Helvetica", monospace;
+  font-weight: 400;
+  font-style: normal;
+  line-height: 1;
+}
+
+@mixin JuraFont {
+  font-family: "Jura", "Helvetica", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  line-height: 1;
+}
+
+@mixin MontserratFont {
+  font-family: "Montserrat", "Helvetica", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  line-height: 1;
+}
+
+@mixin OswaldFont {
+  font-family: "Oswald", "Helvetica", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  line-height: 1;
+}
+
+@mixin CourierFont {
+  font-family: "Courier", "Helvetica", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  line-height: 1;
+}
+
+@mixin IBMPlexMonoFont {
+  font-family: "IBM Plex Mono", "PT Mono", monospace;
+  font-weight: 600;
+  font-style: normal;
+  line-height: 1;
+}
+
+$fontSizeH0: 64px;
+$fontSizeH1: 54px;
+$fontSizeH2: 48px;
+$fontSizeH3: 32px;
+$fontSizePrimary: 24px;
+$fontSizeSecondary: 20px;
+$fontSizeSmall: 16px;

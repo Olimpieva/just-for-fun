@@ -1,0 +1,74 @@
+@use "colors";
+
+@mixin frame {
+  border-radius: 0;
+  clip-path: polygon(
+    0 8px,
+    4px 8px,
+    4px 4px,
+    8px 4px,
+    8px 0,
+    calc(100% - 8px) 0,
+    calc(100% - 8px) 4px,
+    calc(100% - 4px) 4px,
+    calc(100% - 4px) 8px,
+    100% 8px,
+    100% calc(100% - 8px),
+    calc(100% - 4px) calc(100% - 8px),
+    calc(100% - 4px) calc(100% - 4px),
+    calc(100% - 8px) calc(100% - 4px),
+    calc(100% - 8px) 100%,
+    8px 100%,
+    8px calc(100% - 4px),
+    4px calc(100% - 4px),
+    4px calc(100% - 8px),
+    0 calc(100% - 8px)
+  );
+
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    pointer-events: none;
+    background:
+      linear-gradient(colors.$neutral, colors.$neutral) center 4px /
+        calc(100% - 24px) 2px no-repeat,
+      linear-gradient(colors.$neutral, colors.$neutral) center
+        calc(100% - 4px) / calc(100% - 24px) 2px no-repeat,
+      linear-gradient(colors.$neutral, colors.$neutral) 4px center / 2px
+        calc(100% - 24px) no-repeat,
+      linear-gradient(colors.$neutral, colors.$neutral) calc(100% - 4px)
+        center / 2px calc(100% - 24px) no-repeat,
+      colors.$primaryDarkBlue;
+    clip-path: polygon(
+      evenodd,
+      0 0,
+      100% 0,
+      100% 100%,
+      0 100%,
+      0 0,
+      6px 12px,
+      10px 12px,
+      10px 10px,
+      12px 10px,
+      12px 6px,
+      calc(100% - 12px) 6px,
+      calc(100% - 12px) 10px,
+      calc(100% - 10px) 10px,
+      calc(100% - 10px) 12px,
+      calc(100% - 6px) 12px,
+      calc(100% - 6px) calc(100% - 12px),
+      calc(100% - 10px) calc(100% - 12px),
+      calc(100% - 10px) calc(100% - 10px),
+      calc(100% - 12px) calc(100% - 10px),
+      calc(100% - 12px) calc(100% - 6px),
+      12px calc(100% - 6px),
+      12px calc(100% - 10px),
+      10px calc(100% - 10px),
+      10px calc(100% - 12px),
+      6px calc(100% - 12px),
+      6px 12px
+    );
+  }
+}

@@ -1,0 +1,28 @@
+@use "shared/styles/extensions.scss";
+
+.titleWrapper {
+  width: 100%;
+  position: relative;
+}
+
+.list {
+  --flipped-badge-front-title-size: 40px;
+
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: extensions.$middleGap;
+  width: min(760px, calc(100vw - 96px));
+
+  > li {
+    min-width: 0;
+  }
+}
+
+@media (max-width: 700px) {
+  .list {
+    grid-template-columns: 1fr;
+    width: min(420px, calc(100vw - 96px));
+    max-height: calc(100dvh - 220px);
+    overflow-y: auto;
+  }
+}

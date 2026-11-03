@@ -1,180 +1,92 @@
-import React, { useCallback, useEffect, useMemo, useState } from "react";
-import cn from "classnames";
-import { useAppSelector, useAppThunkDispatch } from "utils/hooks";
-import {
-  Card,
-  GlitchedTitle,
-  ImageLazyLoad,
-  NeumorphicButton,
-} from "components";
-import { ReactComponent as LikeIcon } from "assets/like.svg";
-import { ReactComponent as DogIcon } from "assets/dog.svg";
-import { ReactComponent as FoxIcon } from "assets/fox.svg";
-import { ReactComponent as NextIcon } from "assets/next.svg";
-import {
-  selectCurrentImage,
-  selectImageLoading,
-  selectLikedImages,
-} from "../../redux/gallery/selectors";
-import {
-  clearCurrentImage,
-  dislikeImage,
-  fetchDogImage,
-  fetchFoxImage,
-  likeImage,
-} from "../../redux/gallery/actions";
+import DachshundIcon from "assets/ui/dachshund.svg?react";
+import FoxIcon from "assets/ui/fox.svg?react";
+import LikeIcon from "assets/ui/like.svg?react";
+import NextIcon from "assets/ui/next.svg?react";
+import { AnimalEnum } from "entities/cutie";
+import { Card, ErrorMessage, GlitchedTitle, Loader, PixelButton } from "shared/ui";
+
+import { useActiveTab, useNextCutie, useToggleLike } from "./hooks";
 
 import css from "./Gallery.module.scss";
 
-enum Tab {
-  Fox = "Fox",
-  Dog = "Dog",
-}
+export const Gallery = () => {
+  const [activeTab, setActiveTab] = useActiveTab();
 
-const GalleryWidget = () => {
-  const dispatch = useAppThunkDispatch();
-  const current = useAppSelector(selectCurrentImage);
-  const likedImages = useAppSelector(selectLikedImages);
-  const { loading } = useAppSelector(selectImageLoading);
-  const [activeTab, setActiveTab] = useState<Tab>(Tab.Fox);
-  // I don't need lazy load here, I guess?
-  const [isImageLoaded, setIsImageLoaded] = useState(false);
+  const { cutie: displayed, isLoading, isError, isPaused, getNext } = useNextCutie(activeTab);
 
-  useEffect(() => {
-    setIsImageLoaded(false);
-  }, [current]);
-
-  const onLoadImage = useCallback(() => {
-    setIsImageLoaded(true);
-  }, []);
-
-  const isLiked = useMemo(
-    () => current && Boolean(likedImages[current.id]),
-    [current, likedImages],
-  );
-
-  const getDogImage = useCallback(() => {
-    dispatch(fetchDogImage());
-  }, [dispatch]);
-
-  const getFoxImage = useCallback(() => {
-    dispatch(fetchFoxImage());
-  }, [dispatch]);
-
-  const toggleActiveTab = () => {
-    setActiveTab(prev => (prev === Tab.Dog ? Tab.Fox : Tab.Dog));
-  };
-
-  const getNextImage = () => {
-    if (activeTab === Tab.Dog) {
-      getDogImage();
-      return;
-    }
-
-    getFoxImage();
-  };
-
-  const toggleLike = () => {
-    if (!current) return;
-
-    if (isLiked) {
-      dispatch(dislikeImage(current.id));
-      return;
-    }
-
-    dispatch(likeImage(current));
-  };
-
-  useEffect(() => {
-    if (activeTab === Tab.Dog) {
-      getDogImage();
-    } else {
-      getFoxImage();
-    }
-  }, [activeTab, getDogImage, getFoxImage]);
-
-  useEffect(() => {
-    return () => {
-      dispatch(clearCurrentImage());
-    };
-  }, [dispatch]);
+  const { isLiked, toggleLike } = useToggleLike(displayed);
 
   return (
     <Card
       title={
         <div className={css.wrapper}>
-          <GlitchedTitle.Pixel title="Инстаграм, который мы заслужили" />
+          <GlitchedTitle.Pixel title="Галерея" />
         </div>
       }
     >
       <div className={css.container}>
-        <div className={css.left}>
-          <ImageLazyLoad
-            onLoad={onLoadImage}
-            onError={onLoadImage}
-            src={current?.image}
-          />
+        {["topLeft", "topRight", "bottomLeft", "bottomRight"].map(corner => (
+          <span key={corner} className={`${css.cornerDot} ${css[corner]}`} aria-hidden="true" />
+        ))}
 
-          <div className={css.glitch1}>
-            <ImageLazyLoad src={current?.image} />
-          </div>
-          <div className={css.glitch2}>
-            <ImageLazyLoad src={current?.image} />
-          </div>
+        <div className={css.left} aria-busy={isLoading}>
+          {displayed && (
+            <img
+              src={displayed.image}
+              alt={displayed.animal === AnimalEnum.FOX ? "Случайная лисичка" : "Случайная собачка"}
+            />
+          )}
+
+          {isLoading && <Loader className={css.loader} label="Загрузка изображения" />}
         </div>
 
         <div className={css.right}>
-          <div className={css.tabs}>
-            <NeumorphicButton
-              className={cn(css.gliched, {
-                [css.disabled]:
-                  activeTab === Tab.Fox || loading || !isImageLoaded,
-              })}
-              onClick={toggleActiveTab}
-              disabled={activeTab === Tab.Fox || loading || !isImageLoaded}
+          <div className={css.tabs} role="group" aria-label="Категория фотографий">
+            <PixelButton
+              className={css.category}
+              aria-pressed={activeTab === AnimalEnum.FOX}
+              onClick={() => setActiveTab(AnimalEnum.FOX)}
+              disabled={isLoading}
             >
-              <FoxIcon />
-            </NeumorphicButton>
+              <FoxIcon className={css.fox} aria-hidden="true" />
+              <span>лисы</span>
+            </PixelButton>
 
-            <NeumorphicButton
-              className={cn(css.gliched, {
-                [css.disabled]:
-                  activeTab === Tab.Dog || loading || !isImageLoaded,
-              })}
-              onClick={toggleActiveTab}
-              disabled={activeTab === Tab.Dog || loading || !isImageLoaded}
+            <PixelButton
+              className={css.category}
+              aria-pressed={activeTab === AnimalEnum.DOG}
+              onClick={() => setActiveTab(AnimalEnum.DOG)}
+              disabled={isLoading}
             >
-              <DogIcon />
-            </NeumorphicButton>
+              <DachshundIcon className={css.dachshund} aria-hidden="true" />
+              <span>собаки</span>
+            </PixelButton>
           </div>
 
-          <div className={css.controls}>
-            <NeumorphicButton
-              onClick={getNextImage}
-              disabled={loading || !isImageLoaded}
-              className={cn(css.gliched, {
-                [css.disabled]: loading || !isImageLoaded,
-              })}
-            >
-              <NextIcon />
-            </NeumorphicButton>
+          {isError && (
+            <ErrorMessage>Не удалось загрузить изображение. Попробуйте ещё раз.</ErrorMessage>
+          )}
 
-            <NeumorphicButton
-              className={cn({
-                [css.active]: isLiked,
-                [css.disabled]: loading || !isImageLoaded,
-                [css.gliched]: !isLiked,
-              })}
+          {isPaused && <ErrorMessage>Нет подключения к интернету. Попробуйте позже.</ErrorMessage>}
+
+          <div className={css.controls}>
+            <PixelButton onClick={getNext} disabled={isLoading}>
+              <NextIcon aria-hidden="true" />
+              <span>дальше</span>
+            </PixelButton>
+
+            <PixelButton
+              aria-label={isLiked ? "В избранном" : "В избранное"}
+              aria-pressed={Boolean(isLiked)}
               onClick={toggleLike}
-              disabled={loading || !isImageLoaded}
+              disabled={!displayed || isLoading}
             >
-              <LikeIcon />
-            </NeumorphicButton>
+              <LikeIcon aria-hidden="true" />
+              <span>{isLiked ? "в избранном" : "в избранное"}</span>
+            </PixelButton>
           </div>
         </div>
       </div>
     </Card>
   );
 };
-
-export default GalleryWidget;
