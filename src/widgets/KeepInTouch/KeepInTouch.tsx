@@ -33,7 +33,12 @@ export const KeepInTouch = () => (
     </li>
 
     <li>
-      <a href="https://github.com/Olimpieva" target="_blank" rel="noreferrer" data-text="Github">
+      <a
+        href="https://github.com/Olimpieva/just-for-fun"
+        target="_blank"
+        rel="noreferrer"
+        data-text="Github"
+      >
         <div className={css.item}>
           <img src={GithubImg} className={css.image} alt="Github" />
         </div>
